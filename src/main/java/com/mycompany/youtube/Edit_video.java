@@ -116,7 +116,7 @@ public class Edit_video extends javax.swing.JFrame {
         btn_upload_image_video.setBackground(new java.awt.Color(63, 225, 176));
         btn_upload_image_video.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 16)); // NOI18N
         btn_upload_image_video.setForeground(new java.awt.Color(255, 255, 255));
-        btn_upload_image_video.setText("Cargar Imgagen");
+        btn_upload_image_video.setText("Cargar Imagen");
         btn_upload_image_video.setMaximumSize(new java.awt.Dimension(151, 35));
         btn_upload_image_video.setMinimumSize(new java.awt.Dimension(151, 35));
         btn_upload_image_video.setPreferredSize(new java.awt.Dimension(151, 35));
