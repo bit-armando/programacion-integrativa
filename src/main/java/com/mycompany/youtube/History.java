@@ -75,10 +75,6 @@ public class History extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
-        yt_history.setIcon(new javax.swing.ImageIcon("D:\\png-clipart-youtube-computer-icons-logo-youtube-angle-rectangle-removebg-preview.png")); // NOI18N
-
-        acc_history.setIcon(new javax.swing.ImageIcon("D:\\a.png")); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("YUTU2");
@@ -124,11 +120,6 @@ public class History extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
 
-        options_history.setIcon(new javax.swing.ImageIcon("D:\\pngtree-menu-vector-icon-png-image_964006-removebg-preview (1).png")); // NOI18N
-        options_history.setDisabledIcon(new javax.swing.ImageIcon("D:\\descarga-removebg-preview-removebg-preview.png")); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\6583566-removebg-preview__1_-removebg-preview.png")); // NOI18N
-
         home_history.setBackground(new java.awt.Color(0, 102, 102));
         home_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
         home_history.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,10 +131,6 @@ public class History extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\pngtree-vector-like-icon-png-image_695769-removebg-preview.png")); // NOI18N
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\109613-removebg-preview.png")); // NOI18N
-
         history_history.setBackground(new java.awt.Color(0, 102, 102));
         history_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 30)); // NOI18N
         history_history.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,8 +141,6 @@ public class History extends javax.swing.JFrame {
                 history_historyActionPerformed(evt);
             }
         });
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\team-icon-outline-131313__1_-removebg-preview.png")); // NOI18N
 
         subs_history.setBackground(new java.awt.Color(0, 102, 102));
         subs_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
@@ -312,7 +297,6 @@ public class History extends javax.swing.JFrame {
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 470, 210));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\bylet\\OneDrive\\Pictures\\Screenshots\\Captura de pantalla (32).png")); // NOI18N
         jLabel9.setText("Nombre del canal/username");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 820, -1, -1));
 
@@ -355,12 +339,10 @@ public class History extends javax.swing.JFrame {
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, -1, 30));
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\bylet\\OneDrive\\Pictures\\Screenshots\\Captura de pantalla (32).png")); // NOI18N
         jLabel19.setText("Nombre del canal/username");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, -1, -1));
 
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\bylet\\OneDrive\\Pictures\\Screenshots\\Captura de pantalla (32).png")); // NOI18N
         jLabel20.setText("Nombre del canal/username");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, -1, -1));
 

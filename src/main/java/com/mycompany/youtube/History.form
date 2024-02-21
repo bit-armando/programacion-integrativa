@@ -101,18 +101,8 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="yt_history">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\png-clipart-youtube-computer-icons-logo-youtube-angle-rectangle-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="acc_history">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\a.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -245,21 +235,8 @@
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
             <Component class="javax.swing.JLabel" name="options_history">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\pngtree-menu-vector-icon-png-image_964006-removebg-preview (1).png"/>
-                </Property>
-                <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\descarga-removebg-preview-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\6583566-removebg-preview__1_-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="home_history">
               <Properties>
@@ -282,18 +259,8 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\pngtree-vector-like-icon-png-image_695769-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\109613-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="history_history">
               <Properties>
@@ -316,11 +283,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\team-icon-outline-131313__1_-removebg-preview.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="subs_history">
               <Properties>
@@ -489,9 +451,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\bylet\OneDrive\Pictures\Screenshots\Captura de pantalla (32).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nombre del canal/username"/>
           </Properties>
           <Constraints>
@@ -627,9 +586,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\bylet\OneDrive\Pictures\Screenshots\Captura de pantalla (32).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nombre del canal/username"/>
           </Properties>
           <Constraints>
@@ -642,9 +598,6 @@
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\bylet\OneDrive\Pictures\Screenshots\Captura de pantalla (32).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre del canal/username"/>
           </Properties>
