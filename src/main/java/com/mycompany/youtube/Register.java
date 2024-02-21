@@ -26,21 +26,202 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
+        icon_home = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        field_username = new javax.swing.JTextField();
+        label_username = new javax.swing.JLabel();
+        field_password = new javax.swing.JTextField();
+        label_password = new javax.swing.JLabel();
+        label_login = new javax.swing.JLabel();
+        btn_inicio_sesion = new javax.swing.JButton();
+        field_email = new javax.swing.JTextField();
+        label_email = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1080, 720));
+        setSize(new java.awt.Dimension(1080, 720));
+
+        background.setBackground(new java.awt.Color(2, 30, 26));
+        background.setMaximumSize(new java.awt.Dimension(1080, 720));
+        background.setMinimumSize(new java.awt.Dimension(1080, 720));
+
+        icon_home.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\casa.png")); // NOI18N
+        icon_home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                redirect_icon_home(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(8, 63, 55));
+        jPanel1.setPreferredSize(new java.awt.Dimension(640, 480));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 94, 93));
+
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Registrarse");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jLabel1)
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 110));
+
+        field_username.setBackground(new java.awt.Color(6, 137, 137));
+        field_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        field_username.setForeground(new java.awt.Color(203, 203, 203));
+        field_username.setText("Username");
+        field_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        field_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_usernameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(field_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 380, 60));
+
+        label_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        label_username.setForeground(new java.awt.Color(203, 203, 203));
+        label_username.setText("Username");
+        jPanel1.add(label_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 70, 10));
+
+        field_password.setBackground(new java.awt.Color(6, 137, 137));
+        field_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        field_password.setForeground(new java.awt.Color(203, 203, 203));
+        field_password.setText("Contrasena");
+        field_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        field_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_passwordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(field_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 380, 60));
+
+        label_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        label_password.setForeground(new java.awt.Color(203, 203, 203));
+        label_password.setText("Contrasena");
+        jPanel1.add(label_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 80, 10));
+
+        label_login.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        label_login.setForeground(new java.awt.Color(63, 225, 176));
+        label_login.setText("Iniciar Sesion");
+        label_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                redirect_login(evt);
+            }
+        });
+        jPanel1.add(label_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, -1, -1));
+
+        btn_inicio_sesion.setBackground(new java.awt.Color(63, 225, 176));
+        btn_inicio_sesion.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        btn_inicio_sesion.setForeground(new java.awt.Color(255, 255, 255));
+        btn_inicio_sesion.setText("Registrarse");
+        btn_inicio_sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_create_acc(evt);
+            }
+        });
+        jPanel1.add(btn_inicio_sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 230, 60));
+
+        field_email.setBackground(new java.awt.Color(6, 137, 137));
+        field_email.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        field_email.setForeground(new java.awt.Color(203, 203, 203));
+        field_email.setText("Email");
+        field_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        field_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_emailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(field_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 380, 60));
+
+        label_email.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        label_email.setForeground(new java.awt.Color(203, 203, 203));
+        label_email.setText("Email");
+        jPanel1.add(label_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 80, 10));
+
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(icon_home, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(252, Short.MAX_VALUE))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(icon_home))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void field_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_usernameActionPerformed
+
+    private void field_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_passwordActionPerformed
+
+    private void redirect_login(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirect_login
+        // TODO add your handling code here:
+        new Log_In().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_redirect_login
+
+    private void btn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_acc
+        // TODO add your handling code here:
+        new Home().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_create_acc
+
+    private void redirect_icon_home(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirect_icon_home
+        // TODO add your handling code here:
+        new Home().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_redirect_icon_home
+
+    private void field_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +259,18 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    private javax.swing.JButton btn_inicio_sesion;
+    private javax.swing.JTextField field_email;
+    private javax.swing.JTextField field_password;
+    private javax.swing.JTextField field_username;
+    private javax.swing.JLabel icon_home;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel label_email;
+    private javax.swing.JLabel label_login;
+    private javax.swing.JLabel label_password;
+    private javax.swing.JLabel label_username;
     // End of variables declaration//GEN-END:variables
 }
