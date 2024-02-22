@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 public class Reproductor extends javax.swing.JFrame{
     private final JFXPanel jfxPanel = new JFXPanel();
     
-    public Reproductor(JLabel video) {
-        createScene();
+    public Reproductor(JLabel video, String videoUrl) {
+        createScene(videoUrl);
         
         setTitle("Video JAVA");
         
@@ -27,23 +27,13 @@ public class Reproductor extends javax.swing.JFrame{
         this.setLocationRelativeTo(null);
     }
     
-    private void createScene(){
-        Platform.runLater(new Runnable(){
-            
-            @Override
-            
-            public void run(){
-//                File file = new File("https://yutu-programacion-integrativa.s3.amazonaws.com/Video+Test+2K+Samsung.mp4");
-                File file = new File("C:\\Users\\refil\\Downloads\\2.mp4");       
-                MediaPlayer oracleVid = new MediaPlayer(
-                    new Media(file.toURI().toString())
-                );
-                
-                jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));
-                oracleVid.setVolume(0.3);
-                oracleVid.setCycleCount(MediaPlayer.INDEFINITE);
-                oracleVid.play();
-            }
+    private void createScene(String videoUrl){
+        Platform.runLater(() -> {
+            MediaPlayer mediaPlayer = new MediaPlayer(new Media(videoUrl));
+            jfxPanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
+            mediaPlayer.setVolume(0.3);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.play();
         });
     }
 }
