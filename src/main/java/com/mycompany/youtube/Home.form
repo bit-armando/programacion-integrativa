@@ -72,33 +72,24 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="icon_logo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Component id="label_title" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                       <Component id="busqueda_history" min="-2" pref="398" max="-2" attributes="0"/>
-                      <EmptySpace pref="342" max="32767" attributes="0"/>
+                      <EmptySpace pref="275" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="icon_logo" min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="label_title" min="-2" max="-2" attributes="0"/>
-                                  <Component id="busqueda_history" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="busqueda_history" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="label_title" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -109,13 +100,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="busqueda_historyActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="icon_logo">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/youtube.png"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="label_title">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -124,8 +108,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\youtube.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="YUTU2"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_titleMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -145,24 +135,17 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="icon_home_bl" alignment="0" max="32767" attributes="0"/>
-                          <Component id="icon_suscrip_bl" alignment="0" max="32767" attributes="0"/>
-                          <Component id="icon_history_bl" alignment="0" max="32767" attributes="0"/>
-                          <Component id="icon_like_bl" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="label_inicio1" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_history" min="-2" max="-2" attributes="0"/>
                           <Component id="label_inicio3" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="label_inicio2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_like" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="label_inicio" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label_suscriptions" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -187,54 +170,54 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="label_inicio3" min="-2" max="-2" attributes="0"/>
-                          <Component id="icon_home_bl" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="label_inicio3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="label_inicio" min="-2" max="-2" attributes="0"/>
-                          <Component id="icon_suscrip_bl" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="label_suscriptions" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="label_inicio1" min="-2" max="-2" attributes="0"/>
-                          <Component id="icon_history_bl" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="label_history" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="label_inicio2" min="-2" max="-2" attributes="0"/>
-                          <Component id="icon_like_bl" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="label_like" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="354" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="label_inicio">
+            <Component class="javax.swing.JLabel" name="label_suscriptions">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Franklin Gothic Demi" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\suscripcion.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Suscripciones"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_suscriptionsMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="label_inicio1">
+            <Component class="javax.swing.JLabel" name="label_history">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Franklin Gothic Demi" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\historia.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Historial"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_historyMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="label_inicio2">
+            <Component class="javax.swing.JLabel" name="label_like">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Franklin Gothic Demi" size="24" style="0"/>
@@ -242,8 +225,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\like.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Me gusta"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_likeMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="label_inicio3">
               <Properties>
@@ -253,36 +242,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Inicio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="icon_home_bl">
-              <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\casa (1).png"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Inicio"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="icon_suscrip_bl">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\suscripcion.png"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="icon_history_bl">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\historia.png"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="icon_like_bl">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\like.png"/>
-                </Property>
-              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_inicio3MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
