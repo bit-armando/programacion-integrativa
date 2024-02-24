@@ -445,7 +445,7 @@ public class VideoView extends javax.swing.JFrame {
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
         // TODO add your handling code here:
-        new SUSCRIPCIONES().setVisible(true);
+        new Suscripcioness().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_label_suscriptionsMouseClicked
 

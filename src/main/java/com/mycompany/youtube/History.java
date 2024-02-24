@@ -162,6 +162,7 @@ public class History extends javax.swing.JFrame {
 
         label_like1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_like1.setForeground(new java.awt.Color(255, 255, 255));
+        label_like1.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\cerrar-sesion.png")); // NOI18N
         label_like1.setText("Cerrar sesion");
         label_like1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -193,7 +194,7 @@ public class History extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                        .addGap(0, 11, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,17 +202,22 @@ public class History extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_like1)
-                            .addComponent(label_history)
-                            .addComponent(label_inicio3)
                             .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(bg_lateral_viewLayout.createSequentialGroup()
                                     .addComponent(label_like)
-                                    .addGap(61, 61, 61))
+                                    .addGap(76, 76, 76))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
                                     .addComponent(label_suscriptions)
-                                    .addGap(14, 14, 14)))))
-                    .addComponent(jSeparator1)))
+                                    .addGap(29, 29, 29)))
+                            .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label_history)
+                                    .addComponent(label_inicio3))
+                                .addGap(15, 15, 15))))
+                    .addComponent(jSeparator1)
+                    .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                        .addComponent(label_like1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         bg_lateral_viewLayout.setVerticalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +226,7 @@ public class History extends javax.swing.JFrame {
                     .addGroup(bg_lateral_viewLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(icon_arrow_bl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)
@@ -244,7 +250,7 @@ public class History extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(label_like))
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(44, 44, 44))
         );
@@ -412,7 +418,7 @@ public class History extends javax.swing.JFrame {
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
         // TODO add your handling code here:
-        new SUSCRIPCIONES().setVisible(true);
+        new Suscripcioness().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_label_suscriptionsMouseClicked
 
