@@ -37,11 +37,13 @@ public class Home extends javax.swing.JFrame {
         label_inicio3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
+        label_like1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setPreferredSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
 
         background.setBackground(new java.awt.Color(2, 30, 26));
@@ -49,6 +51,7 @@ public class Home extends javax.swing.JFrame {
 
         bg_cabecera.setBackground(new java.awt.Color(6, 137, 137));
 
+        busqueda_history.setText("Buscar");
         busqueda_history.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busqueda_historyActionPerformed(evt);
@@ -131,15 +134,33 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        icon_arrow_bl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+        icon_arrow_bl.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\flecha.png")); // NOI18N
+
+        label_like1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_like1.setForeground(new java.awt.Color(255, 255, 255));
+        label_like1.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\cerrar-sesion.png")); // NOI18N
+        label_like1.setText("Cerrar sesion");
+        label_like1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_like1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout bg_lateral_viewLayout = new javax.swing.GroupLayout(bg_lateral_view);
         bg_lateral_view.setLayout(bg_lateral_viewLayout);
         bg_lateral_viewLayout.setHorizontalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                .addComponent(jSeparator1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(icon_arrow_bl)
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_like1)
                     .addComponent(label_history)
                     .addComponent(label_inicio3)
                     .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +170,6 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
                             .addComponent(label_suscriptions)
                             .addGap(14, 14, 14)))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addComponent(jSeparator1)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(icon_arrow_bl)
-                .addGap(22, 22, 22))
         );
         bg_lateral_viewLayout.setVerticalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +186,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(label_history)
                 .addGap(29, 29, 29)
                 .addComponent(label_like)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addComponent(label_like1)
+                .addGap(85, 85, 85))
         );
 
         background.add(bg_lateral_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 220, 730));
@@ -185,7 +201,7 @@ public class Home extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 722, Short.MAX_VALUE)
         );
 
         pack();
@@ -222,6 +238,10 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(true);
     }//GEN-LAST:event_label_titleMouseClicked
+
+    private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_like1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -268,6 +288,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
     private javax.swing.JLabel label_like;
+    private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     // End of variables declaration//GEN-END:variables
