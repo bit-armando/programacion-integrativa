@@ -6,12 +6,12 @@ package com.mycompany.youtube;
 
 /**
  *
- * @author bylet
+ * @author refil
  */
 public class History extends javax.swing.JFrame {
 
     /**
-     * Creates new form Subscriptions
+     * Creates new form Home
      */
     public History() {
         initComponents();
@@ -26,378 +26,409 @@ public class History extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        yt_history = new javax.swing.JLabel();
-        acc_history = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        background = new javax.swing.JPanel();
+        bg_cabecera = new javax.swing.JPanel();
         busqueda_history = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        label_title = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        bg_lateral_view = new javax.swing.JPanel();
+        label_suscriptions = new javax.swing.JLabel();
+        label_history = new javax.swing.JLabel();
+        label_like = new javax.swing.JLabel();
+        label_inicio3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        options_history = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        home_history = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        history_history = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        subs_history = new javax.swing.JButton();
-        like_history = new javax.swing.JButton();
+        icon_arrow_bl = new javax.swing.JLabel();
+        label_like1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollBar_history = new javax.swing.JScrollBar();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1080, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        background.setBackground(new java.awt.Color(2, 30, 26));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        bg_cabecera.setBackground(new java.awt.Color(6, 137, 137));
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("YUTU2");
-
+        busqueda_history.setText("Buscar");
         busqueda_history.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busqueda_historyActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(yt_history)
+        label_title.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
+        label_title.setForeground(new java.awt.Color(255, 255, 255));
+        label_title.setText("YUTU2");
+        label_title.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_titleMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/youtube.png"))); // NOI18N
+
+        javax.swing.GroupLayout bg_cabeceraLayout = new javax.swing.GroupLayout(bg_cabecera);
+        bg_cabecera.setLayout(bg_cabeceraLayout);
+        bg_cabeceraLayout.setHorizontalGroup(
+            bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bg_cabeceraLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(acc_history)
-                        .addGap(16, 16, 16))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(542, Short.MAX_VALUE))))
+                .addComponent(label_title)
+                .addGap(94, 94, 94)
+                .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(343, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(yt_history, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(acc_history)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(72, 72, 72))
+        bg_cabeceraLayout.setVerticalGroup(
+            bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bg_cabeceraLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_title)
+                    .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(bg_cabeceraLayout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 80));
+        background.add(bg_cabecera, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 102));
+        bg_lateral_view.setBackground(new java.awt.Color(8, 63, 55));
 
-        home_history.setBackground(new java.awt.Color(0, 102, 102));
-        home_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        home_history.setForeground(new java.awt.Color(255, 255, 255));
-        home_history.setText("Inicio");
-        home_history.setBorder(null);
-        home_history.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                home_historyActionPerformed(evt);
+        label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
+        label_suscriptions.setText("Suscripciones");
+        label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_suscriptionsMouseClicked(evt);
             }
         });
 
-        history_history.setBackground(new java.awt.Color(0, 102, 102));
-        history_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 30)); // NOI18N
-        history_history.setForeground(new java.awt.Color(255, 255, 255));
-        history_history.setText("Historial");
-        history_history.setBorder(null);
-        history_history.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                history_historyActionPerformed(evt);
+        label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_history.setForeground(new java.awt.Color(255, 255, 255));
+        label_history.setText("Historial");
+        label_history.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_historyMouseClicked(evt);
             }
         });
 
-        subs_history.setBackground(new java.awt.Color(0, 102, 102));
-        subs_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
-        subs_history.setForeground(new java.awt.Color(255, 255, 255));
-        subs_history.setText("Subscripciones");
-        subs_history.setBorder(null);
-        subs_history.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subs_historyActionPerformed(evt);
+        label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_like.setForeground(new java.awt.Color(255, 255, 255));
+        label_like.setText("Me gusta");
+        label_like.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_likeMouseClicked(evt);
             }
         });
 
-        like_history.setBackground(new java.awt.Color(0, 102, 102));
-        like_history.setFont(new java.awt.Font("Berlin Sans FB", 0, 30)); // NOI18N
-        like_history.setForeground(new java.awt.Color(255, 255, 255));
-        like_history.setText("Me gusta");
-        like_history.setBorder(null);
-        like_history.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                like_historyActionPerformed(evt);
+        label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
+        label_inicio3.setText("Inicio");
+        label_inicio3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_inicio3MouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(options_history)
-                .addGap(19, 19, 19))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel4)
+        label_like1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_like1.setForeground(new java.awt.Color(255, 255, 255));
+        label_like1.setText("Cerrar sesion");
+        label_like1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_like1MouseClicked(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/casa (1).png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/suscripcion.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/historia.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/like.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/flecha.png"))); // NOI18N
+
+        javax.swing.GroupLayout bg_lateral_viewLayout = new javax.swing.GroupLayout(bg_lateral_view);
+        bg_lateral_view.setLayout(bg_lateral_viewLayout);
+        bg_lateral_viewLayout.setHorizontalGroup(
+            bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(icon_arrow_bl))
+                .addGap(22, 22, 22))
+            .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                        .addGap(0, 11, Short.MAX_VALUE)
+                        .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(home_history))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(subs_history, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(history_history))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(like_history)))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                        .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_like1)
+                            .addComponent(label_history)
+                            .addComponent(label_inicio3)
+                            .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                                    .addComponent(label_like)
+                                    .addGap(61, 61, 61))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                                    .addComponent(label_suscriptions)
+                                    .addGap(14, 14, 14)))))
+                    .addComponent(jSeparator1)))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(options_history)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(home_history)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(subs_history)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel8))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(history_history)))
-                        .addGap(52, 52, 52)
-                        .addComponent(like_history)
-                        .addGap(15, 15, 15)))
-                .addContainerGap(349, Short.MAX_VALUE))
+        bg_lateral_viewLayout.setVerticalGroup(
+            bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(icon_arrow_bl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addGap(20, 20, 20)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                        .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                                .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label_inicio3)
+                                    .addComponent(jLabel1))
+                                .addGap(33, 33, 33)
+                                .addComponent(label_suscriptions))
+                            .addComponent(jLabel2))
+                        .addGap(27, 27, 27)
+                        .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_history)
+                            .addComponent(jLabel3))
+                        .addGap(25, 25, 25)
+                        .addComponent(label_like))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addComponent(label_like1)
+                .addGap(44, 44, 44))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 243, 870));
+        background.add(bg_lateral_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 220, 730));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Historial de reproducciones");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Ayer");
+        background.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ayer");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
-
-        jScrollBar_history.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.add(jScrollBar_history, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 80, -1, 870));
-
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Hoy");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 470, 210));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 470, 210));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 470, 210));
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Nombre del canal/username");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 820, -1, -1));
-
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Descripcion del video");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 860, -1, 30));
-
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Titulo del video");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 710, -1, 30));
+        jLabel11.setText("Resto del titulo");
+        background.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Resto del titulo");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 760, -1, 30));
+        jLabel12.setText("Titulo del video");
+        background.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
 
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("000k views");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 820, -1, 30));
-
-        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Titulo del video");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, 30));
-
-        jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Titulo del video");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, -1, 30));
+        background.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Resto del titulo");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, -1, 30));
-
-        jLabel18.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Resto del titulo");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, -1, 30));
+        jLabel18.setText("Nombre del canal/username");
+        background.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, -1, -1));
 
+        jLabel19.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Nombre del canal/username");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, -1, -1));
+        jLabel19.setText("Descripcion del video");
+        background.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 670, -1, -1));
 
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Nombre del canal/username");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, -1, -1));
-
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("000k views");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 310, -1, 30));
-
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("000k views");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 580, -1, 30));
-
+        jLabel23.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Descripcion del video");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, -1, 30));
+        jLabel23.setText("Nombre del canal/username");
+        background.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 630, -1, -1));
 
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Descripcion del video");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, -1, 30));
+        jLabel25.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("000k views");
+        background.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("000k views");
+        background.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 630, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("000k views");
+        background.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 470, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Historial de reproducciones");
+        background.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Hoy");
+        background.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        background.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 250, 140));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        background.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 250, 140));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        background.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 250, 140));
+
+        jLabel34.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Titulo del video");
+        background.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Nombre del canal/username");
+        background.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Resto del titulo");
+        background.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Resto del titulo");
+        background.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Descripcion del video");
+        background.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("Descripcion del video");
+        background.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 722, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void home_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_historyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_home_historyActionPerformed
-
-    private void history_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_history_historyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_history_historyActionPerformed
-
-    private void subs_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subs_historyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_subs_historyActionPerformed
-
-    private void like_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_like_historyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_like_historyActionPerformed
-
     private void busqueda_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqueda_historyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_busqueda_historyActionPerformed
+
+    private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
+        // TODO add your handling code here:
+        new Liked_videos().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_label_likeMouseClicked
+
+    private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
+        // TODO add your handling code here:
+        new History().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_label_historyMouseClicked
+
+    private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
+        // TODO add your handling code here:
+        new SUSCRIPCIONES().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_label_suscriptionsMouseClicked
+
+    private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(true);
+    }//GEN-LAST:event_label_inicio3MouseClicked
+
+    private void label_titleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_titleMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(true);
+    }//GEN-LAST:event_label_titleMouseClicked
+
+    private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_like1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -426,6 +457,8 @@ public class History extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -436,44 +469,44 @@ public class History extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel acc_history;
+    private javax.swing.JPanel background;
+    private javax.swing.JPanel bg_cabecera;
+    private javax.swing.JPanel bg_lateral_view;
     private javax.swing.JTextField busqueda_history;
-    private javax.swing.JButton history_history;
-    private javax.swing.JButton home_history;
+    private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollBar jScrollBar_history;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton like_history;
-    private javax.swing.JLabel options_history;
-    private javax.swing.JButton subs_history;
-    private javax.swing.JLabel yt_history;
+    private javax.swing.JLabel label_history;
+    private javax.swing.JLabel label_inicio3;
+    private javax.swing.JLabel label_like;
+    private javax.swing.JLabel label_like1;
+    private javax.swing.JLabel label_suscriptions;
+    private javax.swing.JLabel label_title;
     // End of variables declaration//GEN-END:variables
 }
