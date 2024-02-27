@@ -12,5 +12,6 @@ public class Youtube {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        S3.Upload("perrito.jpg", "C:\\Users\\refil\\Downloads\\perrito.jpg");
     }
 }

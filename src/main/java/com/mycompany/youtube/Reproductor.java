@@ -13,13 +13,14 @@ import javax.swing.JLabel;
 
 public class Reproductor extends javax.swing.JFrame{
     private final JFXPanel jfxPanel = new JFXPanel();
+    private MediaPlayer mediaPlayer;
     
     public Reproductor(JLabel video, String videoUrl) {
         createScene(videoUrl);
         
         setTitle("Video JAVA");
         
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         
         video.setLayout(new BorderLayout());
@@ -30,10 +31,23 @@ public class Reproductor extends javax.swing.JFrame{
     private void createScene(String videoUrl){
         Platform.runLater(() -> {
             MediaPlayer mediaPlayer = new MediaPlayer(new Media(videoUrl));
+            
+//            Image scaledImage = img.getScaledInstance(video.getWidth(), video.getHeight(), Image.SCALE_SMOOTH);
+//            ImageIcon resizedIcon = new ImageIcon(scaledImage);
+            
             jfxPanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
             mediaPlayer.setVolume(0.3);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.play();
         });
+    }
+    
+    // Metodo para pausar o reproducir el video
+    public void togglePlayPause() {
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            mediaPlayer.pause();
+        } else {
+            mediaPlayer.play();
+        }
     }
 }
