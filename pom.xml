@@ -40,6 +40,19 @@
             <artifactId>aws-java-sdk-s3</artifactId>
             <version>1.12.666</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.gstreamer-java</groupId>
+            <artifactId>gstreamer-java</artifactId>
+            <version>1.6</version>
+            <type>jar</type>
+        </dependency>
+       
+        <dependency>
+            <groupId>net.sf.ucanaccess</groupId>
+            <artifactId>ucanaccess</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
