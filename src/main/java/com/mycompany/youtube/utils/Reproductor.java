@@ -1,6 +1,7 @@
 package com.mycompany.youtube;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.io.File;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -10,6 +11,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javax.swing.JLabel;
+import org.gstreamer.swing.VideoComponent;
 
 public class Reproductor extends javax.swing.JFrame{
     private final JFXPanel jfxPanel = new JFXPanel();
@@ -31,9 +33,6 @@ public class Reproductor extends javax.swing.JFrame{
     private void createScene(String videoUrl){
         Platform.runLater(() -> {
             MediaPlayer mediaPlayer = new MediaPlayer(new Media(videoUrl));
-            
-//            Image scaledImage = img.getScaledInstance(video.getWidth(), video.getHeight(), Image.SCALE_SMOOTH);
-//            ImageIcon resizedIcon = new ImageIcon(scaledImage);
             
             jfxPanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
             mediaPlayer.setVolume(0.3);

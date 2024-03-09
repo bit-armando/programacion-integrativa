@@ -16,9 +16,10 @@ public class TestVideo extends javax.swing.JFrame {
      */
     public TestVideo() {
         initComponents();
-        Reproductor video = new Reproductor(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
-//        Imagen imagen = new Imagen(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/perrito.jpg");
-//          imagen.MostrarImagen;
+//        Reproductor video = new Reproductor(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/machetazo.mp4");
+        Imagen imagen = new Imagen(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/perrito.jpg");
+//        Imagen imagen = new Imagen(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/machetazo.mp4");
+//        video.togglePlayPause(BtnPause);
     }
 
     /**
@@ -40,15 +41,15 @@ public class TestVideo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
