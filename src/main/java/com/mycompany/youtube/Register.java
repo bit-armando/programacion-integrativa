@@ -4,6 +4,8 @@
  */
 package com.mycompany.youtube;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author brand
@@ -87,7 +89,6 @@ public class Register extends javax.swing.JFrame {
         field_username.setBackground(new java.awt.Color(6, 137, 137));
         field_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_username.setForeground(new java.awt.Color(203, 203, 203));
-        field_username.setText("Username");
         field_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +105,6 @@ public class Register extends javax.swing.JFrame {
         field_password.setBackground(new java.awt.Color(6, 137, 137));
         field_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_password.setForeground(new java.awt.Color(203, 203, 203));
-        field_password.setText("Contrasena");
         field_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,6 @@ public class Register extends javax.swing.JFrame {
         field_email.setBackground(new java.awt.Color(6, 137, 137));
         field_email.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_email.setForeground(new java.awt.Color(203, 203, 203));
-        field_email.setText("Email");
         field_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,8 +208,23 @@ public class Register extends javax.swing.JFrame {
 
     private void btn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_acc
         // TODO add your handling code here:
-        new Home().setVisible(true);
-        this.setVisible(false);
+        String username=field_username.getText();
+        String email=field_email.getText();
+        String password=field_password.getText();
+        
+        if (username.isEmpty()||email.isEmpty()||password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Casillas vacias, debe ingresar los datos faltantes!");
+        } else{
+            try{
+                conectorDB conector = new conectorDB();
+                conector.insertData(username, email, password);
+                JOptionPane.showMessageDialog(null, "Usuario creado correctamente!");
+                new Home().setVisible(true);
+                this.setVisible(false);
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error en la creacion!");
+            }
+        }
     }//GEN-LAST:event_btn_create_acc
 
     private void redirect_icon_home(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirect_icon_home
