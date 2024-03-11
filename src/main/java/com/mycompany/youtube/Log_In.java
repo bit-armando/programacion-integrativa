@@ -4,6 +4,8 @@
  */
 package com.mycompany.youtube;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author refil
@@ -215,6 +217,19 @@ public class Log_In extends javax.swing.JFrame {
 
     private void btn_inicio_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_sesionActionPerformed
         // TODO add your handling code here:
+        String username = label_username.getText();
+        String password = label_password.getText();
+        if (!username.equals("")||!password.equals("")){
+            try{
+                conectorDB conector = new conectorDB();
+                conector.selectData(username, password);
+                JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
+                new Home().setVisible(true);
+                this.setVisible(false);
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error al iniciar sesion!");
+            }
+        }
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_inicio_sesionActionPerformed
