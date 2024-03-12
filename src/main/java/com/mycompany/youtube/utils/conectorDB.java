@@ -145,4 +145,30 @@ public class conectorDB {
                 System.err.println("Error al consultar suscripciones: " + ex.getMessage());
             }
         }
+        
+        //Metodo para consultar comentarios por ID de video
+        public void selectComments(int videoId) {
+            String query = "SELECT * FROM comments WHERE fk_video_id = ?";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, videoId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    String comentarioId = resultSet.getString("comentario_id");
+                    String nombreUsuario = resultSet.getString("nombre_usuario");
+                    String fechaHoraComentario = resultSet.getString("fecha_hora_comentario");
+                    String comentario = resultSet.getString("comentario");
+
+                    System.out.println("Comentario ID: " + comentarioId);
+                    System.out.println("Nombre Usuario: " + nombreUsuario);
+                    System.out.println("Fecha y Hora del Comentario: " + fechaHoraComentario);
+                    System.out.println("Comentario: " + comentario);
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar comentarios: " + ex.getMessage());
+            }
+        }
     }
