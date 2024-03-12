@@ -49,7 +49,6 @@ public class Upload_video extends javax.swing.JFrame {
         background.setMaximumSize(new java.awt.Dimension(1080, 720));
         background.setMinimumSize(new java.awt.Dimension(1080, 720));
 
-        icon_home.setIcon(new javax.swing.ImageIcon("D:\\Programacion\\programacion-integrativa\\src\\main\\java\\icons\\casa.png")); // NOI18N
         icon_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 redirect_icon_home(evt);
@@ -90,7 +89,6 @@ public class Upload_video extends javax.swing.JFrame {
         field_name_video.setBackground(new java.awt.Color(6, 137, 137));
         field_name_video.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_name_video.setForeground(new java.awt.Color(203, 203, 203));
-        field_name_video.setText("Nombre");
         field_name_video.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_name_video.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +99,7 @@ public class Upload_video extends javax.swing.JFrame {
 
         label_name_video.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         label_name_video.setForeground(new java.awt.Color(203, 203, 203));
-        label_name_video.setText("Nombre");
+        label_name_video.setText("Titulo");
         jPanel1.add(label_name_video, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 70, 10));
 
         btn_upload_video.setBackground(new java.awt.Color(63, 225, 176));
@@ -170,7 +168,6 @@ public class Upload_video extends javax.swing.JFrame {
         field_description_video.setForeground(new java.awt.Color(203, 203, 203));
         field_description_video.setLineWrap(true);
         field_description_video.setRows(5);
-        field_description_video.setText("Descripción");
         field_description_video.setToolTipText("");
         field_description_video.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(field_description_video);
@@ -234,6 +231,12 @@ public class Upload_video extends javax.swing.JFrame {
 
     private void btn_upload_image_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_videobtn_create_acc
         // TODO add your handling code here:
+        String nombre="";
+        String path="";
+        S3 subir = new S3();
+        
+        
+        subir.Upload(nombre, path);
     }//GEN-LAST:event_btn_upload_image_videobtn_create_acc
 
     /**
