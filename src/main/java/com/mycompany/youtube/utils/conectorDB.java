@@ -121,4 +121,28 @@ public class conectorDB {
                 System.err.println(ex.getMessage());
             }
        }
+       
+        //Metodo para consultar suscripciones por ID de usuario
+        public void selectSubscriptions(int usuarioId) {
+            String query = "SELECT * FROM subscription WHERE fk_usuario_id = ?";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int suscripcionId = resultSet.getInt("suscripcion_id");
+                    String canalNombre = resultSet.getString("canal_nombre");
+                    int totalSuscripcion = resultSet.getInt("total_suscripcion");
+
+                    System.out.println("Suscripcion ID: " + suscripcionId);
+                    System.out.println("Canal Nombre: " + canalNombre);
+                    System.out.println("Total Suscripcion: " + totalSuscripcion);
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar suscripciones: " + ex.getMessage());
+            }
+        }
     }
