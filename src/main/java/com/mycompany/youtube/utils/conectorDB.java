@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -85,4 +87,38 @@ public class conectorDB {
                 System.err.println(ex.getMessage());
             }
         }
+        
+        public String datatime() {
+            LocalDate now = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String formatDate = now.format(formatter);
+
+            return formatDate;
+        }
+        
+       public void insertVideo(String titulo, int id_usuario, String descripcion, String url_video, String url_imagen){
+           int vistas = 0;
+           int likes = 0;
+           int dislikes = 0;
+           conectorDB data = new conectorDB();
+           String date = data.datatime();
+           String insertQuery = "INSERT INTO videos (titulo, descripcion, ruta_video, fecha_carga, vistas, likes, dislikes, ruta_imagen, fk_usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+           try (Connection conn = conectar(); 
+                 PreparedStatement preparedStatement = conn.prepareStatement(insertQuery)) {
+                preparedStatement.setString(1, titulo);
+                preparedStatement.setString(2, descripcion);
+                preparedStatement.setString(3, url_video);
+                preparedStatement.setString(4, date);
+                preparedStatement.setInt(5, vistas);
+                preparedStatement.setInt(6, likes);
+                preparedStatement.setInt(7, dislikes);
+                preparedStatement.setString(8, url_imagen);
+                preparedStatement.setInt(9, id_usuario);
+                preparedStatement.executeUpdate();
+                System.out.println("Datos insertados correctamente.");
+            } catch (SQLException ex) {
+                System.err.println("¡Se produjo una excepción al insertar datos!");
+                System.err.println(ex.getMessage());
+            }
+       }
     }
