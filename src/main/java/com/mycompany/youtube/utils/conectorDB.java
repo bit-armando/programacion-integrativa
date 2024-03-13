@@ -253,6 +253,46 @@ public class conectorDB {
                 System.err.println("Error al insertar: " + ex.getMessage());
             }
         }
+        
+        //Metodo para consultar el historial del usuario por ID de usuario y ID de video
+        public void selectHistoryUser(int usuarioId, int videoId) {
+            String query = "SELECT * FROM historyUser WHERE fk_usuario_id = ? AND fk_video_id = ?";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int historyUserUserId = resultSet.getInt("historyUserUser_id");    
+                    System.out.println("HistoryUser ID: " + historyUserUserId);
+                } else {
+                    System.out.println("No se encontro historial para el usuario y el video especificados.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar historial del usuario: " + ex.getMessage());
+            }
+        }
+
+        //Metodo para insertar una nueva entrada en el historial del usuario
+        public void insertHistoryUser(int usuarioId, int videoId) {
+            String query = "INSERT INTO historyUser (fk_usuario_id, fk_video_id) VALUES (?, ?)";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Nueva entrada de historial del usuario insertada exitosamente");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al insertar entrada de historial del usuario: " + ex.getMessage());
+            }
+        }
 
         
     }
