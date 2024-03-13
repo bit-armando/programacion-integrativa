@@ -293,6 +293,43 @@ public class conectorDB {
                 System.err.println("Error al insertar entrada de historial del usuario: " + ex.getMessage());
             }
         }
+            //Metodo para consultar videos que le gustaron al usuario por ID de usuario y ID de video
+        public void selectLikedVideosList(int usuarioId, int videoId) {
+            String query = "SELECT * FROM likedVideosList WHERE fk_usuario_id = ? AND fk_video_id = ?";
 
-        
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int likedVideoListId = resultSet.getInt("likedVideoList_id");
+                    System.out.println("LikedVideosList ID: " + likedVideoListId);
+                } else {
+                    System.out.println("No se encontraron videos que le gustaron al usuario.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar videos que le gustaron al usuario: " + ex.getMessage());
+            }
+        }
+
+        //Metodo para insertar un nuevo video que le gusto al usuario
+        public void insertLikedVideosList(int usuarioId, int videoId) {
+            String query = "INSERT INTO likedVideosList (fk_usuario_id, fk_video_id) VALUES (?, ?)";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Nuevo video que le gusto al usuario insertado exitosamente.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al insertar video que le gusto al usuario: " + ex.getMessage());
+            }
+        }
     }
