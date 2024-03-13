@@ -210,5 +210,49 @@ public class conectorDB {
                 System.err.println("Error al insertar comentario: " + ex.getMessage());
             }
         }
+        
+        //Metodo para consultar contenido por ID de usuario y ID de video
+        public void selectContentUser(int usuarioId, int videoId) {
+            String query = "SELECT * FROM contentUser WHERE fk_usuario_id = ? AND fk_video_id = ?";
 
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int contentUserId = resultSet.getInt("contentUser_id");
+                    // Si deseas obtener más columnas, puedes añadirlas aquí
+
+                    System.out.println("ContentUser ID: " + contentUserId);
+                    // Imprime otras columnas si es necesario
+                } else {
+                    System.out.println("No se encontro contenido para el usuario y el video especificados.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar contenido del usuario: " + ex.getMessage());
+            }
+        }
+
+        //Metodo para insertar una nueva relacion usuario-video
+        public void insertContentUser(int usuarioId, int videoId) {
+            String query = "INSERT INTO contentUser (fk_usuario_id, fk_video_id) VALUES (?, ?)";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setInt(2, videoId);
+
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Se ha agregado con exito");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al insertar: " + ex.getMessage());
+            }
+        }
+
+        
     }
