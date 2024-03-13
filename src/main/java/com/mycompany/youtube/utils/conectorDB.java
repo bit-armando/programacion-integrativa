@@ -171,4 +171,44 @@ public class conectorDB {
                 System.err.println("Error al consultar comentarios: " + ex.getMessage());
             }
         }
+        
+        //metodo para insertar suscripciones
+        public void insertSubscription(int usuarioId, String canalNombre, int totalSuscripcion) {
+            String query = "INSERT INTO subscription (fk_usuario_id, canal_nombre, total_suscripcion) VALUES (?, ?, ?)";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, usuarioId);
+                statement.setString(2, canalNombre);
+                statement.setInt(3, totalSuscripcion);
+
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Nueva suscripcion insertada exitosamente.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al insertar suscripcion: " + ex.getMessage());
+            }
+        }
+
+        //metodo para insertar comentarios
+        public void insertComment(int videoId, String nombreUsuario, String fechaHoraComentario, String comentario) {
+            String query = "INSERT INTO comments (fk_video_id, nombre_usuario, fecha_hora_comentario, comentario) VALUES (?, ?, ?, ?)";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, videoId);
+                statement.setString(2, nombreUsuario);
+                statement.setString(3, fechaHoraComentario);
+                statement.setString(4, comentario);
+
+                int rowsInserted = statement.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Nuevo comentario insertado exitosamente.");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al insertar comentario: " + ex.getMessage());
+            }
+        }
+
     }
