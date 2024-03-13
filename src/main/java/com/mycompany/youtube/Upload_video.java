@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.youtube;
+import javax.swing.JFileChooser;
+import java.io.File;
 
 /**
  *
@@ -227,16 +229,35 @@ public class Upload_video extends javax.swing.JFrame {
 
     private void btn_upload_finish_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_finish_videobtn_create_acc
         // TODO add your handling code here:
+        
+        // datos para subir imagen en aws, se debe repetir lo mismo para video
+        String titulo_img = field_name_video.getText();
+        String path_img = "";
+        
+        S3 subir = new S3();
+        subir.Upload(titulo_img, path_img);
+        
+        //Datos para hacer el insert de video a la db
+        String titulo = field_name_video.getText();
+        int id_usuario = 0; // hay que cambiar la variable para que se actualice segun cada usuario
+        String descripcion = field_description_video.getText();
+        String url_video = "";
+        String url_img = "";
+        
+        conectorDB conn = new conectorDB();
+        conn.insertVideo( titulo, id_usuario, descripcion, url_video, url_img);
+        
     }//GEN-LAST:event_btn_upload_finish_videobtn_create_acc
 
     private void btn_upload_image_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_videobtn_create_acc
         // TODO add your handling code here:
-        String nombre="";
-        String path="";
-        S3 subir = new S3();
-        
-        
-        subir.Upload(nombre, path);
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String path = selectedFile.getAbsolutePath(); // Obtiene la ruta del archivo
+            String nombre = selectedFile.getName(); // Obtiene el nombre del archivo
+        }
     }//GEN-LAST:event_btn_upload_image_videobtn_create_acc
 
     /**
