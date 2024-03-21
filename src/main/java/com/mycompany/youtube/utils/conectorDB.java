@@ -18,9 +18,9 @@ import java.time.format.DateTimeFormatter;
  * @author refil
  */
 public class conectorDB {
-    private String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5688754?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    private String user = "sql5688754";
-    private String psw = "ZcL2VkdI5s";
+    private String url = "jdbc:mysql://database-yutu.cdzn2vruxaki.us-east-1.rds.amazonaws.com:3306/mysql?zeroDateTimeBehavior=CONVERT_TO_NULL [admin on Default schema]";
+    private String user = "admin";
+    private String psw = "yutunofake10";
 
     public conectorDB() {
             // Constructor vacío
