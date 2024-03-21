@@ -224,11 +224,17 @@ public class Log_In extends javax.swing.JFrame {
                 conectorDB conector = new conectorDB();
                 conector.selectData(username, password);
                 JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
+                sesion saveUser = new sesion();
+                saveUser.startSession(username);
+                
+                
                 new Home().setVisible(true);
                 this.setVisible(false);
             } catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error al iniciar sesion!");
             }
+        } else{
+            JOptionPane.showMessageDialog(null, "Rellena el formulario!");
         }
         new Home().setVisible(true);
         this.setVisible(false);

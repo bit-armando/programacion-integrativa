@@ -4,6 +4,7 @@
  */
 package com.mycompany.youtube;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
 /**
@@ -11,7 +12,8 @@ import java.io.File;
  * @author brand
  */
 public class Upload_video extends javax.swing.JFrame {
-
+    private String superpath_img;
+    private String superpath_video;
     /**
      * Creates new form Register
      */
@@ -216,9 +218,22 @@ public class Upload_video extends javax.swing.JFrame {
     private void field_name_videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_name_videoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_field_name_videoActionPerformed
-
+    
     private void btn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_acc
         // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+
+        // Configurar el filtro de archivos
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos MP4", "mp4");
+        fileChooser.setFileFilter(filter);
+
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            superpath_video = selectedFile.getAbsolutePath(); // Obtiene la ruta del archivo
+            String nombre = selectedFile.getName(); //
+            
+        }
     }//GEN-LAST:event_btn_create_acc
 
     private void redirect_icon_home(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redirect_icon_home
@@ -230,19 +245,24 @@ public class Upload_video extends javax.swing.JFrame {
     private void btn_upload_finish_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_finish_videobtn_create_acc
         // TODO add your handling code here:
         
-        // datos para subir imagen en aws, se debe repetir lo mismo para video
-        String titulo_img = field_name_video.getText();
-        String path_img = "";
+        // datos para subir imagen en aws
+        String titulo_both = field_name_video.getText();
+        String path_img = superpath_img;
         
         S3 subir = new S3();
-        subir.Upload(titulo_img, path_img);
+        subir.Upload(titulo_both, path_img);
+        
+        // datos para subir video en aws
+        String path_video = superpath_video;
+        
+        subir.Upload(titulo_both, path_video);
         
         //Datos para hacer el insert de video a la db
         String titulo = field_name_video.getText();
         int id_usuario = 0; // hay que cambiar la variable para que se actualice segun cada usuario
         String descripcion = field_description_video.getText();
-        String url_video = "";
-        String url_img = "";
+        String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo + ".mp4";
+        String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo + ".jpg";
         
         conectorDB conn = new conectorDB();
         conn.insertVideo( titulo, id_usuario, descripcion, url_video, url_img);
@@ -252,11 +272,16 @@ public class Upload_video extends javax.swing.JFrame {
     private void btn_upload_image_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_videobtn_create_acc
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
+
+        // Configurar el filtro de archivos
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos JPG", "jpg");
+        fileChooser.setFileFilter(filter);
+
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            String path = selectedFile.getAbsolutePath(); // Obtiene la ruta del archivo
-            String nombre = selectedFile.getName(); // Obtiene el nombre del archivo
+            superpath_img = selectedFile.getAbsolutePath(); // Obtiene la ruta del archivo
+            String nombre = selectedFile.getName(); //
         }
     }//GEN-LAST:event_btn_upload_image_videobtn_create_acc
 
