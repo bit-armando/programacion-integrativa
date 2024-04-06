@@ -9,11 +9,12 @@ package com.mycompany.youtube;
  * @author refil
  */
 public class History extends javax.swing.JFrame {
-
+    private static String username;
     /**
      * Creates new form Home
      */
-    public History() {
+    public History(String username) {
+        this.username = username;
         initComponents();
     }
 
@@ -406,19 +407,19 @@ public class History extends javax.swing.JFrame {
 
     private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
         // TODO add your handling code here:
-        new Liked_videos().setVisible(true);
+        new Liked_videos(username).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_label_likeMouseClicked
 
     private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
         // TODO add your handling code here:
-        new History().setVisible(true);
+        new History(username).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_label_historyMouseClicked
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
         // TODO add your handling code here:
-        new Suscripcioness().setVisible(true);
+        new Suscripcioness(username).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_label_suscriptionsMouseClicked
 
@@ -469,7 +470,7 @@ public class History extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new History().setVisible(true);
+                new History(username).setVisible(true);
             }
         });
     }

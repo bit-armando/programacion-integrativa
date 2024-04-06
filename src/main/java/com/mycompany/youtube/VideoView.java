@@ -4,6 +4,8 @@
  */
 package com.mycompany.youtube;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jesus
@@ -445,20 +447,41 @@ public class VideoView extends javax.swing.JFrame {
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
         // TODO add your handling code here:
-        new Suscripcioness().setVisible(true);
-        this.setVisible(false);
+        sesion Sesion = sesion.getInstance(null);
+        if(Sesion != null) {
+            String username = Sesion.getUsername();
+            new Suscripcioness(username).setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
     }//GEN-LAST:event_label_suscriptionsMouseClicked
 
     private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
         // TODO add your handling code here:
-        new History().setVisible(true);
-        this.setVisible(false);
+        sesion Sesion = sesion.getInstance(null);
+        if(Sesion != null) {
+            String username = Sesion.getUsername();
+            new History(username).setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
     }//GEN-LAST:event_label_historyMouseClicked
 
     private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
         // TODO add your handling code here:
-        new Liked_videos().setVisible(true);
-        this.setVisible(false);
+        sesion Sesion = sesion.getInstance(null);
+        if(Sesion != null) {
+            String username = Sesion.getUsername();
+            new Liked_videos(username).setVisible(true);
+            this.setVisible(false);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
     }//GEN-LAST:event_label_likeMouseClicked
 
     private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
