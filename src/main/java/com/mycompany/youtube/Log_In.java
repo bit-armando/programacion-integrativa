@@ -224,9 +224,8 @@ public class Log_In extends javax.swing.JFrame {
                 conectorDB conector = new conectorDB();
                 conector.selectData(username, password);
                 JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
-                sesion saveUser = new sesion();
-                saveUser.startSession(username);
                 
+                sesion.getInstance(username);
                 
                 new Home().setVisible(true);
                 this.setVisible(false);

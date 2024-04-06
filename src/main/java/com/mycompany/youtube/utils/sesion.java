@@ -10,14 +10,22 @@ package com.mycompany.youtube;
  */
 public class sesion {
     
-    private static String currentUser;
+    private static sesion instance;
+    private String username;
 
-    public static void startSession(String username) {
-        currentUser = username;
+    private sesion(String username) {
+        this.username = username;
     }
 
-    public static String getCurrentUser() {
-        return currentUser;
+    public static sesion getInstance(String username) {
+        if(instance == null && username != null) {
+            instance = new sesion(username);
+        }
+        return instance;
+    }
+
+    public String getUsername() {
+        return this.username;
     }
     
 }
