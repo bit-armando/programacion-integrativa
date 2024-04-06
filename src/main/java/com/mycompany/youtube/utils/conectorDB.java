@@ -255,7 +255,7 @@ public class conectorDB {
         }
         
         //Metodo para consultar el historial del usuario por ID de usuario y ID de video
-        public void selectHistoryUser(int usuarioId, int videoId) {
+        /*public void selectHistoryUser(int usuarioId, int videoId) {
             String query = "SELECT * FROM historyUser WHERE fk_usuario_id = ? AND fk_video_id = ?";
 
             try (Connection conn = conectar();
@@ -274,7 +274,37 @@ public class conectorDB {
             } catch (SQLException ex) {
                 System.err.println("Error al consultar historial del usuario: " + ex.getMessage());
             }
+        }*/
+        public void selectHistoryByUser(int userId) {
+            String query = "SELECT v.* " +
+                           "FROM videos v " +
+                           "INNER JOIN historyUser h ON v.video_id = h.fk_video_id " +
+                           "WHERE h.fk_usuario_id = ? " +
+                           "ORDER BY h.fecha DESC";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, userId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int videoId = resultSet.getInt("video_id");
+                    String title = resultSet.getString("title");
+                    String url = resultSet.getString("url");
+                    // Aquí puedes obtener más datos del video si lo necesitas
+
+                    // Procesar el video directamente aquí según tus necesidades
+                    System.out.println("Video ID: " + videoId);
+                    System.out.println("Title: " + title);
+                    System.out.println("URL: " + url);
+                    System.out.println("----------------------");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar historial del usuario: " + ex.getMessage());
+            }
         }
+
 
         //Metodo para insertar una nueva entrada en el historial del usuario
         public void insertHistoryUser(int usuarioId, int videoId) {
