@@ -219,7 +219,7 @@ public class Register extends javax.swing.JFrame {
                 conectorDB conector = new conectorDB();
                 conector.insertData(username, email, password);
                 JOptionPane.showMessageDialog(null, "Usuario creado correctamente!");
-                new Home().setVisible(true);
+                new Log_In().setVisible(true);
                 this.setVisible(false);
             } catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error en la creacion!");
