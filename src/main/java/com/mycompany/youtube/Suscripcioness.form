@@ -306,9 +306,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\cerrar-sesion.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
               </Properties>
               <Events>
