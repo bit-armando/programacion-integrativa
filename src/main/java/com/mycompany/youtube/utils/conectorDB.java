@@ -362,4 +362,30 @@ public class conectorDB {
                 System.err.println("Error al insertar video que le gusto al usuario: " + ex.getMessage());
             }
         }
+        
+        //Este metodo pudiese estar de mas
+        public int obtenerIdUsuarioPorNombre(String username) {
+            int userId = -1; // Valor predeterminado en caso de que no se encuentre ningún usuario
+
+            // Consulta SQL para obtener el ID del usuario por nombre de usuario
+            String query = "SELECT usuario_id FROM usuario WHERE nombre_usuario = ?";
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setString(1, username);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                // Si se encuentra un usuario con el nombre de usuario dado
+                if (resultSet.next()) {
+                    // Obtiene el ID del usuario de la consulta
+                    userId = resultSet.getInt("usuario_id");
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al obtener el ID del usuario por nombre: " + ex.getMessage());
+            }
+
+            // Devuelve el ID del usuario (o -1 si no se encontró ningún usuario)
+            return userId;
+        }
     }

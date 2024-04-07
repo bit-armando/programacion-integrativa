@@ -10,12 +10,38 @@ package com.mycompany.youtube;
  */
 public class History extends javax.swing.JFrame {
     private static String username;
+
     /**
-     * Creates new form Home
+     * Creates new form History
      */
     public History(String username) {
         this.username = username;
         initComponents();
+
+        // Llama al método para obtener y mostrar el historial del usuario
+        mostrarHistorial();
+    }
+
+    // Método para mostrar el historial del usuario en la interfaz de usuario
+    private void mostrarHistorial() {
+        // Verifica si el nombre de usuario es válido
+        if (username != null && !username.isEmpty()) {
+            // Crea una instancia de la clase conectorDB
+            conectorDB db = new conectorDB();
+
+            // Obtiene el ID del usuario utilizando el nombre de usuario
+            int userId = db.obtenerIdUsuarioPorNombre(username);
+
+            // Verifica si se pudo obtener el ID del usuario
+            if (userId != -1) {
+                // Llama al método para seleccionar el historial del usuario y mostrar los videos
+                db.selectHistoryByUser(userId);
+            } else {
+                System.out.println("No se pudo obtener el ID del usuario.");
+            }
+        } else {
+            System.out.println("Nombre de usuario no válido.");
+        }
     }
 
     /**
