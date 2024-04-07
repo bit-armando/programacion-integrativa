@@ -32,6 +32,7 @@ public class Home extends javax.swing.JFrame {
         bg_cabecera = new javax.swing.JPanel();
         busqueda_history = new javax.swing.JTextField();
         label_title = new javax.swing.JLabel();
+        label_username = new javax.swing.JLabel();
         bg_lateral_view = new javax.swing.JPanel();
         label_suscriptions = new javax.swing.JLabel();
         label_history = new javax.swing.JLabel();
@@ -42,9 +43,7 @@ public class Home extends javax.swing.JFrame {
         label_like1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
-        setPreferredSize(new java.awt.Dimension(1080, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1080, 720));
 
@@ -62,11 +61,17 @@ public class Home extends javax.swing.JFrame {
 
         label_title.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
         label_title.setForeground(new java.awt.Color(255, 255, 255));
-        label_title.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\youtube.png")); // NOI18N
         label_title.setText("YUTU2");
         label_title.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_titleMouseClicked(evt);
+            }
+        });
+
+        label_username.setText("jLabel1");
+        label_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                print_user(evt);
             }
         });
 
@@ -79,17 +84,21 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(label_title)
                 .addGap(167, 167, 167)
                 .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                .addComponent(label_username)
+                .addGap(59, 59, 59))
         );
         bg_cabeceraLayout.setVerticalGroup(
             bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bg_cabeceraLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(bg_cabeceraLayout.createSequentialGroup()
                 .addComponent(label_title)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(bg_cabeceraLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label_username)
+                    .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         background.add(bg_cabecera, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
@@ -98,7 +107,6 @@ public class Home extends javax.swing.JFrame {
 
         label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
-        label_suscriptions.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\suscripcion.png")); // NOI18N
         label_suscriptions.setText("Suscripciones");
         label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,7 +116,6 @@ public class Home extends javax.swing.JFrame {
 
         label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_history.setForeground(new java.awt.Color(255, 255, 255));
-        label_history.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\historia.png")); // NOI18N
         label_history.setText("Historial");
         label_history.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,7 +125,6 @@ public class Home extends javax.swing.JFrame {
 
         label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_like.setForeground(new java.awt.Color(255, 255, 255));
-        label_like.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\like.png")); // NOI18N
         label_like.setText("Me gusta");
         label_like.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,7 +134,6 @@ public class Home extends javax.swing.JFrame {
 
         label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
-        label_inicio3.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\casa (1).png")); // NOI18N
         label_inicio3.setText("Inicio");
         label_inicio3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -136,11 +141,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        icon_arrow_bl.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\flecha.png")); // NOI18N
-
         label_like1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_like1.setForeground(new java.awt.Color(255, 255, 255));
-        label_like1.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\cerrar-sesion.png")); // NOI18N
         label_like1.setText("Cerrar sesion");
         label_like1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -267,6 +269,18 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_label_like1MouseClicked
 
+    private void print_user(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_print_user
+        // TODO add your handling code here:
+        sesion Sesion = sesion.getInstance(null);
+        if(Sesion != null) {
+            String username = Sesion.getUsername();
+            JOptionPane.showMessageDialog(null, username);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
+    }//GEN-LAST:event_print_user
+
     /**
      * @param args the command line arguments
      */
@@ -315,5 +329,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
+    private javax.swing.JLabel label_username;
     // End of variables declaration//GEN-END:variables
 }

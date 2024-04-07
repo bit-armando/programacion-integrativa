@@ -39,19 +39,18 @@ public class conectorDB {
                 }
             }
         }
-
+        
         public void selectData(String nombre, String contrasena) {
-            String selectQuery = "SELECT * FROM usuario WHERE nombre_usuario = ?, contrasena = ?";
+            String selectQuery = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasena = ?";
             String username = nombre;
             String password = contrasena;
 
             try (Connection conn = conectar();
-                    PreparedStatement preparedStatement = conn.prepareStatement(selectQuery)){
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setString(2, password);
-                    
-                 Statement statement = conn.createStatement();
-                 ResultSet resultSet = statement.executeQuery(selectQuery);
+                 PreparedStatement preparedStatement = conn.prepareStatement(selectQuery)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     int id = resultSet.getInt("usuario_id");
                     String firstName = resultSet.getString("nombre_usuario");
