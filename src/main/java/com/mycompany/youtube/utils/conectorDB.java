@@ -479,7 +479,7 @@ public class conectorDB {
 
             try (Connection conn = conectar();
                  PreparedStatement statement = conn.prepareStatement(query)) {
-                statement.setString(1, username);
+                statement.setString(1, username);   
 
                 ResultSet resultSet = statement.executeQuery();
 
@@ -495,6 +495,44 @@ public class conectorDB {
             // Devuelve el ID del usuario (o -1 si no se encontró ningún usuario)
             return userId;
         }
+        
+        public video getOrderVIdeos(int userId) {
+            String query = "SELECT v.* " +
+                           "FROM videos v " +
+                           "INNER JOIN historyUser h ON v.video_id = h.fk_video_id " +
+                           "WHERE h.fk_usuario_id = ? " +
+                           "ORDER BY h.fecha DESC";
+
+            video historyVideo = null;
+
+            try (Connection conn = conectar();
+                 PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setInt(1, userId);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int videoId = resultSet.getInt("video_id");
+                    String titulo = resultSet.getString("titulo");
+                    String descripcion = resultSet.getString("descripcion");
+                    String rutaVideo = resultSet.getString("ruta_video");
+                    String fechaCarga = resultSet.getString("fecha_carga");
+                    int vistas = resultSet.getInt("vistas");
+                    int likes = resultSet.getInt("likes");
+                    int dislikes = resultSet.getInt("dislikes");
+                    String rutaImagen = resultSet.getString("ruta_imagen");
+                    int idUsuario = resultSet.getInt("fk_usuario_id");
+
+                    historyVideo = new video(videoId, titulo, descripcion, rutaVideo, fechaCarga,
+                                             vistas, likes, dislikes, rutaImagen, idUsuario);
+                }
+            } catch (SQLException ex) {
+                System.err.println("Error al consultar historial del usuario: " + ex.getMessage());
+            }
+
+            return historyVideo;
+        }
+        
 
     public static class video {
         private int id;
@@ -564,5 +602,6 @@ public class conectorDB {
                 return idUsuario;
             }
         }
+    
     }
 
