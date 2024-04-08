@@ -4,10 +4,11 @@
  */
 package com.mycompany.youtube;
 
-/**
- *
- * @author refil
- */
+import com.mycompany.youtube.utils.VideosLabels;
+import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+
 public class Suscripcioness extends javax.swing.JFrame {
     private static String username;
     /**
@@ -16,59 +17,9 @@ public class Suscripcioness extends javax.swing.JFrame {
     public Suscripcioness(String username) {
         this.username = username;
         initComponents();
-        
-        // Llama al método para cargar y mostrar las imágenes de los usuarios suscritos
-       // mostrarImagenesUsuariosSuscritos();
+        VideosLabels.createGrid(this); 
     }
     
-        /* Método para cargar y mostrar las imágenes de los usuarios suscritos
-    private void mostrarImagenesUsuariosSuscritos() {
-        // Supongamos que tienes una lista de URLs de imágenes de usuarios suscritos
-        //List<String> urlsUsuariosSuscritos = obtenerURLsUsuariosSuscritos();
-        
-        // Obtén el contenedor donde deseas mostrar las imágenes de los usuarios suscritos
-        JPanel contenedorImagenes = obtenerContenedorImagenes();
-        
-        // Itera sobre las URLs de las imágenes de usuarios suscritos
-        for (String url : urlsUsuariosSuscritos) {
-            // Crea un JLabel para mostrar la imagen
-            //JLabel labelImagen = new JLabel();
-            
-            // Crea una instancia de la clase Imagen y pasa el JLabel y la URL
-           //new Imagen(labelImagen, url);
-            
-            // Agrega el JLabel al contenedor
-            //contenedorImagenes.add(labelImagen);
-        }
-        
-        // Actualiza el contenedor para reflejar los cambios
-        contenedorImagenes.revalidate();
-        contenedorImagenes.repaint();
-    }
-    
-    /* Método ficticio para obtener las URLs de las imágenes de usuarios suscritos
-    private List<String> obtenerURLsUsuariosSuscritos() {
-        // Aquí podrías obtener las URLs de las imágenes de los usuarios suscritos
-        // Puedes obtener esta información de tu base de datos u otro origen de datos
-        // En este ejemplo, simplemente devolvemos una lista de URLs ficticias
-        
-        List<String> urls = new ArrayList<>();
-        urls.add("https://example.com/imagen1.jpg");
-        urls.add("https://example.com/imagen2.jpg");
-        // Agrega más URLs según sea necesario
-        
-        return urls;
-    }
-    
-    // Método ficticio para obtener el contenedor donde se mostrarán las imágenes
-    private JPanel obtenerContenedorImagenes() {
-        // Aquí obtendrías el contenedor donde deseas mostrar las imágenes de los usuarios suscritos
-        // Puedes obtener este contenedor de tu diseño de interfaz de usuario
-        
-        // En este ejemplo, supongamos que tienes un JPanel llamado "panelImagenes"
-        return panelImagenes;
-    }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
