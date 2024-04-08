@@ -108,9 +108,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\youtube.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="YUTU2"/>
               </Properties>
               <Events>
@@ -194,9 +191,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\suscripcion.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Suscripciones"/>
               </Properties>
               <Events>
@@ -210,9 +204,6 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\historia.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Historial"/>
               </Properties>
@@ -228,9 +219,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\like.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Me gusta"/>
               </Properties>
               <Events>
@@ -245,9 +233,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\casa (1).png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Inicio"/>
               </Properties>
               <Events>
@@ -257,11 +242,6 @@
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
             <Component class="javax.swing.JLabel" name="icon_arrow_bl">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\flecha.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="label_like1">
               <Properties>
@@ -270,9 +250,6 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\cerrar-sesion.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
               </Properties>
@@ -348,9 +325,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\dislike-mini.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="000k"/>
           </Properties>
           <Constraints>
@@ -366,9 +340,6 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\like-mini.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="000k"/>
           </Properties>
@@ -531,11 +502,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="icon_send_coment">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\brand\OneDrive\Documentos\NetBeansProjects\programacion-integrativa\src\main\java\icons\enviar.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="690" y="640" width="-1" height="-1"/>

@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 /**
  *
  * @author refil
@@ -121,6 +120,115 @@ public class conectorDB {
             }
        }
        
+       public void selectVideos() {
+        String query = "SELECT * FROM videos";
+
+        try (Connection conn = conectar();
+             Statement statement = conn.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int videoId = resultSet.getInt("video_id");
+                String titulo = resultSet.getString("titulo");
+                String descripcion = resultSet.getString("descripcion");
+                String urlVideo = resultSet.getString("ruta_video");
+                String urlImagen = resultSet.getString("ruta_imagen");
+                int vistas = resultSet.getInt("vistas");
+                int likes = resultSet.getInt("likes");
+                int dislikes = resultSet.getInt("dislikes");
+                int usuarioId = resultSet.getInt("fk_usuario_id");
+                System.out.println("Video ID: " + videoId);
+                System.out.println("Título: " + titulo);
+                System.out.println("Descripción: " + descripcion);
+                System.out.println("URL del video: " + urlVideo);
+                System.out.println("URL de la imagen: " + urlImagen);
+                System.out.println("Vistas: " + vistas);
+                System.out.println("Likes: " + likes);
+                System.out.println("Dislikes: " + dislikes);
+                System.out.println("ID del usuario: " + usuarioId);
+                System.out.println("----------------------");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al seleccionar videos: " + ex.getMessage());
+        }
+    }
+    
+     public video obtenerVideo(int videoId) {
+        String query = "SELECT * FROM videos WHERE video_id = ?";
+        video video = null;
+
+        try (Connection conn = conectar();
+             PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, videoId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("video_id");
+                String titulo = resultSet.getString("titulo");
+                String descripcion = resultSet.getString("descripcion");
+                String rutaVideo = resultSet.getString("ruta_video");
+                String fechaCarga = resultSet.getString("fecha_carga");
+                int vistas = resultSet.getInt("vistas");
+                int likes = resultSet.getInt("likes");
+                int dislikes = resultSet.getInt("dislikes");
+                String rutaImagen = resultSet.getString("ruta_imagen");
+                int idUsuario = resultSet.getInt("fk_usuario_id");
+
+                video = new video(id, titulo, descripcion, rutaVideo, fechaCarga,
+                                  vistas, likes, dislikes, rutaImagen, idUsuario);
+            } else {
+                // Retorna un objeto video vacío si no se encuentra ningún video con el ID proporcionado
+                video = new video(0, "", "", "", "", 0, 0, 0, "", 0);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al obtener el video: " + ex.getMessage());
+        }
+
+        return video;
+    }
+
+     public void actualizarImagen(int videoId, String nuevaRutaImagen) {
+    String query = "UPDATE videos SET ruta_imagen = ? WHERE video_id = ?";
+
+    try (Connection conn = conectar();
+         PreparedStatement statement = conn.prepareStatement(query)) {
+        statement.setString(1, nuevaRutaImagen);
+        statement.setInt(2, videoId);
+
+        int rowsAffected = statement.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            System.out.println("Imagen del video actualizada correctamente.");
+        } else {
+            System.out.println("No se encontró ningún video con el ID proporcionado.");
+        }
+    } catch (SQLException ex) {
+        System.err.println("Error al actualizar la imagen del video: " + ex.getMessage());
+    }
+}
+
+     public String obtenerImagenUsuario(int videoId) {
+        String query = "SELECT ruta_imagen FROM usuarios WHERE id = (SELECT fk_usuario_id FROM videos WHERE video_id = ?)";
+        String rutaImagenUsuario = "";
+
+        try (Connection conn = conectar();
+             PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, videoId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                rutaImagenUsuario = resultSet.getString("ruta_imagen");
+            } else {
+                System.out.println("No se encontró la imagen de usuario para el video con ID: " + videoId);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al obtener la imagen de usuario: " + ex.getMessage());
+        }
+
+        return rutaImagenUsuario;
+    }
         //Metodo para consultar suscripciones por ID de usuario
         public void selectSubscriptions(int usuarioId) {
             String query = "SELECT * FROM subscription WHERE fk_usuario_id = ?";
@@ -387,4 +495,74 @@ public class conectorDB {
             // Devuelve el ID del usuario (o -1 si no se encontró ningún usuario)
             return userId;
         }
+
+    public static class video {
+        private int id;
+            private String titulo;
+            private String descripcion;
+            private String rutaVideo;
+            private String fechaCarga;
+            private int vistas;
+            private int likes;
+            private int dislikes;
+            private String rutaImagen;
+            private int idUsuario;
+
+            // Constructor
+            public video(int id, String titulo, String descripcion, String rutaVideo, String fechaCarga,
+                         int vistas, int likes, int dislikes, String rutaImagen, int idUsuario) {
+                this.id = id;
+                this.titulo = titulo;
+                this.descripcion = descripcion;
+                this.rutaVideo = rutaVideo;
+                this.fechaCarga = fechaCarga;
+                this.vistas = vistas;
+                this.likes = likes;
+                this.dislikes = dislikes;
+                this.rutaImagen = rutaImagen;
+                this.idUsuario = idUsuario;
+            }
+
+            // Métodos getter para acceder a los datos del video
+            public int getId() {
+                return id;
+            }
+
+            public String getTitulo() {
+                return titulo;
+            }
+
+            public String getDescripcion() {
+                return descripcion;
+            }
+
+            public String getRutaVideo() {
+                return rutaVideo;
+            }
+
+            public String getFechaCarga() {
+                return fechaCarga;
+            }
+
+            public int getVistas() {
+                return vistas;
+            }
+
+            public int getLikes() {
+                return likes;
+            }
+
+            public int getDislikes() {
+                return dislikes;
+            }
+
+            public String getRutaImagen() {
+                return rutaImagen;
+            }
+
+            public int getIdUsuario() {
+                return idUsuario;
+            }
+        }
     }
+

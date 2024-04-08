@@ -16,7 +16,7 @@ public class TestVideo extends javax.swing.JFrame {
      */
     public TestVideo() {
         initComponents();
-//        Reproductor video = new Reproductor(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/machetazo.mp4");
+//       Reproductor video = new Reproductor(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/machetazo.mp4");
         Imagen imagen = new Imagen(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/perrito.jpg");
 //        Imagen imagen = new Imagen(jLabel1, "https://yutu-programacion-integrativa.s3.amazonaws.com/machetazo.mp4");
 //        video.togglePlayPause(BtnPause);

@@ -11,13 +11,40 @@ import javax.swing.JOptionPane;
  * @author jesus
  */
 public class VideoView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    
+    String urlVideo;
+    
     public VideoView() {
         initComponents();
         Reproductor video = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
+        //Reproductor video = new Reproductor(video_view, urlVideo);
+    }
+    
+    public static void openVideoView(int videoId) {
+        java.awt.EventQueue.invokeLater(() -> {
+            VideoView videoView = new VideoView();
+            videoView.setVideoId(videoId); // Establecer la ID del video
+            videoView.setVisible(true);
+        });
+    }
+    
+    public void setVideoId(int videoId) {
+        conectorDB db = new conectorDB();
+        conectorDB.video video = db.obtenerVideo(videoId);
+
+        // Verificar si se encontró el video
+        if (video != null) {
+            // Imprimir los datos del video
+            System.out.println("ID del video: " + video.getId());
+            this.video_title1.setText(video.getTitulo());
+            this.description_video.setText(video.getDescripcion());
+            this.urlVideo=video.getRutaVideo();
+            this.number_views.setText(video.getVistas()+" views");
+            this.num_likes.setText(String.valueOf(video.getLikes()));
+            this.num_dislikes.setText(String.valueOf(video.getDislikes()));
+        } else {
+            System.out.println("No se encontró el video con el ID especificado.");
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,7 +114,6 @@ public class VideoView extends javax.swing.JFrame {
 
         label_title.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
         label_title.setForeground(new java.awt.Color(255, 255, 255));
-        label_title.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\youtube.png")); // NOI18N
         label_title.setText("YUTU2");
         label_title.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,7 +149,6 @@ public class VideoView extends javax.swing.JFrame {
 
         label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
-        label_suscriptions.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\suscripcion.png")); // NOI18N
         label_suscriptions.setText("Suscripciones");
         label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,7 +158,6 @@ public class VideoView extends javax.swing.JFrame {
 
         label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_history.setForeground(new java.awt.Color(255, 255, 255));
-        label_history.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\historia.png")); // NOI18N
         label_history.setText("Historial");
         label_history.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,7 +167,6 @@ public class VideoView extends javax.swing.JFrame {
 
         label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_like.setForeground(new java.awt.Color(255, 255, 255));
-        label_like.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\like.png")); // NOI18N
         label_like.setText("Me gusta");
         label_like.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,7 +176,6 @@ public class VideoView extends javax.swing.JFrame {
 
         label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
-        label_inicio3.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\casa (1).png")); // NOI18N
         label_inicio3.setText("Inicio");
         label_inicio3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,11 +183,8 @@ public class VideoView extends javax.swing.JFrame {
             }
         });
 
-        icon_arrow_bl.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\flecha.png")); // NOI18N
-
         label_like1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_like1.setForeground(new java.awt.Color(255, 255, 255));
-        label_like1.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\cerrar-sesion.png")); // NOI18N
         label_like1.setText("Cerrar sesion");
         label_like1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -239,13 +258,11 @@ public class VideoView extends javax.swing.JFrame {
 
         num_dislikes.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 10)); // NOI18N
         num_dislikes.setForeground(new java.awt.Color(255, 255, 255));
-        num_dislikes.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\dislike-mini.png")); // NOI18N
         num_dislikes.setText("000k");
         background.add(num_dislikes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, -1));
 
         num_likes.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 10)); // NOI18N
         num_likes.setForeground(new java.awt.Color(255, 255, 255));
-        num_likes.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\like-mini.png")); // NOI18N
         num_likes.setText("000k");
         background.add(num_likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, -1, -1));
 
@@ -313,8 +330,6 @@ public class VideoView extends javax.swing.JFrame {
         username_coments.setForeground(new java.awt.Color(255, 255, 255));
         username_coments.setText("Nombre Usuario");
         background.add(username_coments, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, -1, -1));
-
-        icon_send_coment.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\enviar.png")); // NOI18N
         background.add(icon_send_coment, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, -1, -1));
 
         video_title1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
@@ -485,8 +500,10 @@ public class VideoView extends javax.swing.JFrame {
     }//GEN-LAST:event_label_likeMouseClicked
 
     private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
-        // TODO add your handling code here:
-        this.setVisible(true);
+        System.out.println("Cargando Datos...");
+        Home home=new Home();
+        home.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_label_inicio3MouseClicked
 
     private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
