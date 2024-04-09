@@ -10,25 +10,25 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class VideosLabels {
-    public static void createGrid(JFrame frame) {
+    public static void createGrid(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy) {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
-
-        int startX = 260;
-        int startY = 130;
+        /*
+        startX = 260;
+        startY = 130;
         
-        // Definir el tamaño deseado para los JLabels
-        int labelWidth = 180;
-        int labelHeight = 120;
+        labelWidth = 180;
+        labelHeight = 120;
 
-        int spacex = 20;
-        int spacey = 90;
-
+        spacex = 20;
+        spacey = 90;
+        */
+        
         conectorDB db = new conectorDB();
 
         // Dibujar la cuadrícula de JLabels
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < tamy; i++) {
+            for (int j = 0; j < tamx; j++) {
                 int x = startX + (labelWidth + spacex) * j;
                 int y = startY + (labelHeight + spacey) * i;
 
