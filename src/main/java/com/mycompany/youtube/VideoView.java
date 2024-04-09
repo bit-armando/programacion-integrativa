@@ -93,7 +93,9 @@ public class VideoView extends javax.swing.JFrame {
         image_video5 = new javax.swing.JPanel();
         video_title6 = new javax.swing.JLabel();
         nombre_canal = new javax.swing.JLabel();
+        likes = new javax.swing.JLabel();
         nombre_canal1 = new javax.swing.JLabel();
+        dislaike = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -204,7 +206,7 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(icon_arrow_bl)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_like1)
                     .addComponent(label_history)
@@ -232,7 +234,7 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(label_history)
                 .addGap(29, 29, 29)
                 .addComponent(label_like)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(23, 23, 23))
         );
@@ -254,6 +256,11 @@ public class VideoView extends javax.swing.JFrame {
         btn_suscribe.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         btn_suscribe.setForeground(new java.awt.Color(255, 255, 255));
         btn_suscribe.setText("Suscribirse");
+        btn_suscribe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_suscribeActionPerformed(evt);
+            }
+        });
         background.add(btn_suscribe, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, -1));
 
         num_dislikes.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 10)); // NOI18N
@@ -432,10 +439,16 @@ public class VideoView extends javax.swing.JFrame {
         nombre_canal.setText("000k Suscriptores");
         background.add(nombre_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
+        likes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/like.png"))); // NOI18N
+        background.add(likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
+
         nombre_canal1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         nombre_canal1.setForeground(new java.awt.Color(204, 204, 204));
         nombre_canal1.setText("Nombre del canal");
         background.add(nombre_canal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
+
+        dislaike.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/like.png"))); // NOI18N
+        background.add(dislaike, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -510,6 +523,11 @@ public class VideoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_label_like1MouseClicked
 
+    
+    private void btn_suscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suscribeActionPerformed
+          btn_suscribe.setText("Suscrito");
+    }//GEN-LAST:event_btn_suscribeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -557,6 +575,7 @@ public class VideoView extends javax.swing.JFrame {
     private javax.swing.JTextField busqueda_history;
     private javax.swing.JLabel date_coment;
     private javax.swing.JLabel description_video;
+    private javax.swing.JLabel dislaike;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel icon_send_coment;
     private javax.swing.JPanel image_video;
@@ -572,6 +591,7 @@ public class VideoView extends javax.swing.JFrame {
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
+    private javax.swing.JLabel likes;
     private javax.swing.JLabel nombre_canal;
     private javax.swing.JLabel nombre_canal1;
     private javax.swing.JLabel num_dislikes;
