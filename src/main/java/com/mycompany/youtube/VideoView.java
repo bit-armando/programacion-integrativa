@@ -93,9 +93,7 @@ public class VideoView extends javax.swing.JFrame {
         image_video5 = new javax.swing.JPanel();
         video_title6 = new javax.swing.JLabel();
         nombre_canal = new javax.swing.JLabel();
-        likes = new javax.swing.JLabel();
         nombre_canal1 = new javax.swing.JLabel();
-        dislaike = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -439,16 +437,10 @@ public class VideoView extends javax.swing.JFrame {
         nombre_canal.setText("000k Suscriptores");
         background.add(nombre_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
-        likes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/like.png"))); // NOI18N
-        background.add(likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
-
         nombre_canal1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         nombre_canal1.setForeground(new java.awt.Color(204, 204, 204));
         nombre_canal1.setText("Nombre del canal");
         background.add(nombre_canal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
-
-        dislaike.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/like.png"))); // NOI18N
-        background.add(dislaike, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -575,7 +567,6 @@ public class VideoView extends javax.swing.JFrame {
     private javax.swing.JTextField busqueda_history;
     private javax.swing.JLabel date_coment;
     private javax.swing.JLabel description_video;
-    private javax.swing.JLabel dislaike;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel icon_send_coment;
     private javax.swing.JPanel image_video;
@@ -591,7 +582,6 @@ public class VideoView extends javax.swing.JFrame {
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
-    private javax.swing.JLabel likes;
     private javax.swing.JLabel nombre_canal;
     private javax.swing.JLabel nombre_canal1;
     private javax.swing.JLabel num_dislikes;
