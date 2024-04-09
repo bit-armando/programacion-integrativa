@@ -20,7 +20,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        VideosLabels.createGrid(this); 
+        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3); 
     }
 
    
