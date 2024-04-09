@@ -6,6 +6,8 @@ package com.mycompany.youtube;
 
 import javax.swing.JOptionPane;
 
+
+
 /**
  *
  * @author jesus
@@ -94,6 +96,7 @@ public class VideoView extends javax.swing.JFrame {
         video_title6 = new javax.swing.JLabel();
         nombre_canal = new javax.swing.JLabel();
         nombre_canal1 = new javax.swing.JLabel();
+        likes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -442,6 +445,15 @@ public class VideoView extends javax.swing.JFrame {
         nombre_canal1.setText("Nombre del canal");
         background.add(nombre_canal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
 
+        likes.setForeground(new java.awt.Color(255, 0, 51));
+        likes.setText("likes");
+        likes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                likesActionPerformed(evt);
+            }
+        });
+        background.add(likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, 30, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -516,10 +528,35 @@ public class VideoView extends javax.swing.JFrame {
     }//GEN-LAST:event_label_like1MouseClicked
 
     
+    private boolean isSubscribed = false;
+    
     private void btn_suscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suscribeActionPerformed
-          btn_suscribe.setText("Suscrito");
+         if (isSubscribed) {
+        // Si el usuario ya está suscrito, cambia el texto del botón y marca como no suscrito
+        btn_suscribe.setText("Suscribirse");
+        isSubscribed = false;
+    } else {
+        // Si el usuario no está suscrito, cambia el texto del botón y marca como suscrito
+        btn_suscribe.setText("Suscrito");
+        isSubscribed = true;
+    }
+
     }//GEN-LAST:event_btn_suscribeActionPerformed
 
+
+
+private int likesCounter = 0;
+    
+    private void likesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likesActionPerformed
+       // Aumentar el contador de likes en 1 cada vez que se presione el botón
+    likesCounter++;
+    // Actualizar el texto del contador de likes
+    this.num_likes.setText(String.valueOf(likesCounter));
+    }//GEN-LAST:event_likesActionPerformed
+
+    
+    
+ 
     /**
      * @param args the command line arguments
      */
@@ -582,6 +619,7 @@ public class VideoView extends javax.swing.JFrame {
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
+    private javax.swing.JButton likes;
     private javax.swing.JLabel nombre_canal;
     private javax.swing.JLabel nombre_canal1;
     private javax.swing.JLabel num_dislikes;
