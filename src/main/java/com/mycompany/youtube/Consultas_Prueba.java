@@ -8,7 +8,7 @@ package com.mycompany.youtube;
  *
  * @author jesus
  */
-public class Mavenproject2 {
+public class Consultas_Prueba {
 
     public static void main(String[] args) {
         conectorDB db = new conectorDB();

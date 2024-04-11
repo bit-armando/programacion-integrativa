@@ -546,12 +546,28 @@ public class VideoView extends javax.swing.JFrame {
 
 
 private int likesCounter = 0;
+private boolean likeGiven = false;
     
     private void likesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likesActionPerformed
-       // Aumentar el contador de likes en 1 cada vez que se presione el botón
-    likesCounter++;
-    // Actualizar el texto del contador de likes
-    this.num_likes.setText(String.valueOf(likesCounter));
+    if (!likeGiven) { // Si el usuario aún no ha dado like
+        // Incrementar el contador de likes en 1
+        likesCounter++;
+        // Actualizar el texto del contador de likes
+        this.num_likes.setText(String.valueOf(likesCounter));
+        // Marcar que el usuario ya ha dado like
+        likeGiven = true;
+        // Cambiar el texto del botón a "Quitar Like"
+        likes.setText("Quitar Like");
+    } else { // Si el usuario ya ha dado like
+        // Decrementar el contador de likes en 1
+        likesCounter--;
+        // Actualizar el texto del contador de likes
+        this.num_likes.setText(String.valueOf(likesCounter));
+        // Marcar que el usuario no ha dado like
+        likeGiven = false;
+        // Cambiar el texto del botón a "Dar Like"
+        likes.setText("Dar Like");
+    }
     }//GEN-LAST:event_likesActionPerformed
 
     

@@ -5,6 +5,8 @@
 package com.mycompany.youtube;
 
 import com.mycompany.youtube.utils.VideosLabels;
+
+
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +19,7 @@ public class Suscripcioness extends javax.swing.JFrame {
     public Suscripcioness(String username) {
         this.username = username;
         initComponents();
-        VideosLabels.createGrid(this); 
+//      VideosLabels.createGrid(this); 
     }
     
     /**

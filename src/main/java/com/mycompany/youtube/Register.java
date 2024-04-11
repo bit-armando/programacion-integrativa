@@ -50,7 +50,6 @@ public class Register extends javax.swing.JFrame {
         background.setMaximumSize(new java.awt.Dimension(1080, 720));
         background.setMinimumSize(new java.awt.Dimension(1080, 720));
 
-        icon_home.setIcon(new javax.swing.ImageIcon("C:\\Users\\brand\\OneDrive\\Documentos\\NetBeansProjects\\programacion-integrativa\\src\\main\\java\\icons\\casa.png")); // NOI18N
         icon_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 redirect_icon_home(evt);
