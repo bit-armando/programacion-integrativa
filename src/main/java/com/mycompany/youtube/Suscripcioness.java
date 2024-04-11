@@ -19,7 +19,7 @@ public class Suscripcioness extends javax.swing.JFrame {
     public Suscripcioness(String username) {
         this.username = username;
         initComponents();
-//      VideosLabels.createGrid(this); 
+        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3); //parametros quedan pendientes a modificar
     }
     
     /**

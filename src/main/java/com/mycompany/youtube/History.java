@@ -19,11 +19,11 @@ public class History extends javax.swing.JFrame {
         initComponents();
 
         // Llama al método para obtener y mostrar el historial del usuario
-        mostrarHistorial();
+        //mostrarHistorial();
     }
 
-    // Método para mostrar el historial del usuario en la interfaz de usuario
-    private void mostrarHistorial() {
+    //* Método para mostrar el historial del usuario en la interfaz de usuario
+    /*private void mostrarHistorial() {
         // Verifica si el nombre de usuario es válido
         if (username != null && !username.isEmpty()) {
             // Crea una instancia de la clase conectorDB
@@ -42,7 +42,7 @@ public class History extends javax.swing.JFrame {
         } else {
             System.out.println("Nombre de usuario no válido.");
         }
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
