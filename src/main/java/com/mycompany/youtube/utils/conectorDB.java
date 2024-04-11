@@ -431,13 +431,12 @@ public class conectorDB {
             }
         }
             //Metodo para consultar videos que le gustaron al usuario por ID de usuario y ID de video
-        public void selectLikedVideosList(int usuarioId, int videoId) {
-            String query = "SELECT * FROM likedVideosList WHERE fk_usuario_id = ? AND fk_video_id = ?";
+        public void selectLikedVideosList(int usuarioId) {
+            String query = "SELECT * FROM likedVideosList WHERE fk_usuario_id = ?";
 
             try (Connection conn = conectar();
                  PreparedStatement statement = conn.prepareStatement(query)) {
                 statement.setInt(1, usuarioId);
-                statement.setInt(2, videoId);
 
                 ResultSet resultSet = statement.executeQuery();
 
