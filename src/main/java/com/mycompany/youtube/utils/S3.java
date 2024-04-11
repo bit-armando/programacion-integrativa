@@ -1,6 +1,9 @@
 package com.mycompany.youtube;
 
 import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -9,7 +12,11 @@ import java.io.File;
 public class S3 {
     public static void Upload(String name, String path){
         String bucketName = "yutu-programacion-integrativa";
-        AmazonS3 s3Client = AmazonS3ClientBuilder.defaultClient();
+        BasicAWSCredentials credentials = new BasicAWSCredentials();
+        AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+        .withCredentials(new AWSStaticCredentialsProvider(credentials))
+        .withRegion(Regions.US_EAST_1) // Cambia la región según tus necesidades
+        .build();   
         
         try{
             s3Client.putObject(new PutObjectRequest(bucketName, name, new File(path)));
