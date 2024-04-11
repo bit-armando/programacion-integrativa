@@ -6,6 +6,7 @@ package com.mycompany.youtube;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -248,24 +249,32 @@ public class Upload_video extends javax.swing.JFrame {
         // datos para subir imagen en aws
         String titulo_both = field_name_video.getText();
         String path_img = superpath_img;
-        
-        S3 subir = new S3();
-        subir.Upload(titulo_both, path_img);
+        try{
+            S3 subir = new S3();
+            subir.Upload(titulo_both, path_img);
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, "fallo al subir imagen al s3");
+        }
         
         // datos para subir video en aws
         String path_video = superpath_video;
         
-        subir.Upload(titulo_both, path_video);
+        try{
+            S3 subir = new S3();
+            subir.Upload(titulo_both, path_video);
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, "fallo al subir video al s3");
+        }
         
         //Datos para hacer el insert de video a la db
-        String titulo = field_name_video.getText();
         int id_usuario = 0; // hay que cambiar la variable para que se actualice segun cada usuario
         String descripcion = field_description_video.getText();
-        String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo + ".mp4";
-        String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo + ".jpg";
+        JOptionPane.showMessageDialog(null, "Tu path imagen! " + path_img + " Tu path video! " + path_video);
+        String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_both + ".mp4";
+        String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_both + ".jpg";
         
         conectorDB conn = new conectorDB();
-        conn.insertVideo( titulo, id_usuario, descripcion, url_video, url_img);
+        conn.insertVideo( titulo_both, id_usuario, descripcion, url_video, url_img);
         
     }//GEN-LAST:event_btn_upload_finish_videobtn_create_acc
 
