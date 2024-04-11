@@ -44,6 +44,7 @@ public class VideoView extends javax.swing.JFrame {
             this.number_views.setText(video.getVistas()+" views");
             this.num_likes.setText(String.valueOf(video.getLikes()));
             this.num_dislikes.setText(String.valueOf(video.getDislikes()));
+            this.num_sus.setText(String.valueOf(0));
         } else {
             System.out.println("No se encontró el video con el ID especificado.");
         }
@@ -94,9 +95,10 @@ public class VideoView extends javax.swing.JFrame {
         video_title5 = new javax.swing.JLabel();
         image_video5 = new javax.swing.JPanel();
         video_title6 = new javax.swing.JLabel();
-        nombre_canal = new javax.swing.JLabel();
+        num_sus = new javax.swing.JLabel();
         nombre_canal1 = new javax.swing.JLabel();
         likes = new javax.swing.JButton();
+        dislikes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -266,12 +268,12 @@ public class VideoView extends javax.swing.JFrame {
 
         num_dislikes.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 10)); // NOI18N
         num_dislikes.setForeground(new java.awt.Color(255, 255, 255));
-        num_dislikes.setText("000k");
+        num_dislikes.setText("0");
         background.add(num_dislikes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, -1));
 
         num_likes.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 10)); // NOI18N
         num_likes.setForeground(new java.awt.Color(255, 255, 255));
-        num_likes.setText("000k");
+        num_likes.setText("0");
         background.add(num_likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, -1, -1));
 
         number_views.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
@@ -435,10 +437,10 @@ public class VideoView extends javax.swing.JFrame {
         video_title6.setText("Titulo del Video...");
         background.add(video_title6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 490, -1, -1));
 
-        nombre_canal.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
-        nombre_canal.setForeground(new java.awt.Color(204, 204, 204));
-        nombre_canal.setText("000k Suscriptores");
-        background.add(nombre_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
+        num_sus.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        num_sus.setForeground(new java.awt.Color(204, 204, 204));
+        num_sus.setText("0 Suscriptores");
+        background.add(num_sus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, 10));
 
         nombre_canal1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         nombre_canal1.setForeground(new java.awt.Color(204, 204, 204));
@@ -453,6 +455,15 @@ public class VideoView extends javax.swing.JFrame {
             }
         });
         background.add(likes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, 30, 20));
+
+        dislikes.setForeground(new java.awt.Color(255, 0, 51));
+        dislikes.setText("likes");
+        dislikes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dislikesActionPerformed(evt);
+            }
+        });
+        background.add(dislikes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 30, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -528,19 +539,24 @@ public class VideoView extends javax.swing.JFrame {
     }//GEN-LAST:event_label_like1MouseClicked
 
     
-    private boolean isSubscribed = false;
+  private boolean isSubscribed = false;
+private int subscriberCount = 0;
     
     private void btn_suscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suscribeActionPerformed
-         if (isSubscribed) {
+        if (isSubscribed) {
         // Si el usuario ya está suscrito, cambia el texto del botón y marca como no suscrito
         btn_suscribe.setText("Suscribirse");
         isSubscribed = false;
+        subscriberCount = 0; // Actualiza el contador de suscriptores
     } else {
         // Si el usuario no está suscrito, cambia el texto del botón y marca como suscrito
         btn_suscribe.setText("Suscrito");
         isSubscribed = true;
+        subscriberCount = 1; // Actualiza el contador de suscriptores
     }
-
+    
+    // Actualiza el texto del contador de suscriptores
+    this.num_sus.setText(String.valueOf(subscriberCount)+ " suscriptores");
     }//GEN-LAST:event_btn_suscribeActionPerformed
 
 
@@ -549,14 +565,16 @@ private int likesCounter = 0;
 private boolean likeGiven = false;
     
     private void likesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likesActionPerformed
-    if (!likeGiven) { // Si el usuario aún no ha dado like
+     if (!likeGiven) { // Si el usuario aún no ha dado like
         // Incrementar el contador de likes en 1
         likesCounter++;
         // Actualizar el texto del contador de likes
         this.num_likes.setText(String.valueOf(likesCounter));
         // Marcar que el usuario ya ha dado like
         likeGiven = true;
-        // Cambiar el texto del botón a "Quitar Like"
+        // Desactivar el botón de dislike
+        dislikes.setEnabled(false);
+        // Cambiar el texto del botón de likes a "Quitar Like"
         likes.setText("Quitar Like");
     } else { // Si el usuario ya ha dado like
         // Decrementar el contador de likes en 1
@@ -565,10 +583,41 @@ private boolean likeGiven = false;
         this.num_likes.setText(String.valueOf(likesCounter));
         // Marcar que el usuario no ha dado like
         likeGiven = false;
-        // Cambiar el texto del botón a "Dar Like"
+        // Activar el botón de dislike
+        dislikes.setEnabled(true);
+        // Cambiar el texto del botón de likes a "Dar Like"
         likes.setText("Dar Like");
     }
     }//GEN-LAST:event_likesActionPerformed
+
+private int dislikesCounter = 0;
+private boolean dislikeGiven = false;
+    
+    private void dislikesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dislikesActionPerformed
+        if (!dislikeGiven) { // Si el usuario aún no ha dado dislike
+        // Incrementar el contador de dislikes en 1
+        dislikesCounter++;
+        // Actualizar el texto del contador de dislikes
+        this.num_dislikes.setText(String.valueOf(dislikesCounter));
+        // Marcar que el usuario ya ha dado dislike
+        dislikeGiven = true;
+        // Desactivar el botón de like
+        likes.setEnabled(false);
+        // Cambiar el texto del botón de dislikes a "Quitar Dislike"
+        dislikes.setText("Quitar Dislike");
+    } else { // Si el usuario ya ha dado dislike
+        // Decrementar el contador de dislikes en 1
+        dislikesCounter--;
+        // Actualizar el texto del contador de dislikes
+        this.num_dislikes.setText(String.valueOf(dislikesCounter));
+        // Marcar que el usuario no ha dado dislike
+        dislikeGiven = false;
+        // Activar el botón de like
+        likes.setEnabled(true);
+        // Cambiar el texto del botón de dislikes a "Dar Dislike"
+        dislikes.setText("Dar Dislike");
+    }
+    }//GEN-LAST:event_dislikesActionPerformed
 
     
     
@@ -620,6 +669,7 @@ private boolean likeGiven = false;
     private javax.swing.JTextField busqueda_history;
     private javax.swing.JLabel date_coment;
     private javax.swing.JLabel description_video;
+    private javax.swing.JButton dislikes;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel icon_send_coment;
     private javax.swing.JPanel image_video;
@@ -636,10 +686,10 @@ private boolean likeGiven = false;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
-    private javax.swing.JLabel nombre_canal;
     private javax.swing.JLabel nombre_canal1;
     private javax.swing.JLabel num_dislikes;
     private javax.swing.JLabel num_likes;
+    private javax.swing.JLabel num_sus;
     private javax.swing.JLabel number_coments;
     private javax.swing.JLabel number_views;
     private javax.swing.JTextField textField_coment;
