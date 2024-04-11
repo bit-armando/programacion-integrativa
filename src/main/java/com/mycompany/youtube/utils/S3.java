@@ -12,7 +12,7 @@ import java.io.File;
 public class S3 {
     public static void Upload(String name, String path){
         String bucketName = "yutu-programacion-integrativa";
-        BasicAWSCredentials credentials = new BasicAWSCredentials();
+        BasicAWSCredentials credentials = new BasicAWSCredentials("", "");
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
         .withCredentials(new AWSStaticCredentialsProvider(credentials))
         .withRegion(Regions.US_EAST_1) // Cambia la región según tus necesidades

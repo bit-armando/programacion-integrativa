@@ -247,11 +247,13 @@ public class Upload_video extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         // datos para subir imagen en aws
-        String titulo_both = field_name_video.getText();
+        String titulo_img = field_name_video.getText() + ".jpg";
+        String titulo_vid = field_name_video.getText() + ".mp4";
+        String titulo = field_name_video.getText();
         String path_img = superpath_img;
         try{
             S3 subir = new S3();
-            subir.Upload(titulo_both, path_img);
+            subir.Upload(titulo_img, path_img);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "fallo al subir imagen al s3");
         }
@@ -261,7 +263,7 @@ public class Upload_video extends javax.swing.JFrame {
         
         try{
             S3 subir = new S3();
-            subir.Upload(titulo_both, path_video);
+            subir.Upload(titulo_vid, path_video);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "fallo al subir video al s3");
         }
@@ -270,11 +272,11 @@ public class Upload_video extends javax.swing.JFrame {
         int id_usuario = 0; // hay que cambiar la variable para que se actualice segun cada usuario
         String descripcion = field_description_video.getText();
         JOptionPane.showMessageDialog(null, "Tu path imagen! " + path_img + " Tu path video! " + path_video);
-        String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_both + ".mp4";
-        String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_both + ".jpg";
+        String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_vid;
+        String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_img;
         
         conectorDB conn = new conectorDB();
-        conn.insertVideo( titulo_both, id_usuario, descripcion, url_video, url_img);
+        conn.insertVideo(titulo, 1, descripcion, url_video, url_img);
         
     }//GEN-LAST:event_btn_upload_finish_videobtn_create_acc
 
