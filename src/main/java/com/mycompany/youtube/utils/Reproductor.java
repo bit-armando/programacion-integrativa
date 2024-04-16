@@ -23,6 +23,7 @@ public class Reproductor extends javax.swing.JFrame{
         setTitle("Video JAVA");
         
         setResizable(true);
+        setSize(100,100);
         setLocationRelativeTo(null);
         
         video.setLayout(new BorderLayout());
