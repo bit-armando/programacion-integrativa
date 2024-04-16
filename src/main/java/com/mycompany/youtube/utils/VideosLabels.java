@@ -2,7 +2,7 @@ package com.mycompany.youtube.utils;
 
 import com.mycompany.youtube.Imagen;
 import com.mycompany.youtube.VideoView;
-import com.mycompany.youtube.conectorDB;
+import com.mycompany.youtube.utils.Videos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,6 @@ public class VideosLabels {
         spacey = 90;
         */
         
-        conectorDB db = new conectorDB();
 
         // Dibujar la cuadrícula de JLabels
         for (int i = 0; i < tamy; i++) {
@@ -34,7 +33,8 @@ public class VideosLabels {
 
                 int videoId = i * 4 + j + 1; // Calcula el ID del video
 
-                conectorDB.video video = db.obtenerVideo(videoId);
+                Videos video = new Videos();
+                video.obtenerVideo(videoId);
                 // Obtener la ruta de la imagen del video
                 String imageUrl = video.getRutaImagen();
 
