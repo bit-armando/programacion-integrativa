@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.youtube;
+import com.mycompany.youtube.utils.Videos;
 import javax.swing.JOptionPane;
 
 
@@ -28,8 +29,10 @@ public class VideoView extends javax.swing.JFrame {
     }
     
     public void setVideoId(int videoId) {
-        conectorDB db = new conectorDB();
-        conectorDB.video video = db.obtenerVideo(videoId);
+
+        Videos video = new Videos();
+        video.obtenerVideo(videoId);
+        
         urlVideo=video.getRutaVideo();
         
         
