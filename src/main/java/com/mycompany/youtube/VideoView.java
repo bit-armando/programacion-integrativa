@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.youtube;
-
 import javax.swing.JOptionPane;
 
 
@@ -18,8 +17,6 @@ public class VideoView extends javax.swing.JFrame {
     
     public VideoView() {
         initComponents();
-        Reproductor video = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
-        //Reproductor video = new Reproductor(video_view, urlVideo);
     }
     
     public static void openVideoView(int videoId) {
@@ -33,7 +30,9 @@ public class VideoView extends javax.swing.JFrame {
     public void setVideoId(int videoId) {
         conectorDB db = new conectorDB();
         conectorDB.video video = db.obtenerVideo(videoId);
-
+        urlVideo=video.getRutaVideo();
+        
+        
         // Verificar si se encontró el video
         if (video != null) {
             // Imprimir los datos del video
@@ -45,7 +44,11 @@ public class VideoView extends javax.swing.JFrame {
             this.num_likes.setText(String.valueOf(video.getLikes()));
             this.num_dislikes.setText(String.valueOf(video.getDislikes()));
             this.num_sus.setText(String.valueOf(0));
+            //Video con la id
+            Reproductor reproductor = new Reproductor(video_view, urlVideo);
         } else {
+            //video default al no tener id
+            Reproductor reproductor = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
             System.out.println("No se encontró el video con el ID especificado.");
         }
     }
