@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.youtube;
+import com.mycompany.youtube.utils.User;
 
 import javax.swing.JOptionPane;
 
@@ -42,7 +43,6 @@ public class Log_In extends javax.swing.JFrame {
         icon_home = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1080, 720));
         setSize(new java.awt.Dimension(1080, 720));
 
         background.setBackground(new java.awt.Color(2, 30, 26));
@@ -82,7 +82,6 @@ public class Log_In extends javax.swing.JFrame {
         field_username.setBackground(new java.awt.Color(6, 137, 137));
         field_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_username.setForeground(new java.awt.Color(203, 203, 203));
-        field_username.setText("Username");
         field_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +98,6 @@ public class Log_In extends javax.swing.JFrame {
         field_password.setBackground(new java.awt.Color(6, 137, 137));
         field_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_password.setForeground(new java.awt.Color(203, 203, 203));
-        field_password.setText("Contrasena");
         field_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,24 +217,32 @@ public class Log_In extends javax.swing.JFrame {
         // TODO add your handling code here:
         String username = label_username.getText();
         String password = label_password.getText();
-        if (!username.equals("")||!password.equals("")){
-            try{
-                conectorDB conector = new conectorDB();
-                conector.selectData(username, password);
+        if (!username.equals("") || !password.equals("")) {
+            try {
+                User user = new User(0, username, password, "", 0, "");
+                User login = user.login(username, password);
+                int id = user.getId();
+                String return_username = user.getUsername();
+                String user_img = user.getImg();
+
                 JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
                 
-                sesion.getInstance(username);
-                
-                new Home().setVisible(true);
+                //Hace llamar la clase home para mandarle algunos datos del usuario
+                Home home = new Home();
+                home.setId(id);
+                home.setUsername(return_username);
+                home.setUserImg(user_img);
+                System.out.println("Valor de username: " + return_username);
+
+                //Redirige a la vista de home y oculta la de login
+                home.setVisible(true);
                 this.setVisible(false);
-            } catch(Exception e){
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error al iniciar sesion!");
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Rellena el formulario!");
         }
-        new Home().setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_btn_inicio_sesionActionPerformed
 
     /**

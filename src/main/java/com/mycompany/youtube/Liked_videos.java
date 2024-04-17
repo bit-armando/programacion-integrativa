@@ -16,8 +16,8 @@ public class Liked_videos extends javax.swing.JFrame {
     public Liked_videos(String username) {
         conectorDB Database = new conectorDB();
         this.username = username;
-        int keyUser = Database.obtenerIdUsuarioPorNombre(username);
-        Database.selectLikedVideosList(keyUser);
+//        int keyUser = Database.obtenerIdUsuarioPorNombre(username);
+//        Database.selectLikedVideosList(keyUser);
         initComponents();
     }
 

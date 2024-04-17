@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.youtube;
+import com.mycompany.youtube.utils.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,7 +39,7 @@ public class conectorDB {
                 }
             }
         }
-        
+            
         public void selectData(String nombre, String contrasena) {
             String selectQuery = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasena = ?";
             String username = nombre;

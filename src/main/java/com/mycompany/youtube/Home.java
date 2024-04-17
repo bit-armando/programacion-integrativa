@@ -14,13 +14,15 @@ import java.awt.*;
  * @author refil
  */
 public class Home extends javax.swing.JFrame {
-
+    private int id = 0;
+    private String username = null;
+    private String user_img = null;
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
-        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3); 
+        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3);
     }
 
    
@@ -215,16 +217,26 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //Metodos para simular login
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setUserImg(String user_img) {
+        this.user_img = user_img;
+    }
+    
     private void busqueda_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqueda_historyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_busqueda_historyActionPerformed
 
     private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
         // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
+        if(username != null) {
             new Liked_videos(username).setVisible(true);
             this.setVisible(false);
         } else {
@@ -235,9 +247,7 @@ public class Home extends javax.swing.JFrame {
 
     private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
         // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
+        if(username != null) {
             new History(username).setVisible(true);
             this.setVisible(false);
         } else {
@@ -249,9 +259,7 @@ public class Home extends javax.swing.JFrame {
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
         // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
+        if(username != null) {
             new Suscripcioness(username).setVisible(true);
             this.setVisible(false);
         } else {
@@ -275,11 +283,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_label_like1MouseClicked
 
     private void print_user(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_print_user
-        // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
-            JOptionPane.showMessageDialog(null, username);
+        if(username != null) {
+            JOptionPane.showMessageDialog(null, this.username);
+            System.out.println("Valor de username: " + this.username);
+
         } else {
             // Caso en que no hay una sesión iniciada
             JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
