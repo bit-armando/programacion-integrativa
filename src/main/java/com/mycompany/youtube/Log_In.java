@@ -215,8 +215,8 @@ public class Log_In extends javax.swing.JFrame {
 
     private void btn_inicio_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_sesionActionPerformed
         // TODO add your handling code here:
-        String username = label_username.getText();
-        String password = label_password.getText();
+        String username = field_username.getText();
+        String password = field_password.getText();
         if (!username.equals("") || !password.equals("")) {
             try {
                 User user = new User(0, username, password, "", 0, "");
