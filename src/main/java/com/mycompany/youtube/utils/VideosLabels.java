@@ -3,6 +3,7 @@ package com.mycompany.youtube.utils;
 import com.mycompany.youtube.Imagen;
 import com.mycompany.youtube.VideoView;
 import com.mycompany.youtube.utils.Videos;
+import com.mycompany.youtube.utils.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,14 +16,12 @@ public class VideosLabels {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
 
-        // Obtener los primeros 12 videos
         Videos videos = new Videos();
         ArrayList<Videos> primerosVideos = videos.obtenerPrimerosVideos(tamx * tamy);
 
-        // Iterar sobre los primeros 12 videos
         int index = 0;
         for (Videos video : primerosVideos) {
-            if (index >= 12) {
+            if (index >= tamx * tamy) {
                 break; // Salir del bucle si ya se han obtenido los primeros 12 videos
             }
 
@@ -32,7 +31,6 @@ public class VideosLabels {
             int x = startX + (labelWidth + spacex) * col;
             int y = startY + (labelHeight + spacey) * row;
 
-            // Resto del código para crear y mostrar el JLabel para el video
             // Obtener la ruta de la imagen del video
             String imageUrl = video.getRutaImagen();
 
@@ -56,16 +54,21 @@ public class VideosLabels {
                         frame.setVisible(false);
                     }
                 });
-
-                // Obtener la ruta de la imagen del usuario del video
-                int userId = video.getIdUsuario();
-                //String userImageUrl = db.obtenerImagenUsuario(userId);
                 
-                String userImageUrl = "https://t3.ftcdn.net/jpg/05/14/18/46/360_F_514184651_W5rVCabKKRH6H3mVb62jYWfuXio8c8si.jpg";
-
+                User user = new User();
+                user.obtenerUser(video.getIdUsuario());
+                
                 // Verificar si se encontró la ruta de la imagen del usuario
+                String userImageUrl = user.getImg();
                 if (!userImageUrl.isEmpty()) {
                     // Crear un nuevo JLabel para la imagen del usuario
+                    JLabel labelUser = new JLabel();
+                    labelUser.setBounds(x, y + labelHeight, 30, 30);  // Colocar a la derecha del video
+                    new Imagen(labelUser, userImageUrl);
+                    panel.add(labelUser);
+                    panel.setComponentZOrder(labelUser, 0);
+                }else{
+                    userImageUrl = "https://t3.ftcdn.net/jpg/05/14/18/46/360_F_514184651_W5rVCabKKRH6H3mVb62jYWfuXio8c8si.jpg";
                     JLabel labelUser = new JLabel();
                     labelUser.setBounds(x, y + labelHeight, 30, 30);  // Colocar a la derecha del video
                     new Imagen(labelUser, userImageUrl);
@@ -82,6 +85,23 @@ public class VideosLabels {
                 labelVideoName.setFont(new Font(font.getName(), Font.BOLD, 14)); // Aumentar tamaño de la tipografía
                 panel.add(labelVideoName);
                 panel.setComponentZOrder(labelVideoName, 0);
+                
+                
+                // Crear un nuevo JLabel para el nombre del usuario
+                
+                
+                
+                
+                
+                
+                JLabel labelUserName = new JLabel(user.getUsername() ); // Cambia obtenerNombreUsuario(userId) por el método real que obtiene el nombre de usuario
+                labelUserName.setBounds(x + 35, y + labelHeight + 20, labelWidth + 30, 20); // Colocar debajo del nombre del video
+                labelUserName.setHorizontalAlignment(SwingConstants.LEFT); // Alinear a la izquierda
+                labelUserName.setForeground(Color.WHITE); // Color blanco
+                labelUserName.setFont(new Font(font.getName(), Font.BOLD, 12)); // Aumentar tamaño de la tipografía
+                panel.add(labelUserName);
+                panel.setComponentZOrder(labelUserName, 0);
+                
             } else {
                 System.out.println("No se encontró el video con el ID especificado.");
             }

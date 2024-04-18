@@ -32,8 +32,17 @@ public class User {
         this.tot_vid = tot_vid;
         this.url_img = url_img;
     }
-
-    public User obtenerUser(int userId) {
+    
+    public User() {
+        this.id = 0;
+        this.username = "";
+        this.email = "";
+        this.pass = "";
+        this.tot_vid = 0;
+        this.url_img = "";
+    }
+    
+    public void obtenerUser(int userId) {
         String query = "SELECT * FROM usuario WHERE usuario_id = ?";
         User user = null;
         conectorDB conexion = new conectorDB();
@@ -50,16 +59,24 @@ public class User {
                 int tot_vid = resultSet.getInt("total_video");
                 String img_user = resultSet.getString("imagen_usuario");
 
-                user = new User(id, username, email, pass, tot_vid, img_user);
+                this.id=id;
+                this.username=username;
+                this.email=email;
+                this.pass=pass;
+                this.tot_vid=tot_vid;
+                this.url_img=img_user;
             } else {
                 // Retorna un objeto user vacío si no se encuentra ningún user con el ID proporcionado
-                user = new User(0, "", "", "", 0, "");
+                this.id=0;
+                this.username="";
+                this.email="";
+                this.pass="";
+                this.tot_vid=0;
+                this.url_img="";
             }
         } catch (SQLException ex) {
             System.err.println("Error al obtener el usuario: " + ex.getMessage());
         }
-
-        return user;
     }
 
     public User login(String username, String password) {
