@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -204,5 +206,36 @@ public class Videos {
         } catch (SQLException ex) {
             System.err.println("Error al obtener el video: " + ex.getMessage());
         }
+    }
+    
+     public ArrayList<Videos> obtenerPrimerosVideos(int cantidad) {
+        ArrayList<Videos> primerosVideos = new ArrayList<>();
+        String query = "SELECT * FROM videos ORDER BY video_id LIMIT "+cantidad;
+        conectorDB data = new conectorDB();
+
+        try (Connection conn = data.conectar();
+             Statement statement = conn.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("video_id");
+                String titulo = resultSet.getString("titulo");
+                String descripcion = resultSet.getString("descripcion");
+                String rutaVideo = resultSet.getString("ruta_video");
+                String fechaCarga = resultSet.getString("fecha_carga");
+                int vistas = resultSet.getInt("vistas");
+                int likes = resultSet.getInt("likes");
+                int dislikes = resultSet.getInt("dislikes");
+                String rutaImagen = resultSet.getString("ruta_imagen");
+                int idUsuario = resultSet.getInt("fk_usuario_id");
+
+                Videos video = new Videos(id, titulo, descripcion, rutaVideo, fechaCarga, vistas, likes, dislikes, rutaImagen, idUsuario);
+                primerosVideos.add(video);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al obtener los primeros videos: " + ex.getMessage());
+        }
+
+        return primerosVideos;
     }
 }  
