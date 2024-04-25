@@ -228,8 +228,7 @@ public class Videos {
                 int dislikes = resultSet.getInt("dislikes");
                 String rutaImagen = resultSet.getString("ruta_imagen");
                 int idUsuario = resultSet.getInt("fk_usuario_id");
-                System.out.println(idUsuario);
-                
+
                 Videos video = new Videos(id, titulo, descripcion, rutaVideo, fechaCarga, vistas, likes, dislikes, rutaImagen, idUsuario);
                 primerosVideos.add(video);
             }
@@ -238,68 +237,5 @@ public class Videos {
         }
 
         return primerosVideos;
-    }
-    
-    public ArrayList<Videos> obtenerUsuarioVideos(int cantidad, int id_user) {
-        ArrayList<Videos> usuariovideo = new ArrayList<>();
-        String query = "SELECT * FROM videos WHERE fk_usuario_id = "+id_user+" ORDER BY video_id LIMIT "+cantidad;
-        conectorDB data = new conectorDB();
-
-        try (Connection conn = data.conectar();
-             Statement statement = conn.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("video_id");
-                String titulo = resultSet.getString("titulo");
-                String descripcion = resultSet.getString("descripcion");
-                String rutaVideo = resultSet.getString("ruta_video");
-                String fechaCarga = resultSet.getString("fecha_carga");
-                int vistas = resultSet.getInt("vistas");
-                int likes = resultSet.getInt("likes");
-                int dislikes = resultSet.getInt("dislikes");
-                String rutaImagen = resultSet.getString("ruta_imagen");
-                int idUsuario = resultSet.getInt("fk_usuario_id");
-                
-                Videos video = new Videos(id, titulo, descripcion, rutaVideo, fechaCarga, vistas, likes, dislikes, rutaImagen, idUsuario);
-                usuariovideo.add(video);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Error al obtener los primeros videos: " + ex.getMessage());
-        }
-
-        return usuariovideo;
-    }
-    
-     
-    public ArrayList<Videos> obtenerVideosAleatorios(int cantidad) {
-        ArrayList<Videos> videoaleatorio = new ArrayList<>();
-        String query = "SELECT * FROM videos ORDER BY RAND() LIMIT "+ cantidad;
-        conectorDB data = new conectorDB();
-
-        try (Connection conn = data.conectar();
-             Statement statement = conn.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("video_id");
-                String titulo = resultSet.getString("titulo");
-                String descripcion = resultSet.getString("descripcion");
-                String rutaVideo = resultSet.getString("ruta_video");
-                String fechaCarga = resultSet.getString("fecha_carga");
-                int vistas = resultSet.getInt("vistas");
-                int likes = resultSet.getInt("likes");
-                int dislikes = resultSet.getInt("dislikes");
-                String rutaImagen = resultSet.getString("ruta_imagen");
-                int idUsuario = resultSet.getInt("fk_usuario_id");
-                
-                Videos video = new Videos(id, titulo, descripcion, rutaVideo, fechaCarga, vistas, likes, dislikes, rutaImagen, idUsuario);
-                videoaleatorio.add(video);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Error al obtener los primeros videos: " + ex.getMessage());
-        }
-
-        return videoaleatorio;
     }
 }  
