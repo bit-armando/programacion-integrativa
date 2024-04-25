@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -33,21 +34,21 @@ public class Reproductor extends javax.swing.JFrame{
     
     private void createScene(String videoUrl){
         Platform.runLater(() -> {
-            MediaPlayer mediaPlayer = new MediaPlayer(new Media(videoUrl));
+            this.mediaPlayer = new MediaPlayer(new Media(videoUrl));
             
             jfxPanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
-            mediaPlayer.setVolume(0.3);
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            mediaPlayer.play();
+            this.mediaPlayer.setVolume(0.3);
+            this.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            this.mediaPlayer.play();
         });
     }
     
     // Metodo para pausar o reproducir el video
     public void togglePlayPause() {
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-            mediaPlayer.pause();
+        if (this.mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            this.mediaPlayer.pause();
         } else {
-            mediaPlayer.play();
+            this.mediaPlayer.play();
         }
     }
 }
