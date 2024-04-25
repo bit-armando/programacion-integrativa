@@ -17,7 +17,7 @@ public class VideosLabels {
         JPanel panel = (JPanel) frame.getContentPane();
 
         Videos videos = new Videos();
-        ArrayList<Videos> primerosVideos = videos.obtenerPrimerosVideos(tamx * tamy);
+        ArrayList<Videos> primerosVideos = videos.obtenerVideosAleatorios(tamx * tamy);
 
         int index = 0;
         for (Videos video : primerosVideos) {
@@ -78,7 +78,7 @@ public class VideosLabels {
 
                 // Crear un nuevo JLabel para el nombre del video
                 JLabel labelVideoName = new JLabel(video.getTitulo());
-                labelVideoName.setBounds(x + 35, y + labelHeight + 5, labelWidth + 30, 20); // Colocar debajo del video
+                labelVideoName.setBounds(x + 35, y + labelHeight, labelWidth + 30, 20); // Colocar debajo del video
                 labelVideoName.setHorizontalAlignment(SwingConstants.LEFT); // Alinear a la izquierda
                 labelVideoName.setForeground(Color.WHITE); // Color blanco
                 Font font = labelVideoName.getFont();
@@ -95,12 +95,28 @@ public class VideosLabels {
                 
                 
                 JLabel labelUserName = new JLabel(user.getUsername() ); // Cambia obtenerNombreUsuario(userId) por el método real que obtiene el nombre de usuario
-                labelUserName.setBounds(x + 35, y + labelHeight + 20, labelWidth + 30, 20); // Colocar debajo del nombre del video
+                labelUserName.setBounds(x + 35, y + labelHeight + 15, labelWidth + 30, 20); // Colocar debajo del nombre del video
                 labelUserName.setHorizontalAlignment(SwingConstants.LEFT); // Alinear a la izquierda
-                labelUserName.setForeground(Color.WHITE); // Color blanco
-                labelUserName.setFont(new Font(font.getName(), Font.BOLD, 12)); // Aumentar tamaño de la tipografía
+                labelUserName.setForeground(Color.GRAY); // Color blanco
+                labelUserName.setFont(new Font(font.getName(), Font.BOLD, 10)); // Aumentar tamaño de la tipografía
                 panel.add(labelUserName);
                 panel.setComponentZOrder(labelUserName, 0);
+                
+                
+                // Crear un nuevo JLabel para la fecha de creacion de video.
+                
+                
+                
+                
+                
+                
+                JLabel labelDateVideo = new JLabel(video.getFechaCarga() ); // Cambia obtenerNombreUsuario(userId) por el método real que obtiene el nombre de usuario
+                labelDateVideo.setBounds(x + 35, y + labelHeight + 30, labelWidth + 30, 20); // Colocar debajo del nombre del video
+                labelDateVideo.setHorizontalAlignment(SwingConstants.LEFT); // Alinear a la izquierda
+                labelDateVideo.setForeground(Color.WHITE); // Color blanco
+                labelDateVideo.setFont(new Font(font.getName(), Font.BOLD, 12)); // Aumentar tamaño de la tipografía
+                panel.add(labelDateVideo);
+                panel.setComponentZOrder(labelDateVideo, 0);
                 
             } else {
                 System.out.println("No se encontró el video con el ID especificado.");
