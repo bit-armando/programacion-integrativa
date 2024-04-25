@@ -5,7 +5,7 @@
 package com.mycompany.youtube;
 import com.mycompany.youtube.utils.Videos;
 import javax.swing.JOptionPane;
-
+import java.awt.event.MouseListener;
 
 
 /**
@@ -86,7 +86,7 @@ public class VideoView extends javax.swing.JFrame {
         bg_description = new javax.swing.JPanel();
         description_video = new javax.swing.JLabel();
         number_coments = new javax.swing.JLabel();
-        textField_coment = new javax.swing.JTextField();
+        Lista_de_comentarios = new javax.swing.JTextField();
         date_coment = new javax.swing.JLabel();
         username_coments = new javax.swing.JLabel();
         icon_send_coment = new javax.swing.JLabel();
@@ -102,9 +102,11 @@ public class VideoView extends javax.swing.JFrame {
         image_video5 = new javax.swing.JPanel();
         video_title6 = new javax.swing.JLabel();
         num_sus = new javax.swing.JLabel();
-        nombre_canal1 = new javax.swing.JLabel();
         likes = new javax.swing.JButton();
         dislikes = new javax.swing.JButton();
+        Enviar_comentario = new javax.swing.JButton();
+        Comentario_enviado = new javax.swing.JTextField();
+        nombre_canal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -330,12 +332,16 @@ public class VideoView extends javax.swing.JFrame {
         number_coments.setText("000k comentarios");
         background.add(number_coments, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, -1, -1));
 
-        textField_coment.setBackground(new java.awt.Color(0, 94, 93));
-        textField_coment.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
-        textField_coment.setForeground(new java.awt.Color(255, 255, 255));
-        textField_coment.setText("Agregar un comentario.");
-        textField_coment.setBorder(null);
-        background.add(textField_coment, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 390, 30));
+        Lista_de_comentarios.setBackground(new java.awt.Color(0, 94, 93));
+        Lista_de_comentarios.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        Lista_de_comentarios.setForeground(new java.awt.Color(255, 255, 255));
+        Lista_de_comentarios.setBorder(null);
+        Lista_de_comentarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Lista_de_comentariosActionPerformed(evt);
+            }
+        });
+        background.add(Lista_de_comentarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 390, 30));
 
         date_coment.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         date_coment.setForeground(new java.awt.Color(255, 255, 255));
@@ -448,11 +454,6 @@ public class VideoView extends javax.swing.JFrame {
         num_sus.setText("0 Suscriptores");
         background.add(num_sus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, 10));
 
-        nombre_canal1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
-        nombre_canal1.setForeground(new java.awt.Color(204, 204, 204));
-        nombre_canal1.setText("Nombre del canal");
-        background.add(nombre_canal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
-
         likes.setForeground(new java.awt.Color(255, 0, 51));
         likes.setText("likes");
         likes.addActionListener(new java.awt.event.ActionListener() {
@@ -470,6 +471,23 @@ public class VideoView extends javax.swing.JFrame {
             }
         });
         background.add(dislikes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 30, 20));
+
+        Enviar_comentario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Enviar_comentarioActionPerformed(evt);
+            }
+        });
+        background.add(Enviar_comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 640, 30, 30));
+
+        Comentario_enviado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Comentario_enviadoActionPerformed(evt);
+            }
+        });
+        background.add(Comentario_enviado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 680, 460, 30));
+
+        nombre_canal.setText("nombre del cnal");
+        background.add(nombre_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -625,6 +643,66 @@ private boolean dislikeGiven = false;
     }
     }//GEN-LAST:event_dislikesActionPerformed
 
+    private String comentarioEnviado;
+private int numeroComentarios = 0;
+    
+    private void Lista_de_comentariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_de_comentariosActionPerformed
+     // Este método se llama cuando se presiona Enter en el campo Lista_de_comentarios
+    EnviarComentario(); // Llama al método para enviar el comentario
+    }//GEN-LAST:event_Lista_de_comentariosActionPerformed
+
+     private void EnviarComentario() {
+    // Guardar el comentario en la variable comentarioEnviado
+    comentarioEnviado = Lista_de_comentarios.getText();
+    // Deshabilitar la edición del campo Comentario_enviado
+    Comentario_enviado.setEditable(false);
+    // Mostrar el comentario enviado en el campo Comentario_enviado
+    Comentario_enviado.setText(comentarioEnviado);
+    // Incrementar el número de comentarios
+    numeroComentarios++;
+    // Mostrar el número actualizado de comentarios
+    this.number_coments.setText(String.valueOf(numeroComentarios) + " comentarios ");
+    // Limpiar el campo de comentarios
+    Lista_de_comentarios.setText("");
+}
+    
+    
+    private void Comentario_enviadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comentario_enviadoActionPerformed
+          // Guardar el comentario en la variable comentarioEnviado
+    comentarioEnviado = Lista_de_comentarios.getText();
+    // Mostrar el comentario enviado en el campo Comentario_enviado
+    Comentario_enviado.setText(comentarioEnviado);
+    // Limpiar el campo de comentarios
+    Lista_de_comentarios.setText("");
+
+    // Deshabilitar la edición del campo Comentario_enviado
+    Comentario_enviado.setEditable(false);
+    // Deshabilitar el enfoque del campo Comentario_enviado
+    Comentario_enviado.setFocusable(false);
+    // Deshabilitar cualquier acción de ratón en el campo Comentario_enviado
+    Comentario_enviado.setEnabled(false);
+    // Eliminar cualquier oyente de ratón en el campo Comentario_enviado
+    for (MouseListener listener : Comentario_enviado.getMouseListeners()) {
+        Comentario_enviado.removeMouseListener(listener);
+    }
+    }//GEN-LAST:event_Comentario_enviadoActionPerformed
+
+    private void Enviar_comentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Enviar_comentarioActionPerformed
+    // Guardar el comentario en la variable comentarioEnviado
+    comentarioEnviado = Lista_de_comentarios.getText();
+    // Deshabilitar la edición del campo Comentario_enviado
+    Comentario_enviado.setEditable(false);
+    // Mostrar el comentario enviado en el campo Comentario_enviado
+    Comentario_enviado.setText(comentarioEnviado);
+    // Incrementar el número de comentarios
+    numeroComentarios++;
+    // Mostrar el número actualizado de comentarios
+    this.number_coments.setText(String.valueOf(numeroComentarios) + " comentarios ");
+    // Agregar comentario automáticamente positivo
+    String comentarioPositivo = "  ";
+    Lista_de_comentarios.setText(comentarioPositivo);
+    }//GEN-LAST:event_Enviar_comentarioActionPerformed
+
     
     
  
@@ -667,6 +745,9 @@ private boolean dislikeGiven = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Comentario_enviado;
+    private javax.swing.JButton Enviar_comentario;
+    private javax.swing.JTextField Lista_de_comentarios;
     private javax.swing.JPanel background;
     private javax.swing.JPanel bg_cabecera;
     private javax.swing.JPanel bg_description;
@@ -692,13 +773,12 @@ private boolean dislikeGiven = false;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
-    private javax.swing.JLabel nombre_canal1;
+    private javax.swing.JButton nombre_canal;
     private javax.swing.JLabel num_dislikes;
     private javax.swing.JLabel num_likes;
     private javax.swing.JLabel num_sus;
     private javax.swing.JLabel number_coments;
     private javax.swing.JLabel number_views;
-    private javax.swing.JTextField textField_coment;
     private javax.swing.JLabel username_coments;
     private javax.swing.JLabel video_title;
     private javax.swing.JLabel video_title1;
