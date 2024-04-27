@@ -3,20 +3,46 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.youtube;
+import com.mycompany.youtube.utils.User;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author brand
  */
 public class Edit_user extends javax.swing.JFrame {
-
+    private static int id;
+    String username;
+    String img_user;
     /**
      * Creates new form Register
      */
-    public Edit_user() {
+    
+    public Edit_user(int id) {
         initComponents();
+        this.id = id;
+        
+        User user = getUserData();
+        setImage(user);
+        setUsername(user);
+        JOptionPane.showMessageDialog(null, "Usuario cargado " + this.id);
+        new Imagen(icon_user, img_user);
+        label_username.setText("Username actual: " + username);
     }
-
+    
+    private User getUserData() {
+        User user = new User();
+        user.obtenerUser(id);
+        
+        return user;
+    }
+    private void setImage(User user){
+        this.img_user = user.getImg();
+    }
+    private void setUsername(User user){
+        this.username = user.getUsername();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +83,6 @@ public class Edit_user extends javax.swing.JFrame {
         background.setMaximumSize(new java.awt.Dimension(1080, 720));
         background.setMinimumSize(new java.awt.Dimension(1080, 720));
 
-        icon_home.setIcon(new javax.swing.ImageIcon("D:\\Programacion\\programacion-integrativa\\src\\main\\java\\icons\\casa.png")); // NOI18N
         icon_home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 redirect_icon_home(evt);
@@ -98,7 +123,6 @@ public class Edit_user extends javax.swing.JFrame {
         field_username.setBackground(new java.awt.Color(6, 137, 137));
         field_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_username.setForeground(new java.awt.Color(203, 203, 203));
-        field_username.setText("Username");
         field_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,8 +200,6 @@ public class Edit_user extends javax.swing.JFrame {
         label_confirm_password.setForeground(new java.awt.Color(203, 203, 203));
         label_confirm_password.setText("Confirmar Contraseña");
         jPanel1.add(label_confirm_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 160, 20));
-
-        icon_user.setIcon(new javax.swing.ImageIcon("D:\\Programacion\\programacion-integrativa\\src\\main\\java\\icons\\user.png")); // NOI18N
         jPanel1.add(icon_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 300, 300));
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -233,6 +255,11 @@ public class Edit_user extends javax.swing.JFrame {
 
     private void btn_upload_image_userbtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_userbtn_create_acc
         // TODO add your handling code here:
+        if (id != 0){
+            JOptionPane.showMessageDialog(null, username + " " + img_user);
+        } else {
+            JOptionPane.showMessageDialog(null, "Variables vacias");
+        }
     }//GEN-LAST:event_btn_upload_image_userbtn_create_acc
 
     private void field_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_passwordActionPerformed
@@ -284,7 +311,7 @@ public class Edit_user extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Edit_user().setVisible(true);
+                new Edit_user(id).setVisible(true);
             }
         });
     }
