@@ -4,6 +4,7 @@
  */
 package com.mycompany.youtube;
 import com.mycompany.youtube.utils.Videos;
+import com.mycompany.youtube.utils.VideosLabels;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseListener;
 
@@ -14,10 +15,12 @@ import java.awt.event.MouseListener;
  */
 public class VideoView extends javax.swing.JFrame {
     
+    Reproductor reproductor;
     String urlVideo;
     
     public VideoView() {
         initComponents();
+        VideosLabels.createGridVertical(this,760,90,130,80,20,20,1,6);
     }
     
     public static void openVideoView(int videoId) {
@@ -48,10 +51,10 @@ public class VideoView extends javax.swing.JFrame {
             this.num_dislikes.setText(String.valueOf(video.getDislikes()));
             this.num_sus.setText(String.valueOf(0));
             //Video con la id
-            Reproductor reproductor = new Reproductor(video_view, urlVideo);
+            this.reproductor = new Reproductor(video_view, urlVideo);
         } else {
             //video default al no tener id
-            Reproductor reproductor = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
+            this.reproductor = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
             System.out.println("No se encontró el video con el ID especificado.");
         }
     }
@@ -77,12 +80,10 @@ public class VideoView extends javax.swing.JFrame {
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
         video_view = new javax.swing.JLabel();
-        video_title = new javax.swing.JLabel();
         btn_suscribe = new javax.swing.JButton();
         num_dislikes = new javax.swing.JLabel();
         num_likes = new javax.swing.JLabel();
         number_views = new javax.swing.JLabel();
-        image_video = new javax.swing.JPanel();
         bg_description = new javax.swing.JPanel();
         description_video = new javax.swing.JLabel();
         number_coments = new javax.swing.JLabel();
@@ -91,22 +92,13 @@ public class VideoView extends javax.swing.JFrame {
         username_coments = new javax.swing.JLabel();
         icon_send_coment = new javax.swing.JLabel();
         video_title1 = new javax.swing.JLabel();
-        image_video1 = new javax.swing.JPanel();
-        video_title2 = new javax.swing.JLabel();
-        image_video2 = new javax.swing.JPanel();
-        video_title3 = new javax.swing.JLabel();
-        image_video3 = new javax.swing.JPanel();
-        video_title4 = new javax.swing.JLabel();
-        image_video4 = new javax.swing.JPanel();
-        video_title5 = new javax.swing.JLabel();
-        image_video5 = new javax.swing.JPanel();
-        video_title6 = new javax.swing.JLabel();
         num_sus = new javax.swing.JLabel();
         likes = new javax.swing.JButton();
         dislikes = new javax.swing.JButton();
         Enviar_comentario = new javax.swing.JButton();
         Comentario_enviado = new javax.swing.JTextField();
-        nombre_canal = new javax.swing.JButton();
+        nombre_del_canal = new javax.swing.JButton();
+        PauseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -258,11 +250,6 @@ public class VideoView extends javax.swing.JFrame {
         video_view.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         background.add(video_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 500, 290));
 
-        video_title.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title.setForeground(new java.awt.Color(255, 255, 255));
-        video_title.setText("Titulo del Video...");
-        background.add(video_title, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 90, -1, -1));
-
         btn_suscribe.setBackground(new java.awt.Color(0, 94, 93));
         btn_suscribe.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         btn_suscribe.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,19 +275,6 @@ public class VideoView extends javax.swing.JFrame {
         number_views.setForeground(new java.awt.Color(255, 255, 255));
         number_views.setText("000k views");
         background.add(number_views, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
-
-        javax.swing.GroupLayout image_videoLayout = new javax.swing.GroupLayout(image_video);
-        image_video.setLayout(image_videoLayout);
-        image_videoLayout.setHorizontalGroup(
-            image_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_videoLayout.setVerticalGroup(
-            image_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, 130, 80));
 
         bg_description.setBackground(new java.awt.Color(0, 94, 93));
 
@@ -359,96 +333,6 @@ public class VideoView extends javax.swing.JFrame {
         video_title1.setText("Titulo del Video.");
         background.add(video_title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
-        javax.swing.GroupLayout image_video1Layout = new javax.swing.GroupLayout(image_video1);
-        image_video1.setLayout(image_video1Layout);
-        image_video1Layout.setHorizontalGroup(
-            image_video1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_video1Layout.setVerticalGroup(
-            image_video1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, -1, -1));
-
-        video_title2.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title2.setForeground(new java.awt.Color(255, 255, 255));
-        video_title2.setText("Titulo del Video...");
-        background.add(video_title2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, -1, -1));
-
-        javax.swing.GroupLayout image_video2Layout = new javax.swing.GroupLayout(image_video2);
-        image_video2.setLayout(image_video2Layout);
-        image_video2Layout.setHorizontalGroup(
-            image_video2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_video2Layout.setVerticalGroup(
-            image_video2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, -1, -1));
-
-        video_title3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title3.setForeground(new java.awt.Color(255, 255, 255));
-        video_title3.setText("Titulo del Video...");
-        background.add(video_title3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, -1, -1));
-
-        javax.swing.GroupLayout image_video3Layout = new javax.swing.GroupLayout(image_video3);
-        image_video3.setLayout(image_video3Layout);
-        image_video3Layout.setHorizontalGroup(
-            image_video3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_video3Layout.setVerticalGroup(
-            image_video3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 390, -1, -1));
-
-        video_title4.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title4.setForeground(new java.awt.Color(255, 255, 255));
-        video_title4.setText("Titulo del Video...");
-        background.add(video_title4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 290, -1, -1));
-
-        javax.swing.GroupLayout image_video4Layout = new javax.swing.GroupLayout(image_video4);
-        image_video4.setLayout(image_video4Layout);
-        image_video4Layout.setHorizontalGroup(
-            image_video4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_video4Layout.setVerticalGroup(
-            image_video4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, -1, -1));
-
-        video_title5.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title5.setForeground(new java.awt.Color(255, 255, 255));
-        video_title5.setText("Titulo del Video...");
-        background.add(video_title5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, -1, -1));
-
-        javax.swing.GroupLayout image_video5Layout = new javax.swing.GroupLayout(image_video5);
-        image_video5.setLayout(image_video5Layout);
-        image_video5Layout.setHorizontalGroup(
-            image_video5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        image_video5Layout.setVerticalGroup(
-            image_video5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        background.add(image_video5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, -1, -1));
-
-        video_title6.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
-        video_title6.setForeground(new java.awt.Color(255, 255, 255));
-        video_title6.setText("Titulo del Video...");
-        background.add(video_title6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 490, -1, -1));
-
         num_sus.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         num_sus.setForeground(new java.awt.Color(204, 204, 204));
         num_sus.setText("0 Suscriptores");
@@ -488,8 +372,23 @@ public class VideoView extends javax.swing.JFrame {
         });
         background.add(Comentario_enviado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 680, 460, 30));
 
-        nombre_canal.setText("nombre del cnal");
-        background.add(nombre_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
+        nombre_del_canal.setText("nombre del cnal");
+        nombre_del_canal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombre_del_canalActionPerformed(evt);
+            }
+        });
+        background.add(nombre_del_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
+
+        PauseButton.setBackground(new java.awt.Color(0, 94, 93));
+        PauseButton.setForeground(new java.awt.Color(255, 255, 255));
+        PauseButton.setText("Pause");
+        PauseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PauseButtonActionPerformed(evt);
+            }
+        });
+        background.add(PauseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -705,7 +604,32 @@ private int numeroComentarios = 0;
     Lista_de_comentarios.setText(comentarioPositivo);
     }//GEN-LAST:event_Enviar_comentarioActionPerformed
 
-    
+    private void PauseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PauseButtonActionPerformed
+        this.reproductor.togglePlayPause();
+    }//GEN-LAST:event_PauseButtonActionPerformed
+
+    private void nombre_del_canalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre_del_canalActionPerformed
+        nombre_del_canal.setOpaque(false);
+    // Generar un nombre aleatorio para simular un nombre de canal de YouTube
+        String nombreAleatorio = generarNombreAleatorio();
+        // Establecer el nombre aleatorio en el botón
+        nombre_del_canal.setText(nombreAleatorio);
+    }//GEN-LAST:event_nombre_del_canalActionPerformed
+
+    private String generarNombreAleatorio() {
+        // Lista de palabras que podrían componer un nombre de canal de YouTube
+       String[] palabras = {"Tech", "Gamer", "Vlogs", "Show", "DIY", "Life", "Travel", "Food", "Music", "Fitness", "Fashion", "Art", "Funny", "Cooking", "Science", "History", "Review", "Tutorial"};
+
+       // Seleccionar dos palabras aleatorias de la lista
+       String palabra1 = palabras[(int)(Math.random() * palabras.length)];
+       String palabra2 = palabras[(int)(Math.random() * palabras.length)];
+
+       // Formar el nombre aleatorio
+       String nombreAleatorio = palabra1 + " " + palabra2;
+
+       return nombreAleatorio;
+
+    }   
     
  
     /**
@@ -750,6 +674,7 @@ private int numeroComentarios = 0;
     private javax.swing.JTextField Comentario_enviado;
     private javax.swing.JButton Enviar_comentario;
     private javax.swing.JTextField Lista_de_comentarios;
+    private javax.swing.JButton PauseButton;
     private javax.swing.JPanel background;
     private javax.swing.JPanel bg_cabecera;
     private javax.swing.JPanel bg_description;
@@ -761,12 +686,6 @@ private int numeroComentarios = 0;
     private javax.swing.JButton dislikes;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel icon_send_coment;
-    private javax.swing.JPanel image_video;
-    private javax.swing.JPanel image_video1;
-    private javax.swing.JPanel image_video2;
-    private javax.swing.JPanel image_video3;
-    private javax.swing.JPanel image_video4;
-    private javax.swing.JPanel image_video5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
@@ -775,20 +694,14 @@ private int numeroComentarios = 0;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
-    private javax.swing.JButton nombre_canal;
+    private javax.swing.JButton nombre_del_canal;
     private javax.swing.JLabel num_dislikes;
     private javax.swing.JLabel num_likes;
     private javax.swing.JLabel num_sus;
     private javax.swing.JLabel number_coments;
     private javax.swing.JLabel number_views;
     private javax.swing.JLabel username_coments;
-    private javax.swing.JLabel video_title;
     private javax.swing.JLabel video_title1;
-    private javax.swing.JLabel video_title2;
-    private javax.swing.JLabel video_title3;
-    private javax.swing.JLabel video_title4;
-    private javax.swing.JLabel video_title5;
-    private javax.swing.JLabel video_title6;
     private javax.swing.JLabel video_view;
     // End of variables declaration//GEN-END:variables
 }
