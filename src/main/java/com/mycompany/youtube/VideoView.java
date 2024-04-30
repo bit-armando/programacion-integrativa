@@ -329,7 +329,7 @@ public class VideoView extends javax.swing.JFrame {
 
         number_coments.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
         number_coments.setForeground(new java.awt.Color(255, 255, 255));
-        number_coments.setText("000k comentarios");
+        number_coments.setText("0 comentarios");
         background.add(number_coments, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, -1, -1));
 
         Lista_de_comentarios.setBackground(new java.awt.Color(0, 94, 93));
@@ -479,6 +479,8 @@ public class VideoView extends javax.swing.JFrame {
         });
         background.add(Enviar_comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 640, 30, 30));
 
+        Comentario_enviado.setBackground(new java.awt.Color(0, 94, 93));
+        Comentario_enviado.setForeground(new java.awt.Color(255, 255, 255));
         Comentario_enviado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Comentario_enviadoActionPerformed(evt);
