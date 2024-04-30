@@ -219,26 +219,38 @@ public class Log_In extends javax.swing.JFrame {
         String password = field_password.getText();
         if (!username.equals("") || !password.equals("")) {
             try {
-                User user = new User(0, username, password, "", 0, "");
-                User login = user.login(username, password);
-                int id = user.getId();
-                String return_username = user.getUsername();
-                String user_img = user.getImg();
-
-                JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
-                
-                //Hace llamar la clase home para mandarle algunos datos del usuario
-                Home home = new Home();
-                home.setId(id);
-                home.setUsername(return_username);
-                home.setUserImg(user_img);
-                System.out.println("Valor de username: " + return_username);
-
-                //Redirige a la vista de home y oculta la de login
-                home.setVisible(true);
-                this.setVisible(false);
+                try{
+                    User user = new User();
+                    user.login(username, password);
+                    int id = user.getId();
+                    String return_username = user.getUsername();
+                    String user_img = user.getImg();
+                    
+                    JOptionPane.showMessageDialog(null, "Inicio sesion correctamente!");
+                    JOptionPane.showMessageDialog(null, "Bienvenido " + return_username);
+                    try{
+                        //Hace llamar la clase home para mandarle algunos datos del usuario
+                        Home home = new Home();
+                        home.setId(id);
+                        home.setUsername(return_username);
+                        home.setUserImg(user_img);
+                        
+                        JOptionPane.showMessageDialog(null, "Redirigiendo a home!");
+                        try{
+                            //Redirige a la vista de home y oculta la de login
+                            home.setVisible(true);
+                            this.setVisible(false);
+                        } catch(Exception e){
+                            JOptionPane.showMessageDialog(null, "Error al cargar home!");
+                        }
+                    } catch(Exception e){
+                        JOptionPane.showMessageDialog(null, "Error al cargar datos en home!");
+                    }
+                } catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Error al inicar sesion");
+                }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al iniciar sesion!");
+                JOptionPane.showMessageDialog(null, "Hubo un problema!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Rellena el formulario!");

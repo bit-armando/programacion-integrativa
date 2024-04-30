@@ -24,14 +24,14 @@ public class User {
     private String url_img;
 
     // Constructor
-    public User(int id, String username, String email, String pass, int tot_vid, String url_img) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.pass = pass;
-        this.tot_vid = tot_vid;
-        this.url_img = url_img;
-    }
+//    public User(int id, String username, String email, String pass, int tot_vid, String url_img) {
+//        this.id = id;
+//        this.username = username;
+//        this.email = email;
+//        this.pass = pass;
+//        this.tot_vid = tot_vid;
+//        this.url_img = url_img;
+//    }
     
     public User() {
         this.id = 0;
@@ -79,7 +79,7 @@ public class User {
         }
     }
 
-    public User login(String username, String password) {
+    public void login(String username, String password) {
         String query = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasena = ?";
         User user = null;
         conectorDB conexion = new conectorDB();
@@ -97,16 +97,24 @@ public class User {
                 int tot_vid = resultSet.getInt("total_video");
                 String img_user = resultSet.getString("imagen_usuario");
 
-                user = new User(id, rUsername, email, rPass, tot_vid, img_user);
+                this.id=id;
+                this.username=username;
+                this.email=email;
+                this.pass=pass;
+                this.tot_vid=tot_vid;
+                this.url_img=img_user;
             } else {
                 // Retorna un objeto user vacío si no se encuentra ningún user con el username y password proporcionados
-                user = new User(0, "", "", "", 0, "");
+                this.id=0;
+                this.username="";
+                this.email="";
+                this.pass="";
+                this.tot_vid=0;
+                this.url_img="";
             }
         } catch (SQLException ex) {
             System.err.println("Error al iniciar sesión: " + ex.getMessage());
         }
-
-        return user;
     }
 
     // Métodos getter para acceder a los datos del usuario

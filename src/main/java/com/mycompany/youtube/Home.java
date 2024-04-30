@@ -14,15 +14,19 @@ import java.awt.*;
  * @author refil
  */
 public class Home extends javax.swing.JFrame {
-    private int id = 0;
-    private String username = null;
-    private String user_img = null;
+    private int id;
+    private String username;
+    private String user_img;
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
         VideosLabels.createGrid(this,260,130,180,120,20,90,4,3);
+        id = 0;
+        username = "";
+        user_img = "";
+        updateUsernameLabel();
     }
 
    
@@ -75,7 +79,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        label_username.setText("jLabel1");
         label_username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 print_user(evt);
@@ -91,8 +94,8 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(label_title)
                 .addGap(167, 167, 167)
                 .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
-                .addComponent(label_username)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
         );
         bg_cabeceraLayout.setVerticalGroup(
@@ -103,7 +106,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(bg_cabeceraLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(bg_cabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label_username)
+                    .addComponent(label_username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(busqueda_history, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -169,7 +172,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(icon_arrow_bl)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_like1)
                     .addComponent(label_history)
@@ -197,7 +200,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(label_history)
                 .addGap(29, 29, 29)
                 .addComponent(label_like)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(85, 85, 85))
         );
@@ -224,10 +227,19 @@ public class Home extends javax.swing.JFrame {
 
     public void setUsername(String username) {
         this.username = username;
+        updateUsernameLabel();
     }
 
     public void setUserImg(String user_img) {
         this.user_img = user_img;
+    }
+    
+    private void updateUsernameLabel(){
+        if (username.isEmpty()){
+            label_username.setText("");
+        } else {
+            label_username.setText(username);
+        }
     }
     
     private void busqueda_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqueda_historyActionPerformed
@@ -283,10 +295,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_label_like1MouseClicked
 
     private void print_user(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_print_user
-        if(username != null) {
-            JOptionPane.showMessageDialog(null, this.username);
-            System.out.println("Valor de username: " + this.username);
-
+        if(username != "") {
+            this.setVisible(false);
+            new Edit_user(id).setVisible(true);
         } else {
             // Caso en que no hay una sesión iniciada
             JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
