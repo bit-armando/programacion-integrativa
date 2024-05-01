@@ -302,4 +302,43 @@ public class Videos {
 
         return videoaleatorio;
     }
+    
+    
+    public ArrayList<Videos> obtenerPrimerosVideosVistosPorUsuario(int cantidad, int idUsuario) {
+        ArrayList<Videos> historial = new ArrayList<>();
+        String query = "SELECT v.* FROM videos v " +
+                       "INNER JOIN historyUser hu ON v.video_id = hu.fk_video_id " +
+                       "WHERE hu.fk_usuario_id = ? " +
+                       "ORDER BY v.video_id DESC " + // Ordenar por ID de video en orden descendente
+                       "LIMIT ?";
+        conectorDB data = new conectorDB();
+
+        try (Connection conn = data.conectar();
+             PreparedStatement statement = conn.prepareStatement(query)) {
+
+            statement.setInt(1, idUsuario);
+            statement.setInt(2, cantidad);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("video_id");
+                    String titulo = resultSet.getString("titulo");
+                    String descripcion = resultSet.getString("descripcion");
+                    String rutaVideo = resultSet.getString("ruta_video");
+                    String fechaCarga = resultSet.getString("fecha_carga");
+                    int vistas = resultSet.getInt("vistas");
+                    int likes = resultSet.getInt("likes");
+                    int dislikes = resultSet.getInt("dislikes");
+                    String rutaImagen = resultSet.getString("ruta_imagen");
+
+                    Videos video = new Videos(id, titulo, descripcion, rutaVideo, fechaCarga, vistas, likes, dislikes, rutaImagen, idUsuario);
+                    historial.add(video);
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al obtener los primeros videos vistos por el usuario: " + ex.getMessage());
+        }
+
+        return historial;
+    }
 }  
