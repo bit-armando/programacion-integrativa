@@ -4,7 +4,10 @@
  */
 package com.mycompany.youtube;
 import com.mycompany.youtube.utils.User;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -14,6 +17,11 @@ public class Edit_user extends javax.swing.JFrame {
     private static int id;
     String username;
     String img_user;
+    String password;
+    String superpath_img = " ";
+    
+    String new_password;
+    String confirm_new_password;
     /**
      * Creates new form Register
      */
@@ -25,9 +33,9 @@ public class Edit_user extends javax.swing.JFrame {
         User user = getUserData();
         setImage(user);
         setUsername(user);
-        JOptionPane.showMessageDialog(null, "Usuario cargado " + this.id);
+        JOptionPane.showMessageDialog(null, "Usuario cargado " + this.id + " " + this.username);
         new Imagen(icon_user, img_user);
-        label_username.setText("Username actual: " + username);
+        label_username.setText("Username actual: " + this.username);
     }
     
     private User getUserData() {
@@ -134,7 +142,7 @@ public class Edit_user extends javax.swing.JFrame {
         label_username.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         label_username.setForeground(new java.awt.Color(203, 203, 203));
         label_username.setText("Username");
-        jPanel1.add(label_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 70, 20));
+        jPanel1.add(label_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 230, 20));
 
         btn_confirm_edit_user.setBackground(new java.awt.Color(63, 225, 176));
         btn_confirm_edit_user.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
@@ -170,7 +178,6 @@ public class Edit_user extends javax.swing.JFrame {
         field_password.setBackground(new java.awt.Color(6, 137, 137));
         field_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_password.setForeground(new java.awt.Color(203, 203, 203));
-        field_password.setText("Contraseña");
         field_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +194,6 @@ public class Edit_user extends javax.swing.JFrame {
         field_confirm_password.setBackground(new java.awt.Color(6, 137, 137));
         field_confirm_password.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         field_confirm_password.setForeground(new java.awt.Color(203, 203, 203));
-        field_confirm_password.setText("Confirmar Contraseña");
         field_confirm_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field_confirm_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,23 +257,91 @@ public class Edit_user extends javax.swing.JFrame {
 
     private void btn_confirm_edit_userbtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_edit_userbtn_create_acc
         // TODO add your handling code here:
+        String newPassword=null;
+        String newUsername=null;
+        String newUserimg=null;
+        
+        //verificar que almenos uno de los datos del usuario se esten actualizando
+        if(field_confirm_password.getText().equals("") && field_confirm_password.getText().equals("") && field_username.getText().equals(" ") && superpath_img.equals("")){
+            JOptionPane.showMessageDialog(null, "Debes actualizar almenos un dato para actualizar!");
+        } else{
+            //actualizar contrasena en caso de tenerlas
+            if (!field_confirm_password.getText().equals("") && !field_confirm_password.getText().equals("")) {
+                if (field_confirm_password.getText().equals(field_confirm_password.getText())) {
+                    newPassword = field_password.getText();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Las contrasenas no coinciden!");
+                }
+            }
+            
+            String path_img = superpath_img;
+            //asignar nuevo valor de username en caso de tenerlo
+            if(!field_username.getText().equals("")){
+                if (!field_username.getText().equals(username)) {
+                    newUsername = field_username.getText();
+                    // datos para subir imagen en aws
+                    if(!path_img.equals(" ") && newUsername != null){
+                        try {
+                            S3 subir = new S3();
+                            subir.Upload(newUsername, path_img);
+                            
+                            JOptionPane.showMessageDialog(null, "Tu path imagen! " + path_img);
+                            newUserimg = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + newUsername;
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, "fallo al subir imagen al s3");
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tu nuevo username es igual anterior!");
+                }
+            } else{
+                if(!path_img.equals("")){
+                    try {
+                        S3 subir = new S3();
+                        subir.Upload(this.username, path_img);
+                        
+                        JOptionPane.showMessageDialog(null, "Tu path imagen! " + path_img);
+                        newUserimg = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + this.username;
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "fallo al subir imagen al s3");
+                    }
+                }
+            }
+
+            
+
+            User user = new User();
+            user.actualizarUser(id, newUsername, newPassword, newUserimg);
+        }
     }//GEN-LAST:event_btn_confirm_edit_userbtn_create_acc
 
     private void btn_upload_image_userbtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_userbtn_create_acc
-        // TODO add your handling code here:
-        if (id != 0){
-            JOptionPane.showMessageDialog(null, username + " " + img_user);
-        } else {
-            JOptionPane.showMessageDialog(null, "Variables vacias");
+        JFileChooser fileChooser = new JFileChooser();
+
+        // Configurar el filtro de archivos
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos JPG", "jpg");
+        fileChooser.setFileFilter(filter);
+
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            superpath_img = selectedFile.getAbsolutePath(); // Obtiene la ruta del archivo
+            String nombre = selectedFile.getName(); //
         }
     }//GEN-LAST:event_btn_upload_image_userbtn_create_acc
 
     private void field_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_passwordActionPerformed
         // TODO add your handling code here:
+        if(!field_password.getText().equals("")){
+            new_password = field_password.getText();
+        }
     }//GEN-LAST:event_field_passwordActionPerformed
 
     private void field_confirm_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_confirm_passwordActionPerformed
         // TODO add your handling code here:
+        if(!field_confirm_password.getText().equals("")){
+            confirm_new_password = field_confirm_password.getText();
+        }
     }//GEN-LAST:event_field_confirm_passwordActionPerformed
 
     private void popupMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popupMenu1ActionPerformed

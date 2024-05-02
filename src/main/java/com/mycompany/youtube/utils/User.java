@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -116,6 +117,48 @@ public class User {
             System.err.println("Error al iniciar sesión: " + ex.getMessage());
         }
     }
+    
+    public void actualizarUser(int userId, String nuevoNombre, String nuevaContrasena, String nuevaImagen) {
+        String query = "UPDATE usuario SET ";
+        ArrayList<String> updates = new ArrayList<>();
+        ArrayList<Object> params = new ArrayList<>();
+
+        if (nuevoNombre != null && !nuevoNombre.trim().isEmpty()) {
+            updates.add("nombre_usuario = ?");
+            params.add(nuevoNombre);
+        }
+
+        if (nuevaContrasena != null && !nuevaContrasena.trim().isEmpty()) {
+            updates.add("contrasena = ?");
+            params.add(nuevaContrasena);
+        }
+
+        if (nuevaImagen != null && !nuevaImagen.trim().isEmpty()) {
+            updates.add("imagen_usuario = ?");
+            params.add(nuevaImagen);
+        }
+
+        query += String.join(", ", updates) + " WHERE usuario_id = ?";
+        params.add(userId);
+
+        conectorDB conexion = new conectorDB();
+        try (Connection conn = conexion.conectar(); PreparedStatement statement = conn.prepareStatement(query)) {
+            for (int i = 0; i < params.size(); i++) {
+                statement.setObject(i + 1, params.get(i));
+            }
+
+            int filasActualizadas = statement.executeUpdate();
+
+            if (filasActualizadas > 0) {
+                System.out.println("Los datos del usuario se han actualizado correctamente.");
+            } else {
+                System.out.println("No se pudo actualizar los datos del usuario.");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al actualizar el usuario: " + ex.getMessage());
+        }
+    }
+
 
     // Métodos getter para acceder a los datos del usuario
     public int getId() {
