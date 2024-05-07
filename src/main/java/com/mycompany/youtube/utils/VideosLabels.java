@@ -81,7 +81,7 @@ public class VideosLabels {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             // Abrir la vista Content_user y pasar la ID del usuario como parámetro
-                            Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                            Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                             frame.setVisible(false);
                         }
                     });
@@ -117,7 +117,7 @@ public class VideosLabels {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         // Abrir la vista Content_user y pasar la ID del usuario como parámetro
-                        Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                        Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                         frame.setVisible(false);
                     }
                 });
@@ -216,7 +216,7 @@ public class VideosLabels {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             // Abrir la vista Content_user y pasar la ID del usuario como parámetro
-                            Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                            Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                             frame.setVisible(false);
                         }
                     });
@@ -252,7 +252,7 @@ public class VideosLabels {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         // Abrir la vista Content_user y pasar la ID del usuario como parámetro
-                        Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                        Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                         frame.setVisible(false);
                     }
                 });
@@ -350,7 +350,7 @@ public class VideosLabels {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             // Abrir la vista VideoView y pasar la ID del video como parámetro
-                            Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                            Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                             frame.setVisible(false);
                         }
                     });
@@ -386,7 +386,7 @@ public class VideosLabels {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         // Abrir la vista Content_user y pasar la ID del usuario como parámetro
-                        Content_user.user_content(user.getId(),user.getImg(),user.getUsername());
+                        Content_user.openVideoView(user.getId(),user.getImg(),user.getUsername());
                         frame.setVisible(false);
                     }
                 });
