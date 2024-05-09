@@ -3,7 +3,6 @@
  */
 
 package com.mycompany.youtube;
-
 /**
  *
  * @author jesus
@@ -36,5 +35,7 @@ public class Consultas_Prueba {
 */
         //db.actualizarImagen(3, "https://images.hola.com/imagenes/mascotas/20221130221948/datos-curiosos-sobre-gatos-dn/1-171-637/datos-curiosidades-gatos-m.jpg");
         //db.insertVideo("ejemplo", 1, "ejemplo", "ejemplo", "https://www.elheraldodechiapas.com.mx/local/z6ot9l-luisito.jpg/ALTERNATES/LANDSCAPE_400/luisito.jpg");
+      
+        
     }
 }

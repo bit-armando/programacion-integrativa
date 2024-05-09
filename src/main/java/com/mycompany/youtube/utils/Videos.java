@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.Date;
 
 
 /**
@@ -341,4 +343,102 @@ public class Videos {
 
         return historial;
     }
-}  
+        public class VideoDAO {
+
+     public void actualizarVista(int videoId, int vista, String usuario) {
+         // Consulta para actualizar las vistas del video
+         String updateQuery = "UPDATE videos SET vista = ? WHERE video_id = ?";
+         // Consulta para insertar un registro de auditoría
+         String auditQuery = "INSERT INTO auditoria_videos (video_id, usuario, fecha_actualizacion) VALUES (?, ?, ?)";
+
+         conectorDB data = new conectorDB(); 
+         try (Connection conn = data.conectar();
+              PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+              PreparedStatement auditStatement = conn.prepareStatement(auditQuery)) {
+
+             // Validar si el video existe
+             if (!videoExists(conn, videoId)) {
+                 System.out.println("No se encontró ningún video con el ID proporcionado.");
+                 return;
+             }
+
+             // Actualizar las vistas del video
+             updateStatement.setInt(1, vista);
+             updateStatement.setInt(2, videoId);
+             int rowsAffected = updateStatement.executeUpdate();
+
+             // Si se actualizan filas, registrar auditoría
+             if (rowsAffected > 0) {
+                 System.out.println("El video se actualizó correctamente.");
+
+                 // Registrar auditoría
+                 auditStatement.setInt(1, videoId);
+                 auditStatement.setString(2, usuario);
+                 auditStatement.setTimestamp(3, new Timestamp(new Date().getTime()));
+                 auditStatement.executeUpdate();
+             } else {
+                 System.out.println("No se encontró ningún video con el ID proporcionado.");
+             }
+         } catch (SQLException ex) {
+             System.err.println("Error al actualizar la vista del video: " + ex.getMessage());
+         }
+     }
+
+ 
+        
+        public void likesactualizar(int videoId, int likes, int dislikes, String usuario) {
+        // Consulta para actualizar los likes y dislikes del video
+        String updateQuery = "UPDATE videos SET likes = ?, dislikes = ? WHERE video_id = ?";
+        // Consulta para insertar un registro de auditoría
+        String auditQuery = "INSERT INTO auditoria_videos (video_id, usuario, fecha_actualizacion) VALUES (?, ?, ?)";
+
+        conectorDB data = new conectorDB();  // Cambia 'conectorDB' por el nombre de tu clase de conexión a la base de datos
+
+        try (Connection conn = data.conectar();
+             PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+             PreparedStatement auditStatement = conn.prepareStatement(auditQuery)) {
+
+            // Validar si el video existe
+            if (!videoExists(conn, videoId)) {
+                System.out.println("No se encontró ningún video con el ID proporcionado.");
+                return;
+            }
+
+            // Actualizar los likes y dislikes del video
+            updateStatement.setInt(1, likes);
+            updateStatement.setInt(2, dislikes);
+            updateStatement.setInt(3, videoId);
+            int rowsAffected = updateStatement.executeUpdate();
+
+            // Si se actualizan filas, registrar auditoría
+            if (rowsAffected > 0) {
+                System.out.println("Los likes y dislikes del video se actualizaron correctamente.");
+
+                // Registrar auditoría
+                auditStatement.setInt(1, videoId);
+                auditStatement.setString(2, usuario);
+                auditStatement.setTimestamp(3, new Timestamp(new Date().getTime()));
+                auditStatement.executeUpdate();
+            } else {
+                System.out.println("No se encontró ningún video con el ID proporcionado.");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al actualizar los likes y dislikes del video: " + ex.getMessage());
+        }
+    }
+    private boolean videoExists(Connection conn, int videoId) throws SQLException {
+         String query = "SELECT COUNT(*) AS count FROM videos WHERE video_id = ?";
+         try (PreparedStatement statement = conn.prepareStatement(query)) {
+             statement.setInt(1, videoId);
+             ResultSet resultSet = statement.executeQuery();
+             if (resultSet.next()) {
+                 int count = resultSet.getInt("count");
+                 return count > 0;
+             }
+         }
+         return false;
+     }
+
+        }
+}
+
