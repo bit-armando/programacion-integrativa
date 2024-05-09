@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 /**
  *
  * @author refil
@@ -39,7 +40,7 @@ public class conectorDB {
                 }
             }
         }
-            
+         
         public void selectData(String nombre, String contrasena) {
             String selectQuery = "SELECT * FROM usuario WHERE nombre_usuario = ? AND contrasena = ?";
             String username = nombre;
@@ -121,6 +122,29 @@ public class conectorDB {
             }
        }
        
+       
+       public ArrayList<String> getUserS3() throws SQLException{
+           ArrayList<String> credential = new ArrayList<>();
+            String query = "select  * from userS3;";
+            
+            try (Connection conn = conectar();
+                 Statement statement = conn.createStatement();
+                 ResultSet resultSet = statement.executeQuery(query)) {
+                
+                while(resultSet.next()) {
+                    credential.add(resultSet.getString("code"));
+                    credential.add(resultSet.getNString("secret"));
+                    
+                    
+                }
+            } catch (SQLException ex) {
+                System.err.println("¡Se produjo una excepción al ejecutar la consulta de selección de datos!");
+                System.err.println(ex.getMessage());
+            }
+            
+            return credential;
+        }
+           
        public void selectVideos() {
         String query = "SELECT * FROM videos";
 

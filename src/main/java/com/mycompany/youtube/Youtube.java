@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import javax.swing.ImageIcon;
 
 
+
 /**
  *
  * @author refil
@@ -22,7 +23,8 @@ public class Youtube {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         System.out.println("Hello World!");
-//        conectorDB sel = new conectorDB("SELECT * FROM usuariotest;");
+        conectorDB sel = new conectorDB();
+        sel.getUserS3();
     }
 }
 //        S3.Upload("perrito.jpg", "C:\\Users\\refil\\Downloads\\perrito.jpg");

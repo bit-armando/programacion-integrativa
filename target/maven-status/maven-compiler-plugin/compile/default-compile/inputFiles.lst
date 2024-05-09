@@ -1,12 +1,13 @@
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Liked_videos.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/User.java
-/home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Edit_user.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/TestVideo.java
+/home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Edit_user.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Suscripcioness.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/Reproductor.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/S3.java
-/home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/History.java
+/home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Content_user.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/sesion.java
+/home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/History.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/Imagen.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/Register.java
 /home/armando/Documentos/programacion-integrativa/src/main/java/com/mycompany/youtube/utils/conectorDB.java
