@@ -23,15 +23,16 @@ public class VideoView extends javax.swing.JFrame {
         VideosLabels.createGridVertical(this,760,90,130,80,20,20,1,6);
     }
     
-    public static void openVideoView(int videoId) {
+    public static void openVideoView(int videoId, int userChannelId ,String usernameChannel,String userChannelImage) {
         java.awt.EventQueue.invokeLater(() -> {
             VideoView videoView = new VideoView();
-            videoView.setVideoId(videoId); // Establecer la ID del video
+            videoView.setVideo(videoId, userChannelId, usernameChannel, userChannelImage); // Establecer la ID del video
+            
             videoView.setVisible(true);
         });
     }
     
-    public void setVideoId(int videoId) {
+    public void setVideo(int videoId, int userChannelId, String usernameChannel, String userChannelImage) {
 
         Videos video = new Videos();
         video.obtenerVideo(videoId);
@@ -49,9 +50,12 @@ public class VideoView extends javax.swing.JFrame {
             this.number_views.setText(video.getVistas()+" views");
             this.num_likes.setText(String.valueOf(video.getLikes()));
             this.num_dislikes.setText(String.valueOf(video.getDislikes()));
-            this.num_sus.setText(String.valueOf(0));
+            this.nombrecanal.setText(String.valueOf(0));
             //Video con la id
             this.reproductor = new Reproductor(video_view, urlVideo);
+            new Imagen(this.userchannelImg, userChannelImage);
+            //username channel
+            this.nombrecanal.setText(usernameChannel);
         } else {
             //video default al no tener id
             this.reproductor = new Reproductor(video_view, "https://yutu-programacion-integrativa.s3.amazonaws.com/2.mp4");
@@ -92,13 +96,14 @@ public class VideoView extends javax.swing.JFrame {
         username_coments = new javax.swing.JLabel();
         icon_send_coment = new javax.swing.JLabel();
         video_title1 = new javax.swing.JLabel();
-        num_sus = new javax.swing.JLabel();
+        nombrecanal = new javax.swing.JLabel();
         likes = new javax.swing.JButton();
         dislikes = new javax.swing.JButton();
         Enviar_comentario = new javax.swing.JButton();
         Comentario_enviado = new javax.swing.JTextField();
-        nombre_del_canal = new javax.swing.JButton();
         PauseButton = new javax.swing.JButton();
+        num_sus1 = new javax.swing.JLabel();
+        userchannelImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1080, 720));
@@ -333,10 +338,10 @@ public class VideoView extends javax.swing.JFrame {
         video_title1.setText("Titulo del Video.");
         background.add(video_title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
-        num_sus.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
-        num_sus.setForeground(new java.awt.Color(204, 204, 204));
-        num_sus.setText("0 Suscriptores");
-        background.add(num_sus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, 10));
+        nombrecanal.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        nombrecanal.setForeground(new java.awt.Color(204, 204, 204));
+        nombrecanal.setText("UserName del canal");
+        background.add(nombrecanal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, -1, 10));
 
         likes.setForeground(new java.awt.Color(255, 0, 51));
         likes.setText("likes");
@@ -372,14 +377,6 @@ public class VideoView extends javax.swing.JFrame {
         });
         background.add(Comentario_enviado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 680, 460, 30));
 
-        nombre_del_canal.setText("nombre del cnal");
-        nombre_del_canal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombre_del_canalActionPerformed(evt);
-            }
-        });
-        background.add(nombre_del_canal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
-
         PauseButton.setBackground(new java.awt.Color(0, 94, 93));
         PauseButton.setForeground(new java.awt.Color(255, 255, 255));
         PauseButton.setText("Pause");
@@ -389,6 +386,14 @@ public class VideoView extends javax.swing.JFrame {
             }
         });
         background.add(PauseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+
+        num_sus1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 12)); // NOI18N
+        num_sus1.setForeground(new java.awt.Color(204, 204, 204));
+        num_sus1.setText("0 Suscriptores");
+        background.add(num_sus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, 10));
+
+        userchannelImg.setText("jLabel1");
+        background.add(userchannelImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -481,7 +486,7 @@ private int subscriberCount = 0;
     }
     
     // Actualiza el texto del contador de suscriptores
-    this.num_sus.setText(String.valueOf(subscriberCount)+ " suscriptores");
+    this.nombrecanal.setText(String.valueOf(subscriberCount)+ " suscriptores");
     }//GEN-LAST:event_btn_suscribeActionPerformed
 
 
@@ -608,14 +613,6 @@ private int numeroComentarios = 0;
         this.reproductor.togglePlayPause();
     }//GEN-LAST:event_PauseButtonActionPerformed
 
-    private void nombre_del_canalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre_del_canalActionPerformed
-        nombre_del_canal.setOpaque(false);
-    // Generar un nombre aleatorio para simular un nombre de canal de YouTube
-        String nombreAleatorio = generarNombreAleatorio();
-        // Establecer el nombre aleatorio en el botón
-        nombre_del_canal.setText(nombreAleatorio);
-    }//GEN-LAST:event_nombre_del_canalActionPerformed
-
     private String generarNombreAleatorio() {
         // Lista de palabras que podrían componer un nombre de canal de YouTube
        String[] palabras = {"Tech", "Gamer", "Vlogs", "Show", "DIY", "Life", "Travel", "Food", "Music", "Fitness", "Fashion", "Art", "Funny", "Cooking", "Science", "History", "Review", "Tutorial"};
@@ -694,12 +691,13 @@ private int numeroComentarios = 0;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
-    private javax.swing.JButton nombre_del_canal;
+    private javax.swing.JLabel nombrecanal;
     private javax.swing.JLabel num_dislikes;
     private javax.swing.JLabel num_likes;
-    private javax.swing.JLabel num_sus;
+    private javax.swing.JLabel num_sus1;
     private javax.swing.JLabel number_coments;
     private javax.swing.JLabel number_views;
+    private javax.swing.JLabel userchannelImg;
     private javax.swing.JLabel username_coments;
     private javax.swing.JLabel video_title1;
     private javax.swing.JLabel video_view;

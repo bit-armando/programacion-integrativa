@@ -19,13 +19,18 @@ public class VideosLabels {
 
         Videos videos = new Videos();
         ArrayList<Videos> primerosVideos = videos.obtenerPrimerosVideos(tamx * tamy);
-
+        
+        
+        
         int index = 0;
         for (Videos video : primerosVideos) {
             if (index >= tamx * tamy) {
                 break; // Salir del bucle si ya se han obtenido los primeros 12 videos
             }
 
+            User user = new User();
+            user.obtenerUser(video.getIdUsuario());
+            
             // Calcular posición en la cuadrícula
             int row = index / tamx;
             int col = index % tamx;
@@ -51,15 +56,14 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId);
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg());
                         frame.setVisible(false);
                     }
                 });
                 
                 
                 
-                User user = new User();
-                user.obtenerUser(video.getIdUsuario());
+                
                 
                 // Verificar si se encontró la ruta de la imagen del usuario
                 String userImageUrl = user.getImg();
@@ -161,6 +165,9 @@ public class VideosLabels {
                 break; // Salir del bucle si ya se han obtenido los primeros 12 videos
             }
 
+            User user = new User();
+            user.obtenerUser(video.getIdUsuario());
+            
             // Calcular posición en la cuadrícula
             int row = index / tamx;
             int col = index % tamx;
@@ -186,15 +193,14 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId);
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(), user.getImg());
                         frame.setVisible(false);
                     }
                 });
                 
                 
                 
-                User user = new User();
-                user.obtenerUser(video.getIdUsuario());
+               
                 
                 // Verificar si se encontró la ruta de la imagen del usuario
                 String userImageUrl = user.getImg();
@@ -297,6 +303,9 @@ public class VideosLabels {
                 break; // Salir del bucle si ya se han obtenido los primeros 12 videos
             }
 
+            User user = new User();
+            user.obtenerUser(video.getIdUsuario());
+            
             // Calcular posición en la cuadrícula
             int row = index / tamx;
             int col = index % tamx;
@@ -322,13 +331,11 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId);
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(), user.getImg());
                         frame.setVisible(false);
                     }
                 });
                 
-                User user = new User();
-                user.obtenerUser(video.getIdUsuario());
                 
                 // Verificar si se encontró la ruta de la imagen del usuario
                 String userImageUrl = user.getImg();
@@ -432,7 +439,9 @@ public class VideosLabels {
             if (index >= tamx * tamy) {
                 break; // Salir del bucle si ya se han obtenido los primeros 12 videos
             }
-
+            
+            User user = new User();
+            user.obtenerUser(video.getIdUsuario());
             // Calcular posición en la cuadrícula
             int row = index / tamx;
             int col = index % tamx;
@@ -458,13 +467,11 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId);
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg());
                         frame.setVisible(false);
                     }
                 });
                 
-                User user = new User();
-                user.obtenerUser(video.getIdUsuario());
                 
                 // Verificar si se encontró la ruta de la imagen del usuario
                 String userImageUrl = user.getImg();
