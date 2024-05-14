@@ -248,7 +248,9 @@ public class Upload_video extends javax.swing.JFrame {
         
         // datos para subir imagen en aws
         String titulo_img = field_name_video.getText() + ".jpg";
+        titulo_img = titulo_img.replace(" ", "+");
         String titulo_vid = field_name_video.getText() + ".mp4";
+        titulo_vid = titulo_vid.replace(" ", "+");
         String titulo = field_name_video.getText();
         String path_img = superpath_img;
         try{

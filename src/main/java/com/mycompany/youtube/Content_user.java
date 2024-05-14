@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Content_user extends javax.swing.JFrame {
     int id_content;
     String username_content;
-    String user_img_conent;
+    String user_img_content;
     
     int id_loged;
     String username_loged;
@@ -24,13 +24,11 @@ public class Content_user extends javax.swing.JFrame {
      */
     public Content_user() {
         initComponents();
-        id_content = 0;
-        username_content = "";
-        user_img_conent = "";
-                
-        id_loged = 0;
-        username_loged = "";
-        user_img_loged = "";
+        JOptionPane.showMessageDialog(null, this.id_content);
+        VideosLabels.createGridContentUser(this,260,200,180,120,20,90,4,3,this.id_content);
+        
+        updateUsernameLabel();
+        updateUserContent();
     }
 
     /**
@@ -40,6 +38,7 @@ public class Content_user extends javax.swing.JFrame {
      */
      public static void openVideoView(int id_content, String user_img, String username_content) {
         java.awt.EventQueue.invokeLater(() -> {
+            JOptionPane.showMessageDialog(null, id_content);
             Content_user content_user = new Content_user();
             content_user.user_content(id_content,user_img,username_content); // Establecer la ID del video
             content_user.setVisible(true);
@@ -47,15 +46,33 @@ public class Content_user extends javax.swing.JFrame {
     }
     
     public void user_content(int id_content, String user_img, String username_content){
+        JOptionPane.showMessageDialog(null, id_content);
         this.id_content = id_content;
+        JOptionPane.showMessageDialog(null, this.id_content);
         this.username_content = username_content;
-        this.user_img_conent = user_img;
+        this.user_img_content = user_img;
     }
     
     public void user_loged(int id_loged, String user_img, String username_loged){
         this.id_loged = id_loged;
         this.user_img_loged = username_loged;
         this.user_img_loged = user_img;
+    }
+    
+    private void updateUserContent(){
+        if (username_content != null){
+            label_content_user.setText("");
+        } else {
+            label_content_user.setText(username_content);
+        }
+    }
+    
+    private void updateUsernameLabel(){
+        if (username_loged != null){
+            label_username.setText("");
+        } else {
+            label_username.setText(username_loged);
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -75,6 +92,8 @@ public class Content_user extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        label_content_user = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -226,6 +245,12 @@ public class Content_user extends javax.swing.JFrame {
         );
 
         background.add(bg_lateral_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 220, 730));
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 100, 100));
+
+        label_content_user.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
+        label_content_user.setForeground(new java.awt.Color(255, 255, 255));
+        label_content_user.setText("Username");
+        background.add(label_content_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 180, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,7 +276,7 @@ public class Content_user extends javax.swing.JFrame {
     }//GEN-LAST:event_label_titleMouseClicked
 
     private void label_usernameprint_user(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_usernameprint_user
-        if(username_loged != "") {
+        if(username_loged != null) {
             this.setVisible(false);
             new Edit_user(id_loged).setVisible(true);
         } else {
@@ -344,7 +369,9 @@ public class Content_user extends javax.swing.JFrame {
     private javax.swing.JPanel bg_lateral_view;
     private javax.swing.JTextField busqueda_history;
     private javax.swing.JLabel icon_arrow_bl;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel label_content_user;
     private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
     private javax.swing.JLabel label_like;
