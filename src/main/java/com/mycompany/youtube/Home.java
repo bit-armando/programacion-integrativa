@@ -52,6 +52,8 @@ public class Home extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
+        upload_video = new javax.swing.JLabel();
+        label_login = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1080, 720));
@@ -160,6 +162,24 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        upload_video.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        upload_video.setForeground(new java.awt.Color(255, 255, 255));
+        upload_video.setText("Subir video");
+        upload_video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                upload_videoMouseClicked(evt);
+            }
+        });
+
+        label_login.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_login.setForeground(new java.awt.Color(255, 255, 255));
+        label_login.setText("Iniciar sesion");
+        label_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_loginMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout bg_lateral_viewLayout = new javax.swing.GroupLayout(bg_lateral_view);
         bg_lateral_view.setLayout(bg_lateral_viewLayout);
         bg_lateral_viewLayout.setHorizontalGroup(
@@ -174,6 +194,8 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
                 .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_login)
+                    .addComponent(upload_video)
                     .addComponent(label_like1)
                     .addComponent(label_history)
                     .addComponent(label_inicio3)
@@ -200,7 +222,11 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(label_history)
                 .addGap(29, 29, 29)
                 .addComponent(label_like)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(label_login)
+                .addGap(31, 31, 31)
+                .addComponent(upload_video)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(85, 85, 85))
         );
@@ -304,6 +330,23 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_print_user
 
+    private void upload_videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_upload_videoMouseClicked
+        // TODO add your handling code here:
+        if(id != 0) {
+            this.setVisible(false);
+            new Upload_video(id).setVisible(true);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
+    }//GEN-LAST:event_upload_videoMouseClicked
+
+    private void label_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_loginMouseClicked
+        // TODO add your handling code here:
+            this.setVisible(false);
+            new Log_In().setVisible(true);
+    }//GEN-LAST:event_label_loginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -354,8 +397,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel label_inicio3;
     private javax.swing.JLabel label_like;
     private javax.swing.JLabel label_like1;
+    private javax.swing.JLabel label_login;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JLabel label_username;
+    private javax.swing.JLabel upload_video;
     // End of variables declaration//GEN-END:variables
 }

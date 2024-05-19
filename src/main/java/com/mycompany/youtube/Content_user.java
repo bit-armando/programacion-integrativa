@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
  * @author brand
  */
 public class Content_user extends javax.swing.JFrame {
-    int id_content;
-    String username_content;
-    String user_img_content;
+    static private int id_content;
+    static private String username_content;
+    static private String user_img_content;
     
     int id_loged;
     String username_loged;
@@ -24,9 +24,21 @@ public class Content_user extends javax.swing.JFrame {
      */
     public Content_user() {
         initComponents();
-        JOptionPane.showMessageDialog(null, this.id_content);
+        JOptionPane.showMessageDialog(null, this.id_content + " 1");
         VideosLabels.createGridContentUser(this,260,200,180,120,20,90,4,3,this.id_content);
         
+        updateUsernameLabel();
+        updateUserContent();
+    }
+    
+    public Content_user(int id_content, String username_content, String user_img) {
+        initComponents();
+        this.id_content = id_content;
+        this.username_content = username_content;
+        this.user_img_content = user_img;
+        JOptionPane.showMessageDialog(null, this.id_content + " 1");
+        VideosLabels.createGridContentUser(this,260,260,180,120,20,90,4,3,this.id_content);
+        new Imagen(contentImg, this.user_img_content);
         updateUsernameLabel();
         updateUserContent();
     }
@@ -38,19 +50,14 @@ public class Content_user extends javax.swing.JFrame {
      */
      public static void openVideoView(int id_content, String user_img, String username_content) {
         java.awt.EventQueue.invokeLater(() -> {
-            JOptionPane.showMessageDialog(null, id_content);
-            Content_user content_user = new Content_user();
-            content_user.user_content(id_content,user_img,username_content); // Establecer la ID del video
+            JOptionPane.showMessageDialog(null, id_content + " 2");
+            Content_user content_user = new Content_user(id_content, user_img, username_content);
+            content_user.id_content = id_content;
+            content_user.username_content = username_content;
+            content_user.user_img_content = user_img;
+//            content_user.id_content = content_user.user_content(id_content,user_img,username_content); // Establecer la ID del video
             content_user.setVisible(true);
         });
-    }
-    
-    public void user_content(int id_content, String user_img, String username_content){
-        JOptionPane.showMessageDialog(null, id_content);
-        this.id_content = id_content;
-        JOptionPane.showMessageDialog(null, this.id_content);
-        this.username_content = username_content;
-        this.user_img_content = user_img;
     }
     
     public void user_loged(int id_loged, String user_img, String username_loged){
@@ -60,15 +67,16 @@ public class Content_user extends javax.swing.JFrame {
     }
     
     private void updateUserContent(){
-        if (username_content != null){
+        if (this.username_content != ""){
             label_content_user.setText("");
         } else {
-            label_content_user.setText(username_content);
+            label_content_user.setText(this.username_content);
+            
         }
     }
     
     private void updateUsernameLabel(){
-        if (username_loged != null){
+        if (username_loged != ""){
             label_username.setText("");
         } else {
             label_username.setText(username_loged);
@@ -92,7 +100,7 @@ public class Content_user extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        contentImg = new javax.swing.JLabel();
         label_content_user = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -245,7 +253,7 @@ public class Content_user extends javax.swing.JFrame {
         );
 
         background.add(bg_lateral_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 220, 730));
-        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 100, 100));
+        background.add(contentImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 100, 100));
 
         label_content_user.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
         label_content_user.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,8 +376,8 @@ public class Content_user extends javax.swing.JFrame {
     private javax.swing.JPanel bg_cabecera;
     private javax.swing.JPanel bg_lateral_view;
     private javax.swing.JTextField busqueda_history;
+    private javax.swing.JLabel contentImg;
     private javax.swing.JLabel icon_arrow_bl;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_content_user;
     private javax.swing.JLabel label_history;

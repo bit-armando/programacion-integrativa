@@ -15,10 +15,11 @@ import javax.swing.JOptionPane;
 public class Upload_video extends javax.swing.JFrame {
     private String superpath_img;
     private String superpath_video;
+    private static int id;
     /**
      * Creates new form Register
      */
-    public Upload_video() {
+    public Upload_video(int id) {
         initComponents();
     }
 
@@ -329,7 +330,7 @@ public class Upload_video extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Upload_video().setVisible(true);
+                new Upload_video(id).setVisible(true);
             }
         });
     }

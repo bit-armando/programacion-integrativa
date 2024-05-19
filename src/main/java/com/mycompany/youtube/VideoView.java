@@ -83,6 +83,7 @@ public class VideoView extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
+        label_login = new javax.swing.JLabel();
         video_view = new javax.swing.JLabel();
         btn_suscribe = new javax.swing.JButton();
         num_dislikes = new javax.swing.JLabel();
@@ -202,6 +203,15 @@ public class VideoView extends javax.swing.JFrame {
             }
         });
 
+        label_login.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_login.setForeground(new java.awt.Color(255, 255, 255));
+        label_login.setText("Iniciar sesion");
+        label_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_loginMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout bg_lateral_viewLayout = new javax.swing.GroupLayout(bg_lateral_view);
         bg_lateral_view.setLayout(bg_lateral_viewLayout);
         bg_lateral_viewLayout.setHorizontalGroup(
@@ -214,8 +224,9 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(icon_arrow_bl)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_login)
                     .addComponent(label_like1)
                     .addComponent(label_history)
                     .addComponent(label_inicio3)
@@ -242,7 +253,9 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(label_history)
                 .addGap(29, 29, 29)
                 .addComponent(label_like)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(label_login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(23, 23, 23))
         );
@@ -613,6 +626,12 @@ private int numeroComentarios = 0;
         this.reproductor.togglePlayPause();
     }//GEN-LAST:event_PauseButtonActionPerformed
 
+    private void label_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_loginMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Log_In().setVisible(true);
+    }//GEN-LAST:event_label_loginMouseClicked
+
     private String generarNombreAleatorio() {
         // Lista de palabras que podrían componer un nombre de canal de YouTube
        String[] palabras = {"Tech", "Gamer", "Vlogs", "Show", "DIY", "Life", "Travel", "Food", "Music", "Fitness", "Fashion", "Art", "Funny", "Cooking", "Science", "History", "Review", "Tutorial"};
@@ -688,6 +707,7 @@ private int numeroComentarios = 0;
     private javax.swing.JLabel label_inicio3;
     private javax.swing.JLabel label_like;
     private javax.swing.JLabel label_like1;
+    private javax.swing.JLabel label_login;
     private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
