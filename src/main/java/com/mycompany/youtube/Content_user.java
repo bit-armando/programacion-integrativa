@@ -26,9 +26,6 @@ public class Content_user extends javax.swing.JFrame {
         initComponents();
         JOptionPane.showMessageDialog(null, this.id_content + " 1");
         VideosLabels.createGridContentUser(this,260,200,180,120,20,90,4,3,this.id_content);
-        
-        updateUsernameLabel();
-        updateUserContent();
     }
     
     public Content_user(int id_content, String username_content, String user_img) {
@@ -39,8 +36,7 @@ public class Content_user extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, this.id_content + " 1");
         VideosLabels.createGridContentUser(this,260,260,180,120,20,90,4,3,this.id_content);
         new Imagen(contentImg, this.user_img_content);
-        updateUsernameLabel();
-        updateUserContent();
+        label_content_user.setText(this.username_content);
     }
 
     /**
@@ -51,7 +47,7 @@ public class Content_user extends javax.swing.JFrame {
      public static void openVideoView(int id_content, String user_img, String username_content) {
         java.awt.EventQueue.invokeLater(() -> {
             JOptionPane.showMessageDialog(null, id_content + " 2");
-            Content_user content_user = new Content_user(id_content, user_img, username_content);
+            Content_user content_user = new Content_user(id_content, username_content, user_img);
             content_user.id_content = id_content;
             content_user.username_content = username_content;
             content_user.user_img_content = user_img;
@@ -64,15 +60,6 @@ public class Content_user extends javax.swing.JFrame {
         this.id_loged = id_loged;
         this.user_img_loged = username_loged;
         this.user_img_loged = user_img;
-    }
-    
-    private void updateUserContent(){
-        if (this.username_content != ""){
-            label_content_user.setText("");
-        } else {
-            label_content_user.setText(this.username_content);
-            
-        }
     }
     
     private void updateUsernameLabel(){
@@ -258,7 +245,7 @@ public class Content_user extends javax.swing.JFrame {
         label_content_user.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
         label_content_user.setForeground(new java.awt.Color(255, 255, 255));
         label_content_user.setText("Username");
-        background.add(label_content_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 180, 50));
+        background.add(label_content_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 420, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,7 +267,8 @@ public class Content_user extends javax.swing.JFrame {
 
     private void label_titleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_titleMouseClicked
         // TODO add your handling code here:
-        this.setVisible(true);
+        new Home().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_label_titleMouseClicked
 
     private void label_usernameprint_user(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_usernameprint_user
@@ -329,7 +317,8 @@ public class Content_user extends javax.swing.JFrame {
 
     private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
         // TODO add your handling code here:
-        this.setVisible(true);
+        new Home().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_label_inicio3MouseClicked
 
     private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked

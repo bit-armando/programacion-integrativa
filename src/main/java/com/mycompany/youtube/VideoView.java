@@ -428,7 +428,8 @@ public class VideoView extends javax.swing.JFrame {
 
     private void label_titleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_titleMouseClicked
         // TODO add your handling code here:
-        this.setVisible(true);
+        new Home().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_label_titleMouseClicked
 
     private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked

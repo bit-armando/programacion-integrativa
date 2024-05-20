@@ -279,7 +279,7 @@ public class Upload_video extends javax.swing.JFrame {
         String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_img;
         
         conectorDB conn = new conectorDB();
-        conn.insertVideo(titulo, 1, descripcion, url_video, url_img);
+        conn.insertVideo(titulo, id, descripcion, url_video, url_img);
         
     }//GEN-LAST:event_btn_upload_finish_videobtn_create_acc
 
