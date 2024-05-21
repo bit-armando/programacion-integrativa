@@ -22,7 +22,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3);
+        VideosLabels.createGrid(this,260,130,180,120,20,90,4,3,this.id,this.username,this.user_img);
         id = 0;
         username = "";
         user_img = "";
@@ -45,9 +45,6 @@ public class Home extends javax.swing.JFrame {
         label_title = new javax.swing.JLabel();
         label_username = new javax.swing.JLabel();
         bg_lateral_view = new javax.swing.JPanel();
-        label_suscriptions = new javax.swing.JLabel();
-        label_history = new javax.swing.JLabel();
-        label_like = new javax.swing.JLabel();
         label_inicio3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
@@ -117,33 +114,6 @@ public class Home extends javax.swing.JFrame {
 
         bg_lateral_view.setBackground(new java.awt.Color(8, 63, 55));
 
-        label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
-        label_suscriptions.setText("Suscripciones");
-        label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_suscriptionsMouseClicked(evt);
-            }
-        });
-
-        label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_history.setForeground(new java.awt.Color(255, 255, 255));
-        label_history.setText("Historial");
-        label_history.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_historyMouseClicked(evt);
-            }
-        });
-
-        label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_like.setForeground(new java.awt.Color(255, 255, 255));
-        label_like.setText("Me gusta");
-        label_like.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_likeMouseClicked(evt);
-            }
-        });
-
         label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
         label_inicio3.setText("Inicio");
@@ -192,20 +162,13 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(icon_arrow_bl)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_login)
                     .addComponent(upload_video)
                     .addComponent(label_like1)
-                    .addComponent(label_history)
-                    .addComponent(label_inicio3)
-                    .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_like)
-                            .addGap(61, 61, 61))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_suscriptions)
-                            .addGap(14, 14, 14)))))
+                    .addComponent(label_inicio3))
+                .addGap(21, 21, 21))
         );
         bg_lateral_viewLayout.setVerticalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,13 +179,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_inicio3)
-                .addGap(33, 33, 33)
-                .addComponent(label_suscriptions)
-                .addGap(27, 27, 27)
-                .addComponent(label_history)
-                .addGap(29, 29, 29)
-                .addComponent(label_like)
-                .addGap(28, 28, 28)
+                .addGap(201, 201, 201)
                 .addComponent(label_login)
                 .addGap(31, 31, 31)
                 .addComponent(upload_video)
@@ -271,40 +228,6 @@ public class Home extends javax.swing.JFrame {
     private void busqueda_historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busqueda_historyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_busqueda_historyActionPerformed
-
-    private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
-        // TODO add your handling code here:
-        if(username != null) {
-            new Liked_videos(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_likeMouseClicked
-
-    private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
-        // TODO add your handling code here:
-        if(username != null) {
-            new History(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-        
-    }//GEN-LAST:event_label_historyMouseClicked
-
-    private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
-        // TODO add your handling code here:
-        if(username != null) {
-            new Suscripcioness(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_suscriptionsMouseClicked
 
     private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
         // TODO add your handling code here:
@@ -393,12 +316,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField busqueda_history;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
-    private javax.swing.JLabel label_like;
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_login;
-    private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JLabel label_username;
     private javax.swing.JLabel upload_video;

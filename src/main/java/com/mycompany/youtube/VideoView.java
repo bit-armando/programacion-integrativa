@@ -18,18 +18,29 @@ public class VideoView extends javax.swing.JFrame {
     Reproductor reproductor;
     String urlVideo;
     
+    private static int id_loged;
+    private static String username_loged;
+    private static String user_img_loged;
+    
     public VideoView() {
         initComponents();
-        VideosLabels.createGridVertical(this,760,90,130,80,20,20,1,6);
+        VideosLabels.createGridVertical(this,760,90,130,80,20,20,1,6,this.id_loged,this.username_loged,this.user_img_loged);
     }
     
-    public static void openVideoView(int videoId, int userChannelId ,String usernameChannel,String userChannelImage) {
+    public static void openVideoView(int videoId, int userChannelId ,String usernameChannel,String userChannelImage,int id_loged, String username_loged, String user_img_loged) {
         java.awt.EventQueue.invokeLater(() -> {
             VideoView videoView = new VideoView();
             videoView.setVideo(videoId, userChannelId, usernameChannel, userChannelImage); // Establecer la ID del video
+            videoView.setuserloged(id_loged,username_loged,user_img_loged);
             
             videoView.setVisible(true);
         });
+    }
+    
+    public void setuserloged(int id_loged, String username_loged, String user_img_loged){
+        this.id_loged=id_loged;
+        this.username_loged=username_loged;
+        this.user_img_loged=user_img_loged;
     }
     
     public void setVideo(int videoId, int userChannelId, String usernameChannel, String userChannelImage) {
@@ -76,9 +87,6 @@ public class VideoView extends javax.swing.JFrame {
         busqueda_history = new javax.swing.JTextField();
         label_title = new javax.swing.JLabel();
         bg_lateral_view = new javax.swing.JPanel();
-        label_suscriptions = new javax.swing.JLabel();
-        label_history = new javax.swing.JLabel();
-        label_like = new javax.swing.JLabel();
         label_inicio3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
@@ -158,33 +166,6 @@ public class VideoView extends javax.swing.JFrame {
 
         bg_lateral_view.setBackground(new java.awt.Color(8, 63, 55));
 
-        label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
-        label_suscriptions.setText("Suscripciones");
-        label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_suscriptionsMouseClicked(evt);
-            }
-        });
-
-        label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_history.setForeground(new java.awt.Color(255, 255, 255));
-        label_history.setText("Historial");
-        label_history.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_historyMouseClicked(evt);
-            }
-        });
-
-        label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_like.setForeground(new java.awt.Color(255, 255, 255));
-        label_like.setText("Me gusta");
-        label_like.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_likeMouseClicked(evt);
-            }
-        });
-
         label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
         label_inicio3.setText("Inicio");
@@ -224,19 +205,12 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(icon_arrow_bl)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_login)
                     .addComponent(label_like1)
-                    .addComponent(label_history)
-                    .addComponent(label_inicio3)
-                    .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_like)
-                            .addGap(61, 61, 61))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_suscriptions)
-                            .addGap(14, 14, 14)))))
+                    .addComponent(label_inicio3))
+                .addGap(21, 21, 21))
         );
         bg_lateral_viewLayout.setVerticalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,13 +221,7 @@ public class VideoView extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_inicio3)
-                .addGap(33, 33, 33)
-                .addComponent(label_suscriptions)
-                .addGap(27, 27, 27)
-                .addComponent(label_history)
-                .addGap(29, 29, 29)
-                .addComponent(label_like)
-                .addGap(27, 27, 27)
+                .addGap(200, 200, 200)
                 .addComponent(label_login)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                 .addComponent(label_like1)
@@ -432,75 +400,31 @@ public class VideoView extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_label_titleMouseClicked
 
-    private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
-        // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
-            new Suscripcioness(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_suscriptionsMouseClicked
-
-    private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
-        // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
-            new History(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_historyMouseClicked
-
-    private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
-        // TODO add your handling code here:
-        sesion Sesion = sesion.getInstance(null);
-        if(Sesion != null) {
-            String username = Sesion.getUsername();
-            new Liked_videos(username).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_likeMouseClicked
-
-    private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
-        System.out.println("Cargando Datos...");
-        Home home=new Home();
-        home.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_label_inicio3MouseClicked
-
-    private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_label_like1MouseClicked
-
     
-  private boolean isSubscribed = false;
+private boolean isSubscribed = false;
 private int subscriberCount = 0;
     
     private void btn_suscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suscribeActionPerformed
+    if(this.username_loged!=""){
+        
         if (isSubscribed) {
-        // Si el usuario ya está suscrito, cambia el texto del botón y marca como no suscrito
-        btn_suscribe.setText("Suscribirse");
-        isSubscribed = false;
-        subscriberCount = 0; // Actualiza el contador de suscriptores
-    } else {
-        // Si el usuario no está suscrito, cambia el texto del botón y marca como suscrito
-        btn_suscribe.setText("Suscrito");
-        isSubscribed = true;
-        subscriberCount = 1; // Actualiza el contador de suscriptores
+            // Si el usuario ya está suscrito, cambia el texto del botón y marca como no suscrito
+            btn_suscribe.setText("Suscribirse");
+            isSubscribed = false;
+            subscriberCount = 0; // Actualiza el contador de suscriptores
+        } else {
+            // Si el usuario no está suscrito, cambia el texto del botón y marca como suscrito
+            btn_suscribe.setText("Suscrito");
+            isSubscribed = true;
+            subscriberCount = 1; // Actualiza el contador de suscriptores
+        }
+    }else{
+        btn_suscribe.setText("Primero Inicia Sesión");
     }
     
+    
     // Actualiza el texto del contador de suscriptores
-    this.nombrecanal.setText(String.valueOf(subscriberCount)+ " suscriptores");
+    this.num_sus1.setText(String.valueOf(subscriberCount)+ " suscriptores");
     }//GEN-LAST:event_btn_suscribeActionPerformed
 
 
@@ -633,6 +557,17 @@ private int numeroComentarios = 0;
         new Log_In().setVisible(true);
     }//GEN-LAST:event_label_loginMouseClicked
 
+    private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label_like1MouseClicked
+
+    private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
+        System.out.println("Cargando Datos...");
+        Home home=new Home();
+        home.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_label_inicio3MouseClicked
+
     private String generarNombreAleatorio() {
         // Lista de palabras que podrían componer un nombre de canal de YouTube
        String[] palabras = {"Tech", "Gamer", "Vlogs", "Show", "DIY", "Life", "Travel", "Food", "Music", "Fitness", "Fashion", "Art", "Funny", "Cooking", "Science", "History", "Review", "Tutorial"};
@@ -704,12 +639,9 @@ private int numeroComentarios = 0;
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JLabel icon_send_coment;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
-    private javax.swing.JLabel label_like;
     private javax.swing.JLabel label_like1;
     private javax.swing.JLabel label_login;
-    private javax.swing.JLabel label_suscriptions;
     private javax.swing.JLabel label_title;
     private javax.swing.JButton likes;
     private javax.swing.JLabel nombrecanal;

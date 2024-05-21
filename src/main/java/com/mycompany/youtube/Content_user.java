@@ -25,7 +25,7 @@ public class Content_user extends javax.swing.JFrame {
     public Content_user() {
         initComponents();
         JOptionPane.showMessageDialog(null, this.id_content + " 1");
-        VideosLabels.createGridContentUser(this,260,200,180,120,20,90,4,3,this.id_content);
+        VideosLabels.createGridContentUser(this,260,200,180,120,20,90,4,3,this.id_content,this.id_loged,username_loged,this.user_img_loged);
     }
     
     public Content_user(int id_content, String username_content, String user_img) {
@@ -34,7 +34,7 @@ public class Content_user extends javax.swing.JFrame {
         this.username_content = username_content;
         this.user_img_content = user_img;
         JOptionPane.showMessageDialog(null, this.id_content + " 1");
-        VideosLabels.createGridContentUser(this,260,260,180,120,20,90,4,3,this.id_content);
+        VideosLabels.createGridContentUser(this,260,260,180,120,20,90,4,3,this.id_content,this.id_loged,username_loged,this.user_img_loged);
         new Imagen(contentImg, this.user_img_content);
         label_content_user.setText(this.username_content);
     }
@@ -80,13 +80,12 @@ public class Content_user extends javax.swing.JFrame {
         label_title = new javax.swing.JLabel();
         label_username = new javax.swing.JLabel();
         bg_lateral_view = new javax.swing.JPanel();
-        label_suscriptions = new javax.swing.JLabel();
-        label_history = new javax.swing.JLabel();
-        label_like = new javax.swing.JLabel();
         label_inicio3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         icon_arrow_bl = new javax.swing.JLabel();
         label_like1 = new javax.swing.JLabel();
+        upload_video = new javax.swing.JLabel();
+        label_login = new javax.swing.JLabel();
         contentImg = new javax.swing.JLabel();
         label_content_user = new javax.swing.JLabel();
 
@@ -149,33 +148,6 @@ public class Content_user extends javax.swing.JFrame {
 
         bg_lateral_view.setBackground(new java.awt.Color(8, 63, 55));
 
-        label_suscriptions.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_suscriptions.setForeground(new java.awt.Color(255, 255, 255));
-        label_suscriptions.setText("Suscripciones");
-        label_suscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_suscriptionsMouseClicked(evt);
-            }
-        });
-
-        label_history.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_history.setForeground(new java.awt.Color(255, 255, 255));
-        label_history.setText("Historial");
-        label_history.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_historyMouseClicked(evt);
-            }
-        });
-
-        label_like.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
-        label_like.setForeground(new java.awt.Color(255, 255, 255));
-        label_like.setText("Me gusta");
-        label_like.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_likeMouseClicked(evt);
-            }
-        });
-
         label_inicio3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         label_inicio3.setForeground(new java.awt.Color(255, 255, 255));
         label_inicio3.setText("Inicio");
@@ -194,6 +166,24 @@ public class Content_user extends javax.swing.JFrame {
             }
         });
 
+        upload_video.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        upload_video.setForeground(new java.awt.Color(255, 255, 255));
+        upload_video.setText("Subir video");
+        upload_video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                upload_videoMouseClicked(evt);
+            }
+        });
+
+        label_login.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        label_login.setForeground(new java.awt.Color(255, 255, 255));
+        label_login.setText("Iniciar sesion");
+        label_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_loginMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout bg_lateral_viewLayout = new javax.swing.GroupLayout(bg_lateral_view);
         bg_lateral_view.setLayout(bg_lateral_viewLayout);
         bg_lateral_viewLayout.setHorizontalGroup(
@@ -209,15 +199,15 @@ public class Content_user extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_like1)
-                    .addComponent(label_history)
-                    .addComponent(label_inicio3)
+                    .addComponent(label_inicio3))
+                .addGap(22, 22, 22))
+            .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                    .addGap(40, 40, 40)
                     .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_like)
-                            .addGap(61, 61, 61))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_lateral_viewLayout.createSequentialGroup()
-                            .addComponent(label_suscriptions)
-                            .addGap(14, 14, 14)))))
+                        .addComponent(label_login)
+                        .addComponent(upload_video))
+                    .addContainerGap(41, Short.MAX_VALUE)))
         );
         bg_lateral_viewLayout.setVerticalGroup(
             bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,15 +218,16 @@ public class Content_user extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_inicio3)
-                .addGap(33, 33, 33)
-                .addComponent(label_suscriptions)
-                .addGap(27, 27, 27)
-                .addComponent(label_history)
-                .addGap(29, 29, 29)
-                .addComponent(label_like)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
                 .addComponent(label_like1)
                 .addGap(85, 85, 85))
+            .addGroup(bg_lateral_viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bg_lateral_viewLayout.createSequentialGroup()
+                    .addGap(321, 321, 321)
+                    .addComponent(label_login)
+                    .addGap(31, 31, 31)
+                    .addComponent(upload_video)
+                    .addContainerGap(322, Short.MAX_VALUE)))
         );
 
         background.add(bg_lateral_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 220, 730));
@@ -281,40 +272,6 @@ public class Content_user extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_label_usernameprint_user
 
-    private void label_suscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_suscriptionsMouseClicked
-        // TODO add your handling code here:
-        if(username_loged != null) {
-            new Suscripcioness(username_loged).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_suscriptionsMouseClicked
-
-    private void label_historyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_historyMouseClicked
-        // TODO add your handling code here:
-        if(username_loged != null) {
-            new History(username_loged).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-
-    }//GEN-LAST:event_label_historyMouseClicked
-
-    private void label_likeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_likeMouseClicked
-        // TODO add your handling code here:
-        if(username_loged != null) {
-            new Liked_videos(username_loged).setVisible(true);
-            this.setVisible(false);
-        } else {
-            // Caso en que no hay una sesión iniciada
-            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
-        }
-    }//GEN-LAST:event_label_likeMouseClicked
-
     private void label_inicio3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_inicio3MouseClicked
         // TODO add your handling code here:
         new Home().setVisible(true);
@@ -324,6 +281,23 @@ public class Content_user extends javax.swing.JFrame {
     private void label_like1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_like1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_label_like1MouseClicked
+
+    private void upload_videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_upload_videoMouseClicked
+        // TODO add your handling code here:
+        if(id_loged != 0) {
+            this.setVisible(false);
+            new Upload_video(id_loged).setVisible(true);
+        } else {
+            // Caso en que no hay una sesión iniciada
+            JOptionPane.showMessageDialog(null, "Inicio de sesion requerido!");
+        }
+    }//GEN-LAST:event_upload_videoMouseClicked
+
+    private void label_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_loginMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Log_In().setVisible(true);
+    }//GEN-LAST:event_label_loginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -369,12 +343,11 @@ public class Content_user extends javax.swing.JFrame {
     private javax.swing.JLabel icon_arrow_bl;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_content_user;
-    private javax.swing.JLabel label_history;
     private javax.swing.JLabel label_inicio3;
-    private javax.swing.JLabel label_like;
     private javax.swing.JLabel label_like1;
-    private javax.swing.JLabel label_suscriptions;
+    private javax.swing.JLabel label_login;
     private javax.swing.JLabel label_title;
     private javax.swing.JLabel label_username;
+    private javax.swing.JLabel upload_video;
     // End of variables declaration//GEN-END:variables
 }

@@ -141,23 +141,13 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="label_login" min="-2" max="-2" attributes="0"/>
                           <Component id="label_like1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="label_history" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="label_inicio3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="label_like" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="label_suscriptions" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -170,13 +160,7 @@
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="label_inicio3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="label_suscriptions" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="label_history" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="label_like" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="label_login" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="296" max="32767" attributes="0"/>
                       <Component id="label_like1" min="-2" max="-2" attributes="0"/>
@@ -186,48 +170,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="label_suscriptions">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Franklin Gothic Demi" size="24" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Suscripciones"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_suscriptionsMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="label_history">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Franklin Gothic Demi" size="24" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Historial"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_historyMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="label_like">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Franklin Gothic Demi" size="24" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Me gusta"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="label_likeMouseClicked"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="label_inicio3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

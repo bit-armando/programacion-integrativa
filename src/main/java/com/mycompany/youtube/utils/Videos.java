@@ -99,6 +99,70 @@ public class Videos {
         return idUsuario;
     }
     
+    public boolean estaSuscrito(int usuarioId, int ownUserId) {
+        String checkQuery = "SELECT COUNT(*) FROM subscription WHERE fk_usuario_id = ? AND fk_own_user = ?";
+        conectorDB data = new conectorDB();
+
+        try (Connection conn = data.conectar();
+             PreparedStatement checkStatement = conn.prepareStatement(checkQuery)) {
+
+            checkStatement.setInt(1, usuarioId);
+            checkStatement.setInt(2, ownUserId);
+
+            try (ResultSet resultSet = checkStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al verificar la suscripción: " + ex.getMessage());
+        }
+        return false;
+    }
+    
+    public void agregarSuscripcion(int usuarioId, int ownUserId) {
+        String checkQuery = "SELECT COUNT(*) FROM subscription WHERE fk_usuario_id = ? AND fk_own_user = ?";
+        String insertQuery = "INSERT INTO subscription (fk_usuario_id, fk_own_user) VALUES (?, ?)";
+        conectorDB data = new conectorDB();
+
+        try (Connection conn = data.conectar();
+             PreparedStatement checkStatement = conn.prepareStatement(checkQuery);
+             PreparedStatement insertStatement = conn.prepareStatement(insertQuery)) {
+
+            // Verificar si la suscripción ya existe
+            checkStatement.setInt(1, usuarioId);
+            checkStatement.setInt(2, ownUserId);
+            try (ResultSet resultSet = checkStatement.executeQuery()) {
+                if (resultSet.next() && resultSet.getInt(1) > 0) {
+                    System.out.println("La suscripción ya existe.");
+                    return;
+                }
+            }
+
+            // Si no existe, agregar la suscripción
+            insertStatement.setInt(1, usuarioId);
+            insertStatement.setInt(2, ownUserId);
+            insertStatement.executeUpdate();
+            System.out.println("Suscripción agregada correctamente.");
+        } catch (SQLException ex) {
+            System.err.println("Error al agregar la suscripción: " + ex.getMessage());
+        }
+    }
+
+    public void eliminarSuscripcion(int usuarioId, int ownUserId) {
+        String deleteQuery = "DELETE FROM subscription WHERE fk_usuario_id = ? AND fk_own_user = ?";
+        conectorDB data = new conectorDB();
+
+        try (Connection conn = data.conectar();
+             PreparedStatement preparedStatement = conn.prepareStatement(deleteQuery)) {
+            preparedStatement.setInt(1, usuarioId);
+            preparedStatement.setInt(2, ownUserId);
+            preparedStatement.executeUpdate();
+            System.out.println("Suscripción eliminada correctamente.");
+        } catch (SQLException ex) {
+            System.err.println("Error al eliminar la suscripción: " + ex.getMessage());
+        }
+    }
     
     public void insertVideo(String titulo, int id_usuario, String descripcion, String url_video, String url_imagen){
            int vistas = 0;

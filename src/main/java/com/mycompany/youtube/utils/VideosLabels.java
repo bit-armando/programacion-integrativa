@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class VideosLabels {
-    public static void createGrid(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy) {
+    public static void createGrid(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int id_loged, String username_loged, String user_img_loged) {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
 
@@ -25,7 +25,7 @@ public class VideosLabels {
         int index = 0;
         for (Videos video : primerosVideos) {
             if (index >= tamx * tamy) {
-                break; // Salir del bucle si ya se han obtenido los primeros 12 videos
+                break; // Salir del bucle si ya se han obtenido los primeros N videos
             }
 
             User user = new User();
@@ -56,7 +56,7 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg());
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg(), id_loged,username_loged,user_img_loged);
                         frame.setVisible(false);
                     }
                 });
@@ -152,7 +152,7 @@ public class VideosLabels {
         frame.repaint();
     }
     
-    public static void createGridContentUser(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int id_user) {
+    public static void createGridContentUser(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int id_user, int id_loged, String username_loged, String user_img_loged) {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
 
@@ -193,7 +193,7 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(), user.getImg());
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg(), id_loged,username_loged,user_img_loged);
                         frame.setVisible(false);
                     }
                 });
@@ -290,7 +290,7 @@ public class VideosLabels {
     }
     
     
-    public static void createGridVertical(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy) {
+    public static void createGridVertical(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int id_loged, String username_loged, String user_img_loged) {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
 
@@ -331,7 +331,7 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(), user.getImg());
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg(), id_loged,username_loged,user_img_loged);
                         frame.setVisible(false);
                     }
                 });
@@ -426,7 +426,7 @@ public class VideosLabels {
     }
     
     //Este grid puede que este de mas
-    public static void createGrid2(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int idUsuario) {
+    public static void createGrid2(JFrame frame, int startX, int startY, int labelWidth, int labelHeight, int spacex, int spacey, int tamx, int tamy, int idUsuario, int id_loged, String username_loged, String user_img_loged) {
         // Obtener el JPanel del JFrame
         JPanel panel = (JPanel) frame.getContentPane();
 
@@ -467,7 +467,7 @@ public class VideosLabels {
                         // Obtener la ID del video al que se hizo clic
                         int videoId = video.getId();
                         // Abrir la vista VideoView y pasar la ID del video como parámetro
-                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg());
+                        VideoView.openVideoView(videoId, user.getId(),user.getUsername(),user.getImg(), id_loged,username_loged,user_img_loged);
                         frame.setVisible(false);
                     }
                 });
