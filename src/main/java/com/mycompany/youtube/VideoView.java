@@ -21,6 +21,7 @@ public class VideoView extends javax.swing.JFrame {
     private static int id_loged;
     private static String username_loged;
     private static String user_img_loged;
+    private static int ownUserId;
     
     public VideoView() {
         initComponents();
@@ -50,6 +51,7 @@ public class VideoView extends javax.swing.JFrame {
         
         urlVideo=video.getRutaVideo();
         
+        this.ownUserId=userChannelId;
         
         // Verificar si se encontró el video
         if (video != null) {
@@ -406,17 +408,20 @@ private int subscriberCount = 0;
     
     private void btn_suscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suscribeActionPerformed
     if(this.username_loged!=""){
+        Videos video = new Videos();
         
         if (isSubscribed) {
             // Si el usuario ya está suscrito, cambia el texto del botón y marca como no suscrito
             btn_suscribe.setText("Suscribirse");
             isSubscribed = false;
             subscriberCount = 0; // Actualiza el contador de suscriptores
+            video.agregarSuscripcion(this.id_loged, this.ownUserId);
         } else {
             // Si el usuario no está suscrito, cambia el texto del botón y marca como suscrito
             btn_suscribe.setText("Suscrito");
             isSubscribed = true;
             subscriberCount = 1; // Actualiza el contador de suscriptores
+            video.eliminarSuscripcion(this.id_loged, this.ownUserId);
         }
     }else{
         btn_suscribe.setText("Primero Inicia Sesión");
