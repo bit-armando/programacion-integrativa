@@ -21,6 +21,8 @@ public class Upload_video extends javax.swing.JFrame {
      */
     public Upload_video(int id) {
         initComponents();
+        JOptionPane.showMessageDialog(null, "ID usuario " + id);
+        this.id = id;
     }
 
     /**
@@ -272,15 +274,17 @@ public class Upload_video extends javax.swing.JFrame {
         }
         
         //Datos para hacer el insert de video a la db
-        int id_usuario = 0; // hay que cambiar la variable para que se actualice segun cada usuario
+        int id_usuario = this.id; // hay que cambiar la variable para que se actualice segun cada usuario
         String descripcion = field_description_video.getText();
         JOptionPane.showMessageDialog(null, "Tu path imagen! " + path_img + " Tu path video! " + path_video);
         String url_video = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_vid;
         String url_img = "https://yutu-programacion-integrativa.s3.amazonaws.com/" + titulo_img;
         
         conectorDB conn = new conectorDB();
-        conn.insertVideo(titulo, id, descripcion, url_video, url_img);
+        conn.insertVideo(titulo, id_usuario, descripcion, url_video, url_img);
         
+        new Home().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_upload_finish_videobtn_create_acc
 
     private void btn_upload_image_videobtn_create_acc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_upload_image_videobtn_create_acc
